@@ -20,6 +20,7 @@
 {
     // Override point for customization after application launch.
     [FIRApp configure];
+    NSLog(@"%@",@"check");
     GAI *gai = [GAI sharedInstance];
     [gai trackerWithTrackingId:@"UA-91632362-1"];
     gai.trackUncaughtExceptions = YES;
