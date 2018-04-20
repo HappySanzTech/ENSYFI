@@ -9,8 +9,6 @@
 
 
 #import "LoginViewController.h"
-
-
 @interface LoginViewController ()
 {
     AppDelegate *appDel;
@@ -76,15 +74,13 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
     NSData *imageData = [NSData dataWithContentsOfURL:url];
     dispatch_async(dispatch_get_main_queue(), ^{
-            // Update the UI
+        
             self.logoImageView.image = [UIImage imageWithData:imageData];
             self.logoImageView.layer.cornerRadius = 50.0;
             self.logoImageView.clipsToBounds = YES;
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     });
-    
-    //*keypad delegat*//
     _username.delegate = self;
     _password.delegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -96,7 +92,6 @@
                                                  name:UIKeyboardWillHideNotification object:nil];
     __weak typeof(self) weakSelf = self;
     self.googleReach = [Reachability reachabilityWithHostname:@"www.google.com"];
-    
     self.googleReach.reachableBlock = ^(Reachability * reachability)
     {
         NSString * temp = [NSString stringWithFormat:@"GOOGLE Block Says Reachable(%@)", reachability.currentReachabilityString];
@@ -107,11 +102,10 @@
             
         }];
     };
-    
     self.googleReach.unreachableBlock = ^(Reachability * reachability)
     {
         NSString * temp = [NSString stringWithFormat:@"GOOGLE Block Says Unreachable(%@)", reachability.currentReachabilityString];
-        NSLog(@"%@", temp);
+        NSLog(@"%@",temp);
         
         dispatch_async(dispatch_get_main_queue(),
                        ^{
@@ -132,9 +126,7 @@
             [weakSelf presentViewController:alert animated:YES completion:nil];
         });
     };
-    
     [self.googleReach startNotifier];
-    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -154,7 +146,6 @@
 
 - (IBAction)signInBtn:(id)sender
 {
-    
     if ([self.username.text isEqualToString:@""])
     {
         UIAlertController *alert= [UIAlertController
@@ -208,15 +199,12 @@
         
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
-
     }
     else
     {
-
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
         [parameters setObject:self.username.text forKey:@"username"];
         [parameters setObject:self.password.text forKey:@"password"];
-        
         [[NSUserDefaults standardUserDefaults]setObject:self.username.text forKey:@"username_key"];
         [[NSUserDefaults standardUserDefaults]setObject:self.password.text forKey:@"paswrd_key"];
         
@@ -224,14 +212,10 @@
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-        
-        
         NSString *institute_code = [[NSUserDefaults standardUserDefaults]objectForKey:@"institute_code_Key"];
         /* concordanate with baseurl */
-        
         NSArray *components = [NSArray arrayWithObjects:baseUrl,institute_code,user_Login_Api, nil];
         NSString *api = [NSString pathWithComponents:components];
-        
         /* concordanate with baseurl */
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
@@ -249,13 +233,11 @@
              NSArray *teacherProfile = [parentProfile valueForKey:@"teacherProfile"];
              NSArray *registeredDetails = [responseObject objectForKey:@"registeredDetails"];
 
-             
              NSLog(@"%@%@%@",msg,status,teacherProfile);
              
              if ([msg isEqualToString:@"User loggedIn successfully"])
              {
                  /*userdata*/
-                 
                  NSString *name = [userData valueForKey:@"name"];
                  NSString *password_status = [userData valueForKey:@"password_status"];
                  NSString *user_id = [userData valueForKey:@"user_id"];
@@ -351,6 +333,7 @@
                      [[NSUserDefaults standardUserDefaults]setObject:mOffice_phone forKey:@"mOffice_phone_key"];
                      [[NSUserDefaults standardUserDefaults]setObject:mRelationship forKey:@"mRelationship_key"];
                      [[NSUserDefaults standardUserDefaults]setObject:mUser_pic forKey:@"mUser_pic_key"];
+                     
                      for (int i = 0; i < [registeredDetails count]; i++)
                      {
                          NSDictionary *dictionary_Enrollment = [registeredDetails objectAtIndex:i];
@@ -537,15 +520,12 @@
                      dbPath = [documentsDir stringByAppendingPathComponent:@"ENSIFY.db"];
                      database = [FMDatabase databaseWithPath:dbPath];
                      [database open];
-                     
                      isInserted = [database executeUpdate:@"DELETE FROM table_create_attendence_history"];
-                     
-                     [database close];
-                     
                      if(isInserted)
-                         NSLog(@"DELETED table_create_attendence_history");
+                         NSLog(@"Deleted table_create_attendence_history");
                      else
-                         NSLog(@"Error occured while inserting");
+                         NSLog(@"Error occured while Deleting");
+                     [database close];
                      
                      docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
                      documentsDir = [docPaths objectAtIndex:0];
@@ -556,13 +536,12 @@
                      isInserted = [database executeUpdate:@"DELETE FROM table_create_attendence"];
                      
                      if(isInserted)
-                         NSLog(@"DELETED table_create_attendence");
+                         NSLog(@"Deleted table_create_attendence");
                      else
-                         NSLog(@"Error occured while inserting");
+                         NSLog(@"Error occured while Deleting");
                      
                      [database close];
 
-                     
                      [[NSUserDefaults standardUserDefaults]setObject:@"Teacher_Login" forKey:@"Login_status"];
                      NSString *name = [userData valueForKey:@"name"];
                      NSString *password_status = [userData valueForKey:@"password_status"];
@@ -628,7 +607,7 @@
                          database = [FMDatabase databaseWithPath:dbPath];
                          [database open];
                          
-                         isInserted=[database executeUpdate:@"INSERT INTO table_create_exams_of_the_class (exam_id,exam_name,is_internal_external,Fromdate,Todate,class_name,classmaster_id,sec_name,MarkStatus) VALUES (?,?,?,?,?,?,?,?,?)",strexam_id,strexam_name,stris_internal_external,strFromdate,strTodate,strclass_name,strclassmaster_id,strsec_name,strMarkStatus];
+                         isInserted = [database executeUpdate:@"INSERT INTO table_create_exams_of_the_class (exam_id,exam_name,is_internal_external,Fromdate,Todate,class_name,classmaster_id,sec_name,MarkStatus) VALUES (?,?,?,?,?,?,?,?,?)",strexam_id,strexam_name,stris_internal_external,strFromdate,strTodate,strclass_name,strclassmaster_id,strsec_name,strMarkStatus];
                          
                          if(isInserted)
                              NSLog(@"Inserted Successfully in table_create_exams_of_the_class ");
@@ -646,18 +625,15 @@
                      
                      docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
                      documentsDir = [docPaths objectAtIndex:0];
-                     dbPath = [documentsDir   stringByAppendingPathComponent:@"ENSIFY.db"];
+                     dbPath = [documentsDir stringByAppendingPathComponent:@"ENSIFY.db"];
                      database = [FMDatabase databaseWithPath:dbPath];
                      [database open];
-                     
                      isdeleted =[database executeUpdate:@"DELETE FROM table_create_academic_months"];
                      
-                     [database close];
-                     
                      if(isdeleted)
-                         NSLog(@"Inserted Successfully");
+                         NSLog(@"Deleted Successfully");
                      else
-                         NSLog(@"Error occured while inserting");
+                         NSLog(@"Error occured while deleting");
                      
                      [database close];
                      
@@ -671,7 +647,7 @@
                          database = [FMDatabase databaseWithPath:dbPath];
                          [database open];
                          
-                         isInserted =[database executeUpdate:@"INSERT INTO table_create_academic_months (academic_months) VALUES (?)",str_month];
+                         isInserted = [database executeUpdate:@"INSERT INTO table_create_academic_months (academic_months) VALUES (?)",str_month];
                          
                          if(isInserted)
                              NSLog(@"Inserted Successfully in table_academic_months");
@@ -679,7 +655,6 @@
                              NSLog(@"Error occured while inserting");
                          
                          [database close];
-
                      }
                      
                      docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -690,9 +665,9 @@
                      isdeleted = [database executeUpdate:@"DELETE FROM table_create_teacher_handling_subjects"];
                      
                      if(isdeleted)
-                         NSLog(@"DELETE handling_subjects Successfully");
+                         NSLog(@"Delete handling_subjects Successfully");
                      else
-                         NSLog(@"Error occured while inserting");
+                         NSLog(@"Error occured while deleting");
                      
                      [database close];
                      
@@ -719,12 +694,12 @@
                          [database open];
                          
                          isInserted=[database executeUpdate:@"INSERT INTO table_create_teacher_handling_subjects (class_master_id,class_name,sec_name,subject_id,subject_name,teacher_id) VALUES (?,?,?,?,?,?)",strclass_master_id,strclass_name,strsec_name,strsubject_id,strsubject_name,strteacher_id];
-                         [database close];
                          
                          if(isInserted)
                              NSLog(@"Inserted Successfully in table_create_teacher_handling_subjects");
                          else
                              NSLog(@"Error occured while inserting");
+                         [database close];
                      }
                      
                      docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -735,9 +710,9 @@
                      isdeleted=[database executeUpdate:@"DELETE FROM table_create_exams_details"];
                      
                      if(isdeleted)
-                         NSLog(@"table_create_exams_details  DELETED Successfully");
+                         NSLog(@"Deleted table_create_exams_details Successfully");
                      else
-                         NSLog(@"Error occured while inserting");
+                         NSLog(@"Error occured while deleting");
                      
                      [database close];
 
@@ -791,9 +766,9 @@
                      isdeleted = [database executeUpdate:@"DELETE FROM table_create_homework_class_test"];
                      
                      if(isdeleted)
-                         NSLog(@"table_create_homework_class_test  DELETED Successfully");
+                         NSLog(@"Deleted table_create_homework_class_test Successfully");
                      else
-                         NSLog(@"Error occured while inserting");
+                         NSLog(@"Error occured while deleting");
                      
                      [database close];
 
@@ -845,9 +820,9 @@
                      isdeleted = [database executeUpdate:@"DELETE FROM table_create_teacher_student_details"];
                      
                      if(isdeleted)
-                         NSLog(@"DELETED teacher_student_details Successfully");
+                         NSLog(@"Deleted teacher_student_details Successfully");
                      else
-                         NSLog(@"Error occured while inserting");
+                         NSLog(@"Error occured while deleting");
                      
                      [database close];
                      
@@ -888,7 +863,7 @@
                      if(isdeleted)
                          NSLog(@"DELETED teacher_timetable Successfully");
                      else
-                         NSLog(@"Error occured while inserting");
+                         NSLog(@"Error occured while deleting");
                      
                      [database close];
 
@@ -939,7 +914,7 @@
                  [MBProgressHUD hideHUDForView:self.view animated:YES];
                  UIAlertController *alert= [UIAlertController
                                             alertControllerWithTitle:@"ENSYFI"
-                                            message:@"Invalid Login"
+                                            message:@"username or password is incorrect"
                                             preferredStyle:UIAlertControllerStyleAlert];
                  
                  UIAlertAction *ok = [UIAlertAction

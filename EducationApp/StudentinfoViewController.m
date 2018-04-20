@@ -106,20 +106,18 @@
     NSInteger indexValueSecName = [classid indexOfObject:selectedCell.classid.text];
     NSString *sectionname = section[indexValueSecName];
     
-//    [[NSUserDefaults standardUserDefaults]setObject:stradmission_id forKey:@"admission_id_key"];
+//  [[NSUserDefaults standardUserDefaults]setObject:stradmission_id forKey:@"admission_id_key"];
     [[NSUserDefaults standardUserDefaults]setObject:selectedCell.admissionidLabel.text forKey:@"admission_no_Key"];
     [[NSUserDefaults standardUserDefaults]setObject:selectedCell.classnameLabel.text forKey:@"class_name_key"];
     [[NSUserDefaults standardUserDefaults]setObject:selectedCell.classid.text forKey:@"class_id_key"];
     [[NSUserDefaults standardUserDefaults]setObject:selectedCell.nameLabel.text forKey:@"studentname_Key"];
     [[NSUserDefaults standardUserDefaults]setObject:selectedCell.studentidLabel.text forKey:@"registered_id_key"];
     
-    
     [[NSUserDefaults standardUserDefaults]setObject:sectionname forKey:@"sec_name_key"];
-
     
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    SWRevealViewController *exam = (SWRevealViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
-//    [self.navigationController pushViewController:exam animated:YES];
+//  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//  SWRevealViewController *exam = (SWRevealViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
+//  [self.navigationController pushViewController:exam animated:YES];
     [self performSegueWithIdentifier:@"SWRevealViewController" sender:self.view];
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender

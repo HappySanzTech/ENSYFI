@@ -89,6 +89,8 @@
     [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"dropdown"];
     tableData = [[NSMutableArray alloc] init];
     [[NSUserDefaults standardUserDefaults]setObject:@"No" forKey:@"atendencePicker_Key"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"NO" forKey:@"pickercancel_Key"];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -157,7 +159,6 @@
 {
     return 1;
 }
-
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     return [attendanceType count];
@@ -168,6 +169,7 @@
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    [[NSUserDefaults standardUserDefaults]setObject:@"No" forKey:@"pickercancel_Key"];
     str = attendanceType[row];
     [[self view] endEditing:YES];
     [self.tableView reloadData];
@@ -202,54 +204,52 @@
         }
     }
     [database close];
-        NSDate *today = [NSDate date];
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss a"];
-        NSString *dateString = [dateFormat stringFromDate:today];
-        NSDate *todayDT = [NSDate date];
-        NSDateFormatter *dateFormatDT = [[NSDateFormatter alloc] init];
-        [dateFormatDT setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        NSString *dateTime = [dateFormatDT stringFromDate:todayDT];
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss a"];
+    NSString *dateString = [dateFormat stringFromDate:today];
+    NSDate *todayDT = [NSDate date];
+    NSDateFormatter *dateFormatDT = [[NSDateFormatter alloc] init];
+    [dateFormatDT setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateTime = [dateFormatDT stringFromDate:todayDT];
         
-        NSArray *time = [dateString componentsSeparatedByString:@" "];
-        NSString *attendance_period = [time objectAtIndex:2];
-        attendance_period = @"0";
-        NSLog(@"%@",attendance_period);
-        NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"atendencePicker_Key"];
-        [sub_result addObjectsFromArray:result];
-        if ([str isEqualToString:@"YES"])
-        {
-            [sub_result removeObjectAtIndex:0];
-            [sub_result removeLastObject];
-        }
-        else
-        {
-            [sub_result removeAllObjects];
+    NSArray *time = [dateString componentsSeparatedByString:@" "];
+    NSString *attendance_period = [time objectAtIndex:2];
+    attendance_period = @"0";
+    NSLog(@"%@",attendance_period);
+    NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"atendencePicker_Key"];
+    [sub_result addObjectsFromArray:result];
+    if ([str isEqualToString:@"YES"])
+    {
+        [sub_result removeObjectAtIndex:0];
+        [sub_result removeLastObject];
+    }
+    else
+    {
+        [sub_result removeAllObjects];
 
-            for (int i = 0; i < [name count]; i++)
-            {
-                [sub_result addObject:@"Present"];
-            }
-            [sub_result removeObjectAtIndex:0];
-        }
-        if (sub_result.count != 0)
+        for (int i = 0; i < [name count]; i++)
         {
-            NSLog(@"%@",sub_result);
-            for (NSString *str in sub_result)
+            [sub_result addObject:@"Present"];
+        }
+            [sub_result removeObjectAtIndex:0];
+    }
+    if (sub_result.count != 0)
+        {
+        NSLog(@"%@",sub_result);
+        for (NSString *str in sub_result)
+        {
+            if ([str isEqualToString:@"Present"])
             {
-                if ([str isEqualToString:@"Present"])
-                {
-                    [presentArr addObject:str];
-                }
-                else if ([str isEqualToString:@"Absent"])
+                [presentArr addObject:str];
+            }
+            else if ([str isEqualToString:@"Absent"])
                 {
                     [absentArr addObject:str];
-                    
                 }
                 else if ([str isEqualToString:@"Leave"])
                 {
                     [leaveArr addObject:str];
-                    
                 }
                 else if ([str isEqualToString:@"OD"])
                 {
@@ -394,7 +394,6 @@
     NSDateFormatter *dateFormatDT = [[NSDateFormatter alloc] init];
     [dateFormatDT setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateTime = [dateFormatDT stringFromDate:todayDT];
-
     NSString *a_status;
     [name removeObjectAtIndex:0];
     for (int i = 0;i < [name count];i++)
@@ -424,7 +423,6 @@
             else if ([status isEqualToString:@"Leave"])
             {
                 a_status = @"L";
-                
             }
             else if ([status isEqualToString:@"OD"])
             {
@@ -572,44 +570,47 @@
 }
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-        UITableViewCell *textFieldRowCell;
-        
-        if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
-        {
-            textFieldRowCell = (UITableViewCell *) textField.superview.superview;
-        }
-        else
-        {
-            textFieldRowCell = (UITableViewCell *) textField.superview.superview.superview;
-        }
-        NSIndexPath *indexPath_stat = [self.tableView indexPathForCell:textFieldRowCell];
-        count =(int)indexPath_stat.row;
-        NSLog(@"%@",str);
-        [self showSelected];
+    UITableViewCell *textFieldRowCell;
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+    {
+        textFieldRowCell = (UITableViewCell *) textField.superview.superview;
+    }
+    else
+    {
+        textFieldRowCell = (UITableViewCell *) textField.superview.superview.superview;
+    }
+    NSIndexPath *indexPath_stat = [self.tableView indexPathForCell:textFieldRowCell];
+    count =(int)indexPath_stat.row;
+    NSLog(@"%@",str);
+    [self showSelected];
     return YES;
 }
 -(void)showSelected
 {
-    [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"atendencePicker_Key"];
-    
-    if (result.count==0)
+    NSString *strPicker = [[NSUserDefaults standardUserDefaults]objectForKey:@"pickercancel_Key"];
+    if (![strPicker isEqualToString:@"YES"])
     {
-        [result removeAllObjects];
-        for (int i=0; i <= [name count]; i++)
+        [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"atendencePicker_Key"];
+        if (result.count==0)
         {
-            [result addObject:@"Present"];
+            [result removeAllObjects];
+            for (int i=0; i <= [name count]; i++)
+            {
+                [result addObject:@"Present"];
+            }
+            [result removeObjectAtIndex:count];
+            [result insertObject:str atIndex:count];
         }
-        [result removeObjectAtIndex:count];
-        [result insertObject:str atIndex:count];
-    }
-    else
-    {
-        [result removeObjectAtIndex:count];
-        [result insertObject:str atIndex:count];
+        else
+        {
+            [result removeObjectAtIndex:count];
+            [result insertObject:str atIndex:count];
+        }
     }
 }
 -(void)CancelBtn
 {
+    [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"pickercancel_Key"];
     [[self view] endEditing:YES];
     [datapickerView removeFromSuperview];
     [toolbar removeFromSuperview];
