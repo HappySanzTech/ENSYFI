@@ -231,6 +231,8 @@
 		6BA50011207CB6460027E9E2 /* ENSIFY.db in Resources */ = {isa = PBXBuildFile; fileRef = 6BA50010207CB6460027E9E2 /* ENSIFY.db */; };
 		6BABE6D9209058DC009E7392 /* NewTimeTableViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BABE6D8209058DC009E7392 /* NewTimeTableViewcontroller.m */; };
 		6BABE6DC20907F13009E7392 /* NewTimeTableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BABE6DB20907F13009E7392 /* NewTimeTableTableViewCell.m */; };
+		6BACA1B6209208AE005DBDAF /* ExamdutyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BACA1B5209208AE005DBDAF /* ExamdutyViewController.m */; };
+		6BACA1B9209208C4005DBDAF /* ExamDutyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BACA1B8209208C4005DBDAF /* ExamDutyTableViewCell.m */; };
 		6BAEE7AF2029881100D08550 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7AD2029881100D08550 /* FMDatabase.m */; };
 		6BAEE7B22029882000D08550 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7B12029882000D08550 /* FMDatabaseAdditions.m */; };
 		6BAEE7B52029882B00D08550 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7B32029882B00D08550 /* FMResultSet.m */; };
@@ -630,6 +632,10 @@
 		6BABE6D8209058DC009E7392 /* NewTimeTableViewcontroller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewTimeTableViewcontroller.m; sourceTree = "<group>"; };
 		6BABE6DA20907F13009E7392 /* NewTimeTableTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewTimeTableTableViewCell.h; sourceTree = "<group>"; };
 		6BABE6DB20907F13009E7392 /* NewTimeTableTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewTimeTableTableViewCell.m; sourceTree = "<group>"; };
+		6BACA1B4209208AE005DBDAF /* ExamdutyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExamdutyViewController.h; sourceTree = "<group>"; };
+		6BACA1B5209208AE005DBDAF /* ExamdutyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExamdutyViewController.m; sourceTree = "<group>"; };
+		6BACA1B7209208C4005DBDAF /* ExamDutyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExamDutyTableViewCell.h; sourceTree = "<group>"; };
+		6BACA1B8209208C4005DBDAF /* ExamDutyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExamDutyTableViewCell.m; sourceTree = "<group>"; };
 		6BAEE7AD2029881100D08550 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		6BAEE7AE2029881100D08550 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		6BAEE7B02029882000D08550 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -791,6 +797,10 @@
 				684DD7B01F91F9D800562AF7 /* TeacherTimeTableAddNotes.m */,
 				6BD02AEB2091B73E00A46172 /* TeacherHolidayCalenderViewController.h */,
 				6BD02AEC2091B73E00A46172 /* TeacherHolidayCalenderViewController.m */,
+				6BACA1B4209208AE005DBDAF /* ExamdutyViewController.h */,
+				6BACA1B5209208AE005DBDAF /* ExamdutyViewController.m */,
+				6BACA1B7209208C4005DBDAF /* ExamDutyTableViewCell.h */,
+				6BACA1B8209208C4005DBDAF /* ExamDutyTableViewCell.m */,
 				68FBD5001F9D28D000868C86 /* SyncViewController.h */,
 				68FBD5011F9D28D000868C86 /* SyncViewController.m */,
 				6809DB1A1F28BB6600C63789 /* teachers.storyboard */,
@@ -1587,6 +1597,7 @@
 				688FDD501E922E2900762CF4 /* main.m in Sources */,
 				68080DCC1ECA240000B769A7 /* ExamsViewController.m in Sources */,
 				6804A9391F07AFFF0055D0EE /* Reachability.m in Sources */,
+				6BACA1B9209208C4005DBDAF /* ExamDutyTableViewCell.m in Sources */,
 				68D531371F6BF4E00047DF11 /* TeacherCircularTableViewCell.m in Sources */,
 				68D5312E1F6BE4010047DF11 /* TeacherEventOrganiserView.m in Sources */,
 				681858E71F90C91D00D5C02B /* TeacherTimeTableNotes.m in Sources */,
@@ -1602,6 +1613,7 @@
 				68BAA4811F26222600C4F91F /* AdminLeaveRequestView.m in Sources */,
 				680134A41F8F6DDD001238EB /* TeachersTimeTableView.m in Sources */,
 				68D297131F1FE26300BFAC73 /* AdminTableViewDetailCell.m in Sources */,
+				6BACA1B6209208AE005DBDAF /* ExamdutyViewController.m in Sources */,
 				680E6CD31ED6D8F8007B7496 /* ExamMarkViewCell.m in Sources */,
 				681858ED1F90ED9F00D5C02B /* TeacherTimeTableNotesView.m in Sources */,
 				680522921F8E578100E5002F /* TeacherExamExternalViewCell.m in Sources */,

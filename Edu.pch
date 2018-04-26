@@ -158,5 +158,7 @@
 #import "HolidayCalenderTableViewCell.h"
 #import "AdminHolidayCalenderViewController.h"
 #import "TeacherHolidayCalenderViewController.h"
+#import "ExamdutyViewController.h"
+#import "ExamDutyTableViewCell.h"
 
 #endif /* Edu_pch */

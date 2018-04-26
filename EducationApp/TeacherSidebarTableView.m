@@ -34,7 +34,7 @@
     
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-    menuItems = @[@"samp",@"home",@"profile", @"attendance", @"classtesthomework", @"examandresult", @"timetable", @"event", @"circular",@"onduty",@"notification",@"applyleave",@"settings",@"sync",@"holidaycalender",@"signout"];
+    menuItems = @[@"samp",@"home",@"profile", @"attendance", @"classtesthomework", @"examandresult", @"timetable", @"event", @"circular",@"onduty",@"notification",@"applyleave",@"settings",@"sync",@"holidaycalender",@"examduty",@"signout"];
     
     staticMenu = @[@"username"];
     
@@ -357,6 +357,14 @@
 
     }
     else if ([segue.identifier isEqualToString:@"holidaycalender"])
+    {
+        
+        UINavigationController *navController = segue.destinationViewController;
+        TeacherHolidayCalenderViewController *sync = [navController childViewControllers].firstObject;
+        NSLog(@"%@",sync);
+        
+    }
+    else if ([segue.identifier isEqualToString:@"examduty"])
     {
         
         UINavigationController *navController = segue.destinationViewController;
