@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
         <array key="roboto.bold.ttf">
             <string>Roboto-Bold</string>
         </array>
@@ -1706,14 +1703,14 @@
                                     <segue destination="1bU-40-VVG" kind="custom" identifier="leave" customClass="SWRevealViewControllerSeguePushController" id="WTr-aO-84y"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="settings" rowHeight="49" id="NYU-MW-ks5">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="holidaycalender" rowHeight="49" id="NYU-MW-ks5">
                                 <rect key="frame" x="0.0" y="870" width="375" height="49"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NYU-MW-ks5" id="nuI-Jx-LdF">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SETTINGS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMs-Nk-gG4">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HOLIDAY CALENDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMs-Nk-gG4">
                                             <rect key="frame" x="40" y="14" width="220" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -1729,17 +1726,17 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.2274509804" green="0.08235294118" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="g7g-m9-S4J" kind="custom" identifier="settings" customClass="SWRevealViewControllerSeguePushController" id="ZgX-8D-emb"/>
+                                    <segue destination="1Zo-Eq-oWw" kind="show" identifier="holidaycalender" customClass="SWRevealViewControllerSeguePushController" id="kkk-at-Oum"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="signout" rowHeight="49" id="bf0-bU-vek">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="settings" rowHeight="49" id="bf0-bU-vek">
                                 <rect key="frame" x="0.0" y="919" width="375" height="49"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bf0-bU-vek" id="8fW-qr-rDD">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SIGN OUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHc-Sf-iYU">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SETTINGS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHc-Sf-iYU">
                                             <rect key="frame" x="40" y="14" width="220" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -1755,7 +1752,33 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.2274509804" green="0.08235294118" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="Naa-8m-KQk" kind="show" identifier="signout" id="Ejm-AS-SxD"/>
+                                    <segue destination="g7g-m9-S4J" kind="show" identifier="settings" customClass="SWRevealViewControllerSeguePushController" id="Bjg-IQ-KAa"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="signout" rowHeight="49" id="LN0-Al-9bt">
+                                <rect key="frame" x="0.0" y="968" width="375" height="49"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LN0-Al-9bt" id="ag2-7j-1MP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SIGN OUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRR-R5-pWs">
+                                            <rect key="frame" x="40" y="14" width="220" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sidemenuicon1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dhh-BQ-9EG">
+                                            <rect key="frame" x="8" y="-5" width="24" height="58"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.2274509804" green="0.08235294118" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="Naa-8m-KQk" kind="show" identifier="signout" customClass="SWRevealViewControllerSeguePushController" id="c0J-bu-g5n"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -5667,9 +5690,7 @@
                                     <outlet property="circularType" destination="5ME-RQ-fdx" id="8AE-hc-aAr"/>
                                     <outlet property="date" destination="579-TH-dmJ" id="stb-O6-H0f"/>
                                     <outlet property="title" destination="ATH-ce-CPB" id="gI7-BB-3NP"/>
-                                    <segue destination="Xjk-RS-Y7q" kind="show" identifier="to_comunication" trigger="accessoryAction" id="Ed4-cW-3eA">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="Xjk-RS-Y7q" kind="show" identifier="to_comunication" trigger="accessoryAction" id="Ed4-cW-3eA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -6240,7 +6261,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGa-Xn-7ef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2815" y="3275"/>
+            <point key="canvasLocation" x="2665" y="2532"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="aZd-Vz-BGf">
@@ -6332,7 +6353,160 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfO-fE-XWr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3604" y="3266"/>
+            <point key="canvasLocation" x="3506" y="2532"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bm2-Q8-Q7K">
+            <objects>
+                <navigationController id="1Zo-Eq-oWw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="s2f-re-jt5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.40041896700000001" green="0.20122799280000001" blue="0.40038812159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="h71-8N-jw1" kind="relationship" relationship="rootViewController" id="h7k-uO-UQI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lFJ-PG-dbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5598" y="-475"/>
+        </scene>
+        <!--HOLIDAY CALENDER-->
+        <scene sceneID="mOD-jN-Zt9">
+            <objects>
+                <viewController storyboardIdentifier="AdminHolidayCalenderViewController" id="h71-8N-jw1" customClass="AdminHolidayCalenderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ih4-Mx-zxa"/>
+                        <viewControllerLayoutGuide type="bottom" id="WcQ-lp-xkt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j28-mD-ht2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="YWD-RN-5AI">
+                                <rect key="frame" x="-2" y="165" width="379" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Upcoming Leaves"/>
+                                    <segment title="Holidays"/>
+                                </segments>
+                                <color key="tintColor" red="0.40041896700000001" green="0.20122799280000001" blue="0.40038812159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentAction:" destination="h71-8N-jw1" eventType="valueChanged" id="Uw4-fo-1D4"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bJM-eZ-dX4">
+                                <rect key="frame" x="0.0" y="213" width="375" height="390"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="141" id="QVB-DC-per" customClass="HolidayCalenderTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="141"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QVB-DC-per" id="jiB-HN-c8d">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Qi-lO-8s9">
+                                                    <rect key="frame" x="9" y="6" width="358" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Leave Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBv-cL-xvg">
+                                                            <rect key="frame" x="8" y="11" width="287" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reson : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeH-rL-Rj8">
+                                                            <rect key="frame" x="8" y="48" width="350" height="24"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeM-HY-mH3">
+                                                            <rect key="frame" x="8" y="88" width="350" height="24"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vLg-hg-FUJ">
+                                                            <rect key="frame" x="312" y="1" width="44" height="39"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="LeaveDate" destination="aeM-HY-mH3" id="bzc-fU-ieR"/>
+                                            <outlet property="cellView" destination="3Qi-lO-8s9" id="Zc1-8L-BTs"/>
+                                            <outlet property="leaveImage" destination="vLg-hg-FUJ" id="4W6-Cb-VNp"/>
+                                            <outlet property="leaveReson" destination="FeH-rL-Rj8" id="l65-Kn-Z3E"/>
+                                            <outlet property="leaveTitle" destination="PBv-cL-xvg" id="1az-ke-fTN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="h71-8N-jw1" id="2bO-YS-BTR"/>
+                                    <outlet property="delegate" destination="h71-8N-jw1" id="80j-mZ-rYr"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKV-Z0-7J3">
+                                <rect key="frame" x="61" y="31" width="258" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                <state key="normal" title="Class">
+                                    <color key="titleColor" red="0.40041896700000001" green="0.20122799280000001" blue="0.40038812159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="classBtn:" destination="h71-8N-jw1" eventType="touchUpInside" id="Hiu-0U-Abb"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dropdown down arrow-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="92n-dv-v3e">
+                                <rect key="frame" x="270" y="45" width="22" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zs6-Uu-lZP">
+                                <rect key="frame" x="61" y="97" width="258" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                <state key="normal" title="Section">
+                                    <color key="titleColor" red="0.40041896700000001" green="0.20122799280000001" blue="0.40038812159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sectionBtn:" destination="h71-8N-jw1" eventType="touchUpInside" id="con-hU-iuj"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dropdown down arrow-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="T70-ZR-ERf">
+                                <rect key="frame" x="270" y="114" width="22" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HOLIDAY CALENDER" id="Zyv-GW-ygW">
+                        <barButtonItem key="leftBarButtonItem" image="menu .png" id="0Tq-4N-020">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="classBtnOtlet" destination="EKV-Z0-7J3" id="6r1-8o-PBF"/>
+                        <outlet property="sectionOtlet" destination="Zs6-Uu-lZP" id="bPS-aN-HVN"/>
+                        <outlet property="segmentcontrol" destination="YWD-RN-5AI" id="Ito-8O-upw"/>
+                        <outlet property="sidebarButton" destination="0Tq-4N-020" id="By4-WO-cuS"/>
+                        <outlet property="tableView" destination="bJM-eZ-dX4" id="ygg-q1-c9e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zAQ-lB-LuA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6344.8000000000002" y="-470.01499250374815"/>
         </scene>
     </scenes>
     <resources>

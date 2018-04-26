@@ -13,5 +13,5 @@ target 'EducationApp' do
  pod "CCMPopup"
  pod 'Google/Analytics'
  pod 'Firebase/Core'
-
+ pod 'HMSegmentedControl'
 end

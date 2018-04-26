@@ -35,6 +35,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.3)
   - GoogleToolboxForMac/NSData+zlib (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
+  - HMSegmentedControl (1.5.4)
   - JTCalendar (1.2.3)
   - MBProgressHUD (1.0.0)
 
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - CCMPopup
   - Firebase/Core
   - Google/Analytics
+  - HMSegmentedControl
   - JTCalendar (~> 1.1)
   - MBProgressHUD (~> 1.0.0)
 
@@ -56,9 +58,10 @@ SPEC CHECKSUMS:
   Google: 98da4b1a60ed0beb80a290387a28333406a1eb90
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  HMSegmentedControl: b25bc4ec44766e073d62c473188fb354ee244b76
   JTCalendar: 246ea3e338fb97624846ec77cdcde448242c4d5c
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
 
-PODFILE CHECKSUM: 407fd1953997138af3c494c7f4b68efa400d907e
+PODFILE CHECKSUM: cbade859fbe294c374f44cd1b3e3e775d40ebb41
 
 COCOAPODS: 1.3.1

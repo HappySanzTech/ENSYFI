@@ -223,10 +223,14 @@
 		68FF15661F1CD129001BD881 /* Parents.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FF15651F1CD129001BD881 /* Parents.png */; };
 		68FF15681F1CD140001BD881 /* Class.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FF15671F1CD140001BD881 /* Class.png */; };
 		68FF156E1F1CE121001BD881 /* exam.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FF156D1F1CE121001BD881 /* exam.png */; };
+		6B704D1C20918DBF0053BA87 /* HolidayCalenderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B704D1B20918DBF0053BA87 /* HolidayCalenderTableViewCell.m */; };
+		6B704D1F20918DE40053BA87 /* HolidayCalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B704D1E20918DE40053BA87 /* HolidayCalenderViewController.m */; };
 		6B7B4C3B207E2BD8003A979E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B7B4C38207E2AA2003A979E /* GoogleService-Info.plist */; };
 		6B920968206B9E1B00CB8865 /* AdminNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B920967206B9E1B00CB8865 /* AdminNotificationTableViewController.m */; };
 		6B92096B206B9E9900CB8865 /* AdminNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B92096A206B9E9900CB8865 /* AdminNotificationTableViewCell.m */; };
 		6BA50011207CB6460027E9E2 /* ENSIFY.db in Resources */ = {isa = PBXBuildFile; fileRef = 6BA50010207CB6460027E9E2 /* ENSIFY.db */; };
+		6BABE6D9209058DC009E7392 /* NewTimeTableViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BABE6D8209058DC009E7392 /* NewTimeTableViewcontroller.m */; };
+		6BABE6DC20907F13009E7392 /* NewTimeTableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BABE6DB20907F13009E7392 /* NewTimeTableTableViewCell.m */; };
 		6BAEE7AF2029881100D08550 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7AD2029881100D08550 /* FMDatabase.m */; };
 		6BAEE7B22029882000D08550 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7B12029882000D08550 /* FMDatabaseAdditions.m */; };
 		6BAEE7B52029882B00D08550 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7B32029882B00D08550 /* FMResultSet.m */; };
@@ -241,6 +245,8 @@
 		6BBD8D412035AD2B00272D8C /* Orange@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBD8D382035AD2900272D8C /* Orange@3x.png */; };
 		6BBD8D422035AD2B00272D8C /* Green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBD8D392035AD2A00272D8C /* Green@3x.png */; };
 		6BBD8D442035AF8F00272D8C /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6BBD8D432035AF8E00272D8C /* 1.gif */; };
+		6BD02AEA2091AAE800A46172 /* AdminHolidayCalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD02AE92091AAE800A46172 /* AdminHolidayCalenderViewController.m */; };
+		6BD02AED2091B73E00A46172 /* TeacherHolidayCalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD02AEC2091B73E00A46172 /* TeacherHolidayCalenderViewController.m */; };
 		7AAD7B7A2B64911F31B2B256 /* libPods-EducationApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D0303EA8995E0FA6F69788 /* libPods-EducationApp.a */; };
 /* End PBXBuildFile section */
 
@@ -609,6 +615,10 @@
 		68FF15651F1CD129001BD881 /* Parents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Parents.png; sourceTree = "<group>"; };
 		68FF15671F1CD140001BD881 /* Class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Class.png; sourceTree = "<group>"; };
 		68FF156D1F1CE121001BD881 /* exam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exam.png; sourceTree = "<group>"; };
+		6B704D1A20918DBF0053BA87 /* HolidayCalenderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HolidayCalenderTableViewCell.h; sourceTree = "<group>"; };
+		6B704D1B20918DBF0053BA87 /* HolidayCalenderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HolidayCalenderTableViewCell.m; sourceTree = "<group>"; };
+		6B704D1D20918DE40053BA87 /* HolidayCalenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HolidayCalenderViewController.h; sourceTree = "<group>"; };
+		6B704D1E20918DE40053BA87 /* HolidayCalenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HolidayCalenderViewController.m; sourceTree = "<group>"; };
 		6B7B4C32207E2516003A979E /* EducationApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EducationApp.entitlements; sourceTree = "<group>"; };
 		6B7B4C38207E2AA2003A979E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6B920966206B9E1B00CB8865 /* AdminNotificationTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminNotificationTableViewController.h; sourceTree = "<group>"; };
@@ -616,6 +626,10 @@
 		6B920969206B9E9900CB8865 /* AdminNotificationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminNotificationTableViewCell.h; sourceTree = "<group>"; };
 		6B92096A206B9E9900CB8865 /* AdminNotificationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdminNotificationTableViewCell.m; sourceTree = "<group>"; };
 		6BA50010207CB6460027E9E2 /* ENSIFY.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ENSIFY.db; sourceTree = "<group>"; };
+		6BABE6D7209058DC009E7392 /* NewTimeTableViewcontroller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewTimeTableViewcontroller.h; sourceTree = "<group>"; };
+		6BABE6D8209058DC009E7392 /* NewTimeTableViewcontroller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewTimeTableViewcontroller.m; sourceTree = "<group>"; };
+		6BABE6DA20907F13009E7392 /* NewTimeTableTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewTimeTableTableViewCell.h; sourceTree = "<group>"; };
+		6BABE6DB20907F13009E7392 /* NewTimeTableTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewTimeTableTableViewCell.m; sourceTree = "<group>"; };
 		6BAEE7AD2029881100D08550 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		6BAEE7AE2029881100D08550 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		6BAEE7B02029882000D08550 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -634,6 +648,10 @@
 		6BBD8D382035AD2900272D8C /* Orange@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orange@3x.png"; sourceTree = "<group>"; };
 		6BBD8D392035AD2A00272D8C /* Green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@3x.png"; sourceTree = "<group>"; };
 		6BBD8D432035AF8E00272D8C /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
+		6BD02AE82091AAE800A46172 /* AdminHolidayCalenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminHolidayCalenderViewController.h; sourceTree = "<group>"; };
+		6BD02AE92091AAE800A46172 /* AdminHolidayCalenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdminHolidayCalenderViewController.m; sourceTree = "<group>"; };
+		6BD02AEB2091B73E00A46172 /* TeacherHolidayCalenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherHolidayCalenderViewController.h; sourceTree = "<group>"; };
+		6BD02AEC2091B73E00A46172 /* TeacherHolidayCalenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherHolidayCalenderViewController.m; sourceTree = "<group>"; };
 		7DD8762979800E50303DA0CE /* Pods-EducationApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EducationApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EducationApp/Pods-EducationApp.debug.xcconfig"; sourceTree = "<group>"; };
 		96D0303EA8995E0FA6F69788 /* libPods-EducationApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EducationApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE8FF695A25A82018E6C92E /* Pods-EducationApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EducationApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EducationApp/Pods-EducationApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -771,6 +789,8 @@
 				681858EC1F90ED9F00D5C02B /* TeacherTimeTableNotesView.m */,
 				684DD7AF1F91F9D800562AF7 /* TeacherTimeTableAddNotes.h */,
 				684DD7B01F91F9D800562AF7 /* TeacherTimeTableAddNotes.m */,
+				6BD02AEB2091B73E00A46172 /* TeacherHolidayCalenderViewController.h */,
+				6BD02AEC2091B73E00A46172 /* TeacherHolidayCalenderViewController.m */,
 				68FBD5001F9D28D000868C86 /* SyncViewController.h */,
 				68FBD5011F9D28D000868C86 /* SyncViewController.m */,
 				6809DB1A1F28BB6600C63789 /* teachers.storyboard */,
@@ -886,7 +906,17 @@
 				6814B06D1ED833F400BE1D70 /* ForgotPasswordController.m */,
 				6814B06F1ED85F7100BE1D70 /* NewPasswordController.h */,
 				6814B0701ED85F7100BE1D70 /* NewPasswordController.m */,
+				6BABE6D7209058DC009E7392 /* NewTimeTableViewcontroller.h */,
+				6BABE6D8209058DC009E7392 /* NewTimeTableViewcontroller.m */,
+				6BABE6DA20907F13009E7392 /* NewTimeTableTableViewCell.h */,
+				6BABE6DB20907F13009E7392 /* NewTimeTableTableViewCell.m */,
+				6B704D1D20918DE40053BA87 /* HolidayCalenderViewController.h */,
+				6B704D1E20918DE40053BA87 /* HolidayCalenderViewController.m */,
+				6B704D1A20918DBF0053BA87 /* HolidayCalenderTableViewCell.h */,
+				6B704D1B20918DBF0053BA87 /* HolidayCalenderTableViewCell.m */,
 				688FDD571E922E2900762CF4 /* Main.storyboard */,
+				68FF15471F1C8C1D001BD881 /* AdminModule */,
+				6809DB191F28BB2F00C63789 /* TeachersModule */,
 			);
 			name = ParentsModule;
 			sourceTree = "<group>";
@@ -949,8 +979,6 @@
 			children = (
 				6B7B4C32207E2516003A979E /* EducationApp.entitlements */,
 				6828B11D1F0A54B4006AF3AF /* ParentsModule */,
-				6809DB191F28BB2F00C63789 /* TeachersModule */,
-				68FF15471F1C8C1D001BD881 /* AdminModule */,
 				68F379881F04DD2400151F1C /* Launch Screen.storyboard */,
 				688FDD5D1E922E2900762CF4 /* Assets.xcassets */,
 				688FDD621E922E2900762CF4 /* Info.plist */,
@@ -1177,6 +1205,8 @@
 				6809D14D1F276585007ABFF8 /* AdminResultStudentListView.m */,
 				6809D14F1F2765BE007ABFF8 /* AdminResultStudentListCell.h */,
 				6809D1501F2765BE007ABFF8 /* AdminResultStudentListCell.m */,
+				6BD02AE82091AAE800A46172 /* AdminHolidayCalenderViewController.h */,
+				6BD02AE92091AAE800A46172 /* AdminHolidayCalenderViewController.m */,
 				68FF15481F1C8C51001BD881 /* admin.storyboard */,
 			);
 			name = AdminModule;
@@ -1440,7 +1470,9 @@
 				68D297101F1FE24100BFAC73 /* AdminTableViewdetails.m in Sources */,
 				688FDD561E922E2900762CF4 /* ViewController.m in Sources */,
 				68DD55121ECC24FB007D2B53 /* ExamDetailViewController.m in Sources */,
+				6B704D1F20918DE40053BA87 /* HolidayCalenderViewController.m in Sources */,
 				6814B06E1ED833F400BE1D70 /* ForgotPasswordController.m in Sources */,
+				6BD02AEA2091AAE800A46172 /* AdminHolidayCalenderViewController.m in Sources */,
 				6801980F1F16270E0009D0B9 /* OnDutyTableViewController.m in Sources */,
 				68CDDCCC1F2555D100615E04 /* AdminStudentInfo.m in Sources */,
 				6B920968206B9E1B00CB8865 /* AdminNotificationTableViewController.m in Sources */,
@@ -1475,6 +1507,7 @@
 				684DD7B11F91F9D800562AF7 /* TeacherTimeTableAddNotes.m in Sources */,
 				689DEBF01E9781AB00B02133 /* BaseUrl.m in Sources */,
 				68363D181F1E3486003F1C20 /* AdminEventTableViewController.m in Sources */,
+				6BD02AED2091B73E00A46172 /* TeacherHolidayCalenderViewController.m in Sources */,
 				681858EA1F90C96700D5C02B /* TeacherTimeTableNotesCell.m in Sources */,
 				6BAEE7B22029882000D08550 /* FMDatabaseAdditions.m in Sources */,
 				68F4D90C1F232FDA0026F7C7 /* AdminExamTableViewCell.m in Sources */,
@@ -1502,6 +1535,7 @@
 				68F4BA1D1F220C82008E6E58 /* AdminClassesViewController.m in Sources */,
 				68E6389D1F67C14A0050ECDA /* FMDBManager.m in Sources */,
 				68F051EC1F03CEC10024C238 /* UIImage+animatedGIF.m in Sources */,
+				6BABE6D9209058DC009E7392 /* NewTimeTableViewcontroller.m in Sources */,
 				68110EB81F8B7BE20007FB75 /* TeacherClasstestViewMarkCell.m in Sources */,
 				68F3798C1F04DDD700151F1C /* GIFViewController.m in Sources */,
 				6802FB101F20937F00DCBC1F /* AdminTeacherProfileView.m in Sources */,
@@ -1510,6 +1544,7 @@
 				68278D981E9EA39600D3F052 /* SideBarTableViewController.m in Sources */,
 				68CDDCC91F25470F00615E04 /* AdminParentsProfileView.m in Sources */,
 				68CDDCC31F25399200615E04 /* AdminParentsTableViewCell.m in Sources */,
+				6BABE6DC20907F13009E7392 /* NewTimeTableTableViewCell.m in Sources */,
 				68F4BA201F220CA9008E6E58 /* AdminClassesTableViewCell.m in Sources */,
 				6BAEE7B82029892400D08550 /* FMDatabasePool.m in Sources */,
 				6809D13F1F2722C1007ABFF8 /* AdminFeeViewController.m in Sources */,
@@ -1557,6 +1592,7 @@
 				681858E71F90C91D00D5C02B /* TeacherTimeTableNotes.m in Sources */,
 				68E37F0B1F31A217005612A7 /* TeacherViewController.m in Sources */,
 				688FDD711E9237BC00762CF4 /* Webservice.m in Sources */,
+				6B704D1C20918DBF0053BA87 /* HolidayCalenderTableViewCell.m in Sources */,
 				68E2CA351ECDDBE700D96595 /* CommunicationViewController.m in Sources */,
 				68E2CA2F1ECDC3FC00D96595 /* EventorganiserViewController.m in Sources */,
 				681069DC1F1F9BBD0053D1E0 /* AdminStudentProfileView.m in Sources */,

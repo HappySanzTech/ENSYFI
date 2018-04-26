@@ -25,7 +25,7 @@
     // Uncomment the following line to preserve selection between presentations.
     abs_date = [[NSMutableArray alloc]init];
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    menuItems = @[@"samp",@"home",@"profile", @"attendance", @"createtest", @"exam", @"timetable", @"event", @"communication",@"settings",@"studentinfo",@"onduty",@"signout"];
+    menuItems = @[@"samp",@"home",@"profile", @"attendance", @"createtest", @"exam", @"timetable", @"event", @"communication",@"settings",@"studentinfo",@"onduty",@"holidaycalender",@"signout"];
     staticMenu = @[@"username"];
     [self.tableView registerClass:[SideTableViewCell class] forCellReuseIdentifier:@"SideTableViewCell"];
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -351,7 +351,14 @@
         NSLog(@"%@",info);
         
     }
-    
+    else if ([segue.identifier isEqualToString:@"holidaycalender"])
+    {
+        
+        UINavigationController *navController = segue.destinationViewController;
+        HolidayCalenderViewController *info = [navController childViewControllers].firstObject;
+        NSLog(@"%@",info);
+        
+    }
     else if ([segue.identifier isEqualToString:@"onduty"])
     {
         
@@ -376,7 +383,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"total_working_days_Key"];
         
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"msg_attendance_Key"];
-        [[NSUserDefaults standardUserDefaults]setObject:@" " forKey:@"msgKey"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"msgKey"];
         [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"Login_status"];
         [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"stat_user_type"];
         

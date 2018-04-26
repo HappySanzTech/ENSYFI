@@ -62,7 +62,7 @@
     appDel.user_picture = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_pic_key"];
     appDel.name = [[NSUserDefaults standardUserDefaults]objectForKey:@"name_key"];
     appDel.institute_code = [[NSUserDefaults standardUserDefaults]objectForKey:@"institute_code_Key"];
-    
+    appDel.class_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"class_id_key"];
     NSLog(@"%@",appDel.institute_code);
 }
 - (void)viewWillLayoutSubviews;

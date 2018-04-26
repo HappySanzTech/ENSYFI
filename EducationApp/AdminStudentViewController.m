@@ -95,29 +95,18 @@
 {
 
         [[NSUserDefaults standardUserDefaults]setObject:@"Section" forKey:@"sec_class"];
-        
-//        NSString *class_btn_tapped = [[NSUserDefaults standardUserDefaults]objectForKey:@"class_btn_tapped"];
         NSString *selected_class_name = [[NSUserDefaults standardUserDefaults]objectForKey:@"selected_Class_Value"];
-        
-        
+    
         if (![selected_class_name isEqualToString:@""])
         {
-            
             NSArray *class_name = [[NSUserDefaults standardUserDefaults]objectForKey:@"admin_class_name"];
-            
             NSUInteger fooIndex = [class_name indexOfObject:selected_class_name];
-            
             NSArray *admin_class_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"admin_class_id"];
             NSString *tmpString1 = admin_class_id[fooIndex];
-            
             [[NSUserDefaults standardUserDefaults]setObject:tmpString1 forKey:@"selected_class_id"];
-            
-            
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            
-            
+    
             appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            
             NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
             [parameters setObject:tmpString1 forKey:@"class_id"];
             
@@ -126,12 +115,10 @@
             [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
             
-            
             /* concordanate with baseurl */
             NSString *forSections = @"/apiadmin/get_all_sections";
             NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,forSections, nil];
             NSString *api = [NSString pathWithComponents:components];
-            
             
             [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
              {
@@ -227,11 +214,8 @@
 }
 - (IBAction)classBtn:(id)sender
 {
-
     [[NSUserDefaults standardUserDefaults]setObject:@"Class" forKey:@"sec_class"];
-
     [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"class_btn_tapped"];
-    
     NSArray *class_name = [[NSUserDefaults standardUserDefaults]objectForKey:@"admin_class_name"];
     if(dropDown == nil)
     {
@@ -257,7 +241,7 @@
         [self rel];
     }
 }
-- (void) niDropDownDelegateMethod: (NIDropDown *) sender
+- (void)niDropDownDelegateMethod: (NIDropDown *) sender
 {
     [self rel];
 }
@@ -290,19 +274,13 @@
 -(void)getStudentDetails
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
     appDel.class_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"selected_class_id"];
-    
     NSString *selected_Section = [[NSUserDefaults standardUserDefaults]objectForKey:@"selected_Section_Value"];
-    
     NSArray *admin_sec_name = [[NSUserDefaults standardUserDefaults]objectForKey:@"admin_sec_name"];
-
     NSUInteger fooIndex = [admin_sec_name indexOfObject:selected_Section];
-
     appDel.section_id = sec_id[fooIndex];
-
+    
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     [parameters setObject:appDel.class_id forKey:@"class_id"];
     [parameters setObject:appDel.section_id forKey:@"section_id"];

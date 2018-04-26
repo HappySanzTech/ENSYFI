@@ -33,8 +33,6 @@
 @implementation LoginViewController
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
     id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
     [tracker set:kGAIScreenName value:@"LoginViewController"];
     [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
@@ -133,17 +131,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
 */
-
 - (IBAction)signInBtn:(id)sender
 {
     if ([self.username.text isEqualToString:@""])
@@ -213,10 +208,8 @@
         [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
         NSString *institute_code = [[NSUserDefaults standardUserDefaults]objectForKey:@"institute_code_Key"];
-        /* concordanate with baseurl */
         NSArray *components = [NSArray arrayWithObjects:baseUrl,institute_code,user_Login_Api, nil];
         NSString *api = [NSString pathWithComponents:components];
-        /* concordanate with baseurl */
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
@@ -237,7 +230,6 @@
              
              if ([msg isEqualToString:@"User loggedIn successfully"])
              {
-                 /*userdata*/
                  NSString *name = [userData valueForKey:@"name"];
                  NSString *password_status = [userData valueForKey:@"password_status"];
                  NSString *user_id = [userData valueForKey:@"user_id"];
@@ -264,7 +256,7 @@
                      appDel.user_password = [[NSUserDefaults standardUserDefaults]objectForKey:@"password_status_key"];
                      appDel.user_picture = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_pic_key"];
                      appDel.name = [[NSUserDefaults standardUserDefaults]objectForKey:@"name_key"];
-                     /*fatherProfile*/
+                
                      NSString *fatherEmail = [fatherProfile valueForKey:@"email"];
                      NSString *fHome_address = [fatherProfile valueForKey:@"home_address"];
                      NSString *fHome_phone = [fatherProfile valueForKey:@"home_phone"];
@@ -287,7 +279,7 @@
                      [[NSUserDefaults standardUserDefaults]setObject:fOffice_phone forKey:@"fOffice_phone_key"];
                      [[NSUserDefaults standardUserDefaults]setObject:fRelationship forKey:@"fRelationship_key"];
                      [[NSUserDefaults standardUserDefaults]setObject:fUser_pic forKey:@"fUser_pic_key"];
-                     /* guardianProfile*/
+                     
                      NSString *gEmail = [guardianProfile valueForKey:@"email"];
                      NSString *g_Home_address = [guardianProfile valueForKey:@"home_address"];
                      NSString *gHome_phone = [guardianProfile valueForKey:@"home_phone"];
@@ -310,7 +302,7 @@
                      [[NSUserDefaults standardUserDefaults]setObject:gOffice_phone forKey:@"gOffice_phone_key"];
                      [[NSUserDefaults standardUserDefaults]setObject:gRelationship forKey:@"gRelationship_key"];
                      [[NSUserDefaults standardUserDefaults]setObject:gUser_pic forKey:@"gUser_pic_key"];
-                     /*motherProfile*/
+                     
                      NSString *mEmail = [motherProfile valueForKey:@"email"];
                      NSString *m_Home_address = [motherProfile valueForKey:@"home_address"];
                      NSString *mHome_phone = [motherProfile valueForKey:@"home_phone"];
@@ -359,7 +351,7 @@
                          [[NSUserDefaults standardUserDefaults]setObject:registered_id forKey:@"registered_id_arr"];
                          [[NSUserDefaults standardUserDefaults]setObject:sec_name forKey:@"sec_name_arr"];
                      }
-                     [self performSegueWithIdentifier:@"studentInfo" sender:self];
+                         [self performSegueWithIdentifier:@"studentInfo" sender:self];
                  }
                  
                  else if ([user_type_name isEqualToString:@"Parents"])
@@ -403,7 +395,7 @@
                      [[NSUserDefaults standardUserDefaults]setObject:fOffice_phone forKey:@"fOffice_phone_key"];
                      [[NSUserDefaults standardUserDefaults]setObject:fRelationship forKey:@"fRelationship_key"];
                      [[NSUserDefaults standardUserDefaults]setObject:fUser_pic forKey:@"fUser_pic_key"];
-                     /* guardianProfile*/
+                     
                      NSString *gEmail = [guardianProfile valueForKey:@"email"];
                      NSString *g_Home_address = [guardianProfile valueForKey:@"home_address"];
                      NSString *gHome_phone = [guardianProfile valueForKey:@"home_phone"];
@@ -426,7 +418,7 @@
                      [[NSUserDefaults standardUserDefaults]setObject:gOffice_phone forKey:@"gOffice_phone_key"];
                      [[NSUserDefaults standardUserDefaults]setObject:gRelationship forKey:@"gRelationship_key"];
                      [[NSUserDefaults standardUserDefaults]setObject:gUser_pic forKey:@"gUser_pic_key"];
-                     /*motherProfile*/
+                    
                      NSString *mEmail = [motherProfile valueForKey:@"email"];
                      NSString *m_Home_address = [motherProfile valueForKey:@"home_address"];
                      NSString *mHome_phone = [motherProfile valueForKey:@"home_phone"];
@@ -616,12 +608,12 @@
                          
                          [database close];
 
-                     }
-                     for (int i = 0; i < [academic_marks count]; i++)
-                     {
+                       }
+                       for (int i = 0; i < [academic_marks count]; i++)
+                       {
                          NSArray *arr_academic_marks = [academic_month objectAtIndex:i];
                          NSLog(@"%@",arr_academic_marks);
-                     }
+                       }
                      
                      docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
                      documentsDir = [docPaths objectAtIndex:0];
@@ -689,7 +681,7 @@
                          
                          docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
                          documentsDir = [docPaths objectAtIndex:0];
-                         dbPath = [documentsDir   stringByAppendingPathComponent:@"ENSIFY.db"];
+                         dbPath = [documentsDir stringByAppendingPathComponent:@"ENSIFY.db"];
                          database = [FMDatabase databaseWithPath:dbPath];
                          [database open];
                          
@@ -718,7 +710,6 @@
 
                      for (int i = 0; i < [dataexamdetails count]; i++)
                      {
-                         
                          NSDictionary *dict = [dataexamdetails objectAtIndex:i];
                          NSLog(@"%@",dict);
                          NSString *strclass_name = [dict objectForKey:@"class_name"];

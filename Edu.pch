@@ -152,5 +152,11 @@
 #import "TeacherTimeTableAddNotes.h"
 #import "TeacherProfileViewController.h"
 #import "SyncViewController.h"
+#import "NewTimeTableViewcontroller.h"
+#import "NewTimeTableTableViewCell.h"
+#import "HolidayCalenderViewController.h"
+#import "HolidayCalenderTableViewCell.h"
+#import "AdminHolidayCalenderViewController.h"
+#import "TeacherHolidayCalenderViewController.h"
 
 #endif /* Edu_pch */
