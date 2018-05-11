@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "FMDatabase.h"
 #import <Firebase/Firebase.h>
+#import <UserNotifications/UserNotifications.h>
+
+#define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @interface AppDelegate ()
 
@@ -20,6 +23,7 @@
 {
     // Override point for customization after application launch.
     [FIRApp configure];
+    [self registerForRemoteNotifications];
     NSLog(@"%@",@"check");
     GAI *gai = [GAI sharedInstance];
     [gai trackerWithTrackingId:@"UA-91632362-1"];
@@ -64,7 +68,20 @@
     [self saveContext];
 }
 
-
+-(void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    NSString *tokenString = [deviceToken description];
+    
+    tokenString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    
+    tokenString = [tokenString stringByReplacingOccurrencesOfString:@" " withString:@" "];
+    
+    NSLog(@"Push Notification tokenstring is %@",tokenString);
+    
+    [[NSUserDefaults standardUserDefaults]setObject:tokenString forKey:@"deviceToken_Key"];
+    
+    [[NSUserDefaults standardUserDefaults]synchronize];
+}
 #pragma mark - Core Data stack
 
 @synthesize persistentContainer = _persistentContainer;
@@ -96,7 +113,85 @@
     
     return _persistentContainer;
 }
+-(void)registerForRemoteNotifications
+{
+    if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")){
+        
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        
+        center.delegate = self;
+        
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
+            
+            if(!error){
+                
+                //                [[UIApplication sharedApplication] registerForRemoteNotifications];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[UIApplication sharedApplication] registerForRemoteNotifications];
+                });
+                
+            }
+            
+        }];
+        
+        
+        
+    }
+    
+    else {
+        
+        // Code for old versions
+        
+        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                        
+                                                        UIUserNotificationTypeBadge |
+                                                        
+                                                        UIUserNotificationTypeSound);
+        
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                
+                                                                                 categories:nil];
+        
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        
+    }
+    
+}
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
+    
+    NSLog(@"User Info : %@",notification.request.content.userInfo);
+    
+    completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+    
+    [self handleRemoteNotification:[UIApplication sharedApplication] userInfo:notification.request.content.userInfo];
+    
+}
 
+//Called to let your app know which action was selected by the user for a given notification.
+
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler{
+    
+    NSLog(@"User Info : %@",response.notification.request.content.userInfo);
+    
+    completionHandler();
+    
+    [self handleRemoteNotification:[UIApplication sharedApplication] userInfo:response.notification.request.content.userInfo];
+    
+    
+    
+}
+-(void) handleRemoteNotification:(UIApplication *) application   userInfo:(NSDictionary *) remoteNotif {
+    
+    NSLog(@"handleRemoteNotification");
+    
+    NSLog(@"Handle Remote Notification Dictionary: %@", remoteNotif);
+    
+    // Handle Click of the Push Notification From Here…
+    // You can write a code to redirect user to specific screen of the app here….
+}
 #pragma mark - Core Data Saving support
 
 - (void)saveContext {

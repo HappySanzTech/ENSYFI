@@ -13,6 +13,8 @@
     NSArray *menuItems;
     NSArray *staticMenu;
     NSMutableArray *abs_date;
+    NSMutableArray *dayArray;
+    NSMutableArray *listday_Array;
     AppDelegate *appDel;
 }
 @end
@@ -24,6 +26,9 @@
     [super viewDidLoad];
     // Uncomment the following line to preserve selection between presentations.
     abs_date = [[NSMutableArray alloc]init];
+    dayArray = [[NSMutableArray alloc]init];
+    listday_Array = [[NSMutableArray alloc]init];
+
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
     menuItems = @[@"samp",@"home",@"profile", @"attendance", @"createtest", @"exam", @"timetable", @"event", @"communication",@"settings",@"studentinfo",@"onduty",@"holidaycalender",@"signout"];
     staticMenu = @[@"username"];
@@ -241,10 +246,53 @@
     }
     else if ([segue.identifier isEqualToString:@"timetable"])
     {
-        UINavigationController *navController = segue.destinationViewController;
-        TimeTableViewController *time = [navController childViewControllers].firstObject;
-        NSLog(@"%@",time);
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+        [parameters setObject:@"1" forKey:@"class_id"];
         
+        AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+        
+        /* concordanate with baseurl */
+        NSString *disp_timetabledays = @"apimain/disp_timetabledays";
+        NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,disp_timetabledays, nil];
+        NSString *api = [NSString pathWithComponents:components];
+        
+        [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+         {
+             
+             NSLog(@"%@",responseObject);
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             NSString *msg = [responseObject objectForKey:@"msg"];
+             if ([msg isEqualToString:@"Timetable Days"])
+             {
+                 NSArray *dataArray = [responseObject objectForKey:@"timetableDays"];
+                 [dayArray removeAllObjects];
+                 [listday_Array removeAllObjects];
+                 for (int i = 0;i < [dataArray count]; i++)
+                 {
+                     NSArray *data = [dataArray objectAtIndex:i];
+                     NSString *strDay = [data valueForKey:@"day"];
+                     NSString *strlist_day = [data valueForKey:@"list_day"];
+                     
+                     [dayArray addObject:strDay];
+                     [listday_Array addObject:strlist_day];
+                 }
+                 [[NSUserDefaults standardUserDefaults]setObject:dayArray forKey:@"timeTable_Days_id"];
+                 [[NSUserDefaults standardUserDefaults]setObject:listday_Array forKey:@"timeTable_Days"];
+                 UINavigationController *navController = segue.destinationViewController;
+                 NewTimeTableViewcontroller *time = [navController childViewControllers].firstObject;
+                 NSLog(@"%@",time);
+             }
+             
+         }
+              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+         {
+             NSLog(@"error: %@", error);
+         }];
     }
     else if ([segue.identifier isEqualToString:@"event"])
     {

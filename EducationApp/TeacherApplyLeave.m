@@ -36,7 +36,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     if ([appDel.user_type isEqualToString:@"2"])
@@ -72,13 +71,11 @@
     UITapGestureRecognizer *tap = [revealController tapGestureRecognizer];
     tap.delegate = self;
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-    
     [self serviceCall];
 }
 -(void)serviceCall
 {
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     [parameters setObject:appDel.user_id forKey:@"user_id"];
     
@@ -98,14 +95,11 @@
      {
          
          NSLog(@"%@",responseObject);
-         
          NSString *msg = [responseObject objectForKey:@"msg"];
-         
          NSArray *leaveDetails = [responseObject objectForKey:@"leaveDetails"];
          
          if ([msg isEqualToString:@"View Leaves"])
          {
-             
              [LeaveTitle removeAllObjects];
              [frmDate removeAllObjects];
              [toDte removeAllObjects];

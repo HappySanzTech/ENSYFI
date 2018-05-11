@@ -226,8 +226,20 @@
 		6B704D1C20918DBF0053BA87 /* HolidayCalenderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B704D1B20918DBF0053BA87 /* HolidayCalenderTableViewCell.m */; };
 		6B704D1F20918DE40053BA87 /* HolidayCalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B704D1E20918DE40053BA87 /* HolidayCalenderViewController.m */; };
 		6B7B4C3B207E2BD8003A979E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B7B4C38207E2AA2003A979E /* GoogleService-Info.plist */; };
+		6B81591520A42ECF003A3699 /* GroupNotificationAddmember.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B81591420A42ECF003A3699 /* GroupNotificationAddmember.m */; };
+		6B81591820A42EF3003A3699 /* GroupNotificationAddMenberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B81591720A42EF3003A3699 /* GroupNotificationAddMenberCell.m */; };
+		6B81591C20A4342E003A3699 /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B81591B20A4342D003A3699 /* select.png */; };
+		6B81591E20A45CC1003A3699 /* deselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B81591D20A45CC0003A3699 /* deselect.png */; };
+		6B89A7172096D3C300254AE2 /* ODPermisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B89A7162096D3C300254AE2 /* ODPermisionViewController.m */; };
+		6B89A71A2096EA6800254AE2 /* AdminLeaveApproveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B89A7192096EA6800254AE2 /* AdminLeaveApproveViewController.m */; };
+		6B89A71C2097142500254AE2 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B89A71B2097142500254AE2 /* UserNotificationsUI.framework */; };
+		6B89A71E2097143900254AE2 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B89A71D2097143900254AE2 /* UserNotifications.framework */; };
 		6B920968206B9E1B00CB8865 /* AdminNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B920967206B9E1B00CB8865 /* AdminNotificationTableViewController.m */; };
 		6B92096B206B9E9900CB8865 /* AdminNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B92096A206B9E9900CB8865 /* AdminNotificationTableViewCell.m */; };
+		6B9F5C3B20A1614900B6BF81 /* GroupNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F5C3A20A1614900B6BF81 /* GroupNotificationViewController.m */; };
+		6B9F5C3E20A1616600B6BF81 /* GroupNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F5C3D20A1616600B6BF81 /* GroupNotificationTableViewCell.m */; };
+		6B9F5C4120A1B06500B6BF81 /* CreateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F5C4020A1B06500B6BF81 /* CreateGroupViewController.m */; };
+		6B9F5C4420A1C11000B6BF81 /* GroupNotificationStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F5C4320A1C11000B6BF81 /* GroupNotificationStatusViewController.m */; };
 		6BA50011207CB6460027E9E2 /* ENSIFY.db in Resources */ = {isa = PBXBuildFile; fileRef = 6BA50010207CB6460027E9E2 /* ENSIFY.db */; };
 		6BABE6D9209058DC009E7392 /* NewTimeTableViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BABE6D8209058DC009E7392 /* NewTimeTableViewcontroller.m */; };
 		6BABE6DC20907F13009E7392 /* NewTimeTableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BABE6DB20907F13009E7392 /* NewTimeTableTableViewCell.m */; };
@@ -237,6 +249,9 @@
 		6BAEE7B22029882000D08550 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7B12029882000D08550 /* FMDatabaseAdditions.m */; };
 		6BAEE7B52029882B00D08550 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7B32029882B00D08550 /* FMResultSet.m */; };
 		6BAEE7B82029892400D08550 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7B72029892400D08550 /* FMDatabasePool.m */; };
+		6BB4CD4220A30605006221B8 /* add_member.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4CD3F20A30602006221B8 /* add_member.png */; };
+		6BB4CD4320A30605006221B8 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4CD4020A30603006221B8 /* edit.png */; };
+		6BB4CD4420A30605006221B8 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4CD4120A30604006221B8 /* notification.png */; };
 		6BBD8D3A2035AD2B00272D8C /* Orange@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBD8D312035AD2500272D8C /* Orange@1x.png */; };
 		6BBD8D3B2035AD2B00272D8C /* Green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBD8D322035AD2500272D8C /* Green@2x.png */; };
 		6BBD8D3C2035AD2B00272D8C /* Red@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBD8D332035AD2600272D8C /* Red@1x.png */; };
@@ -623,10 +638,30 @@
 		6B704D1E20918DE40053BA87 /* HolidayCalenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HolidayCalenderViewController.m; sourceTree = "<group>"; };
 		6B7B4C32207E2516003A979E /* EducationApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EducationApp.entitlements; sourceTree = "<group>"; };
 		6B7B4C38207E2AA2003A979E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6B81591320A42ECF003A3699 /* GroupNotificationAddmember.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupNotificationAddmember.h; sourceTree = "<group>"; };
+		6B81591420A42ECF003A3699 /* GroupNotificationAddmember.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupNotificationAddmember.m; sourceTree = "<group>"; };
+		6B81591620A42EF3003A3699 /* GroupNotificationAddMenberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupNotificationAddMenberCell.h; sourceTree = "<group>"; };
+		6B81591720A42EF3003A3699 /* GroupNotificationAddMenberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupNotificationAddMenberCell.m; sourceTree = "<group>"; };
+		6B81591B20A4342D003A3699 /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select.png; sourceTree = "<group>"; };
+		6B81591D20A45CC0003A3699 /* deselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deselect.png; sourceTree = "<group>"; };
+		6B89A7152096D3C300254AE2 /* ODPermisionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODPermisionViewController.h; sourceTree = "<group>"; };
+		6B89A7162096D3C300254AE2 /* ODPermisionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ODPermisionViewController.m; sourceTree = "<group>"; };
+		6B89A7182096EA6800254AE2 /* AdminLeaveApproveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminLeaveApproveViewController.h; sourceTree = "<group>"; };
+		6B89A7192096EA6800254AE2 /* AdminLeaveApproveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdminLeaveApproveViewController.m; sourceTree = "<group>"; };
+		6B89A71B2097142500254AE2 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		6B89A71D2097143900254AE2 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		6B920966206B9E1B00CB8865 /* AdminNotificationTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminNotificationTableViewController.h; sourceTree = "<group>"; };
 		6B920967206B9E1B00CB8865 /* AdminNotificationTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdminNotificationTableViewController.m; sourceTree = "<group>"; };
 		6B920969206B9E9900CB8865 /* AdminNotificationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminNotificationTableViewCell.h; sourceTree = "<group>"; };
 		6B92096A206B9E9900CB8865 /* AdminNotificationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdminNotificationTableViewCell.m; sourceTree = "<group>"; };
+		6B9F5C3920A1614900B6BF81 /* GroupNotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupNotificationViewController.h; sourceTree = "<group>"; };
+		6B9F5C3A20A1614900B6BF81 /* GroupNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupNotificationViewController.m; sourceTree = "<group>"; };
+		6B9F5C3C20A1616600B6BF81 /* GroupNotificationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupNotificationTableViewCell.h; sourceTree = "<group>"; };
+		6B9F5C3D20A1616600B6BF81 /* GroupNotificationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupNotificationTableViewCell.m; sourceTree = "<group>"; };
+		6B9F5C3F20A1B06500B6BF81 /* CreateGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateGroupViewController.h; sourceTree = "<group>"; };
+		6B9F5C4020A1B06500B6BF81 /* CreateGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateGroupViewController.m; sourceTree = "<group>"; };
+		6B9F5C4220A1C11000B6BF81 /* GroupNotificationStatusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupNotificationStatusViewController.h; sourceTree = "<group>"; };
+		6B9F5C4320A1C11000B6BF81 /* GroupNotificationStatusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupNotificationStatusViewController.m; sourceTree = "<group>"; };
 		6BA50010207CB6460027E9E2 /* ENSIFY.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ENSIFY.db; sourceTree = "<group>"; };
 		6BABE6D7209058DC009E7392 /* NewTimeTableViewcontroller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewTimeTableViewcontroller.h; sourceTree = "<group>"; };
 		6BABE6D8209058DC009E7392 /* NewTimeTableViewcontroller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewTimeTableViewcontroller.m; sourceTree = "<group>"; };
@@ -644,6 +679,9 @@
 		6BAEE7B42029882B00D08550 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		6BAEE7B62029892400D08550 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
 		6BAEE7B72029892400D08550 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		6BB4CD3F20A30602006221B8 /* add_member.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_member.png; sourceTree = "<group>"; };
+		6BB4CD4020A30603006221B8 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
+		6BB4CD4120A30604006221B8 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
 		6BBD8D312035AD2500272D8C /* Orange@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orange@1x.png"; sourceTree = "<group>"; };
 		6BBD8D322035AD2500272D8C /* Green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@2x.png"; sourceTree = "<group>"; };
 		6BBD8D332035AD2600272D8C /* Red@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red@1x.png"; sourceTree = "<group>"; };
@@ -668,6 +706,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B89A71E2097143900254AE2 /* UserNotifications.framework in Frameworks */,
+				6B89A71C2097142500254AE2 /* UserNotificationsUI.framework in Frameworks */,
 				6828B11A1F0A5156006AF3AF /* libsqlite3.0.tbd in Frameworks */,
 				6804A93B1F07B0380055D0EE /* SystemConfiguration.framework in Frameworks */,
 				68F051F41F03D8B10024C238 /* ImageIO.framework in Frameworks */,
@@ -1018,6 +1058,11 @@
 		688FDD721E924F2600762CF4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6B81591D20A45CC0003A3699 /* deselect.png */,
+				6B81591B20A4342D003A3699 /* select.png */,
+				6BB4CD3F20A30602006221B8 /* add_member.png */,
+				6BB4CD4020A30603006221B8 /* edit.png */,
+				6BB4CD4120A30604006221B8 /* notification.png */,
 				6BBD8D432035AF8E00272D8C /* 1.gif */,
 				6BBD8D342035AD2700272D8C /* Green@1x.png */,
 				6BBD8D322035AD2500272D8C /* Green@2x.png */,
@@ -1137,10 +1182,6 @@
 				68FF154B1F1C8F29001BD881 /* AdminViewController.m */,
 				68FF154D1F1C8F4D001BD881 /* AdminCollectionViewCell.h */,
 				68FF154E1F1C8F4D001BD881 /* AdminCollectionViewCell.m */,
-				6B920966206B9E1B00CB8865 /* AdminNotificationTableViewController.h */,
-				6B920967206B9E1B00CB8865 /* AdminNotificationTableViewController.m */,
-				6B920969206B9E9900CB8865 /* AdminNotificationTableViewCell.h */,
-				6B92096A206B9E9900CB8865 /* AdminNotificationTableViewCell.m */,
 				68363D161F1E3486003F1C20 /* AdminEventTableViewController.h */,
 				68363D171F1E3486003F1C20 /* AdminEventTableViewController.m */,
 				68363D191F1E349F003F1C20 /* AdminEventTableViewCell.h */,
@@ -1193,12 +1234,16 @@
 				68CDDCCE1F2555ED00615E04 /* AdminStudentInfoCell.m */,
 				68BAA47C1F25FD3B00C4F91F /* AdminODViewController.h */,
 				68BAA47D1F25FD3B00C4F91F /* AdminODViewController.m */,
+				6B89A7152096D3C300254AE2 /* ODPermisionViewController.h */,
+				6B89A7162096D3C300254AE2 /* ODPermisionViewController.m */,
 				68BAA4791F25FD1600C4F91F /* AdminODTableViewCell.h */,
 				68BAA47A1F25FD1600C4F91F /* AdminODTableViewCell.m */,
 				68BAA47F1F26222600C4F91F /* AdminLeaveRequestView.h */,
 				68BAA4801F26222600C4F91F /* AdminLeaveRequestView.m */,
 				68BAA4821F26225300C4F91F /* AdminLeaveRequestCell.h */,
 				68BAA4831F26225300C4F91F /* AdminLeaveRequestCell.m */,
+				6B89A7182096EA6800254AE2 /* AdminLeaveApproveViewController.h */,
+				6B89A7192096EA6800254AE2 /* AdminLeaveApproveViewController.m */,
 				68FA41A61F2689FB00C88E68 /* AdminSettingsView.h */,
 				68FA41A71F2689FB00C88E68 /* AdminSettingsView.m */,
 				68FA41A91F2694B200C88E68 /* AdminProfileView.h */,
@@ -1217,6 +1262,22 @@
 				6809D1501F2765BE007ABFF8 /* AdminResultStudentListCell.m */,
 				6BD02AE82091AAE800A46172 /* AdminHolidayCalenderViewController.h */,
 				6BD02AE92091AAE800A46172 /* AdminHolidayCalenderViewController.m */,
+				6B9F5C3920A1614900B6BF81 /* GroupNotificationViewController.h */,
+				6B9F5C3A20A1614900B6BF81 /* GroupNotificationViewController.m */,
+				6B9F5C3C20A1616600B6BF81 /* GroupNotificationTableViewCell.h */,
+				6B9F5C3D20A1616600B6BF81 /* GroupNotificationTableViewCell.m */,
+				6B9F5C3F20A1B06500B6BF81 /* CreateGroupViewController.h */,
+				6B9F5C4020A1B06500B6BF81 /* CreateGroupViewController.m */,
+				6B9F5C4220A1C11000B6BF81 /* GroupNotificationStatusViewController.h */,
+				6B9F5C4320A1C11000B6BF81 /* GroupNotificationStatusViewController.m */,
+				6B920966206B9E1B00CB8865 /* AdminNotificationTableViewController.h */,
+				6B920967206B9E1B00CB8865 /* AdminNotificationTableViewController.m */,
+				6B920969206B9E9900CB8865 /* AdminNotificationTableViewCell.h */,
+				6B92096A206B9E9900CB8865 /* AdminNotificationTableViewCell.m */,
+				6B81591320A42ECF003A3699 /* GroupNotificationAddmember.h */,
+				6B81591420A42ECF003A3699 /* GroupNotificationAddmember.m */,
+				6B81591620A42EF3003A3699 /* GroupNotificationAddMenberCell.h */,
+				6B81591720A42EF3003A3699 /* GroupNotificationAddMenberCell.m */,
 				68FF15481F1C8C51001BD881 /* admin.storyboard */,
 			);
 			name = AdminModule;
@@ -1248,6 +1309,8 @@
 		8BF5372D6FDAF9E33A5C67FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6B89A71D2097143900254AE2 /* UserNotifications.framework */,
+				6B89A71B2097142500254AE2 /* UserNotificationsUI.framework */,
 				6828B1181F0A50F8006AF3AF /* libsqlite3.tbd */,
 				6885ED781F0A49A600DB524E /* libsqlite3.dylib */,
 				6885ED761F0A46D900DB524E /* XCTest.framework */,
@@ -1310,6 +1373,9 @@
 						DevelopmentTeam = 257QV56PWA;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1368,7 +1434,10 @@
 				68B95E4A1ED957AB008AC29F /* updateicon-01.png in Resources */,
 				68E2CA2B1ECDBBF900D96595 /* eventcalender-01.png in Resources */,
 				68FF15681F1CD140001BD881 /* Class.png in Resources */,
+				6B81591E20A45CC1003A3699 /* deselect.png in Resources */,
 				68584CC41F0CE8DC000E1C97 /* user.png in Resources */,
+				6B81591C20A4342E003A3699 /* select.png in Resources */,
+				6BB4CD4320A30605006221B8 /* edit.png in Resources */,
 				68363D261F1E3DCA003F1C20 /* exam-01 (1).png in Resources */,
 				68F60C8C1F1361EC00472DB7 /* fees icon.png in Resources */,
 				68C1AC9F1E97CE5C007DEE70 /* profile_pic.png in Resources */,
@@ -1386,6 +1455,7 @@
 				680528C71ECB1EA200EEEC28 /* calender-01.png in Resources */,
 				68F60C821F135D5100472DB7 /* user small-01.png in Resources */,
 				68C547921E9E881A001FB96E /* menu .png in Resources */,
+				6BB4CD4220A30605006221B8 /* add_member.png in Resources */,
 				689C09531E93BD9000B45B4E /* roboto.bold.ttf in Resources */,
 				68FF15491F1C8C51001BD881 /* admin.storyboard in Resources */,
 				68F8DD431F6FD3E5006718C5 /* ensyfi message screen icons-01.png in Resources */,
@@ -1408,6 +1478,7 @@
 				684F1B681F3C2997000E01B8 /* calender icon-android-01.png in Resources */,
 				6BBD8D412035AD2B00272D8C /* Orange@3x.png in Resources */,
 				68B73BD21F1A0ADC0080C51A /* ensyfi profile bg-01.jpg in Resources */,
+				6BB4CD4420A30605006221B8 /* notification.png in Resources */,
 				6BA50011207CB6460027E9E2 /* ENSIFY.db in Resources */,
 				683237A61F13B00700FE9E62 /* close-01.png in Resources */,
 				681494BF1F73EBFD0034393B /* teacher-01-01.png in Resources */,
@@ -1499,6 +1570,7 @@
 				68E2CA251ECDAE3F00D96595 /* EventTableViewCell.m in Sources */,
 				6809D1421F2722E1007ABFF8 /* AdminFeeViewCell.m in Sources */,
 				68BAA47E1F25FD3B00C4F91F /* AdminODViewController.m in Sources */,
+				6B9F5C3E20A1616600B6BF81 /* GroupNotificationTableViewCell.m in Sources */,
 				68F4D90F1F2371A70026F7C7 /* AdminResultView.m in Sources */,
 				68B7C7CD1F0E76A10017189A /* StudentinfoViewController.m in Sources */,
 				68363D1B1F1E349F003F1C20 /* AdminEventTableViewCell.m in Sources */,
@@ -1535,7 +1607,9 @@
 				68363D1E1F1E34CB003F1C20 /* AdminEventDescripitionView.m in Sources */,
 				680134A11F8F4CA1001238EB /* TeacherMarkIntExtViewCell.m in Sources */,
 				68FF15581F1C9B77001BD881 /* SWRevealViewController.m in Sources */,
+				6B89A7172096D3C300254AE2 /* ODPermisionViewController.m in Sources */,
 				68FA41AB1F2694B200C88E68 /* AdminProfileView.m in Sources */,
+				6B9F5C4120A1B06500B6BF81 /* CreateGroupViewController.m in Sources */,
 				6809D1451F272CAB007ABFF8 /* AdminFeeStatusCell.m in Sources */,
 				6810D4351F723EFD00232DD0 /* TeacherApplyLeave.m in Sources */,
 				68C83B971F87606B005D99C5 /* TeacherClassTestHomeworkCell.m in Sources */,
@@ -1543,6 +1617,7 @@
 				68EC541E1ED02D1F001B6208 /* ClassTestTableViewCell.m in Sources */,
 				68BAA4841F26225300C4F91F /* AdminLeaveRequestCell.m in Sources */,
 				68F4BA1D1F220C82008E6E58 /* AdminClassesViewController.m in Sources */,
+				6B81591520A42ECF003A3699 /* GroupNotificationAddmember.m in Sources */,
 				68E6389D1F67C14A0050ECDA /* FMDBManager.m in Sources */,
 				68F051EC1F03CEC10024C238 /* UIImage+animatedGIF.m in Sources */,
 				6BABE6D9209058DC009E7392 /* NewTimeTableViewcontroller.m in Sources */,
@@ -1561,6 +1636,7 @@
 				6802FB0A1F2084C400DCBC1F /* AdminTeacherView.m in Sources */,
 				688FDD5C1E922E2900762CF4 /* EducationApp.xcdatamodeld in Sources */,
 				68E2CA281ECDB69600D96595 /* EventDiscripitionViewController.m in Sources */,
+				6B9F5C3B20A1614900B6BF81 /* GroupNotificationViewController.m in Sources */,
 				68E37F0E1F31A22F005612A7 /* TeacherTableViewCell.m in Sources */,
 				68E102F91ED5ACAD00A15131 /* CommunicationDetailController.m in Sources */,
 				68FF154F1F1C8F4D001BD881 /* AdminCollectionViewCell.m in Sources */,
@@ -1568,12 +1644,14 @@
 				68584CC81F0CE9ED000E1C97 /* NIDropDown.m in Sources */,
 				6B92096B206B9E9900CB8865 /* AdminNotificationTableViewCell.m in Sources */,
 				68EC54271ED0533B001B6208 /* ClassTestDetailViewController.m in Sources */,
+				6B81591820A42EF3003A3699 /* GroupNotificationAddMenberCell.m in Sources */,
 				68363D241F1E366C003F1C20 /* AdminEventOrganiserTableCell.m in Sources */,
 				68BA706B1E9F531F0046CF0A /* SideTableViewCell.m in Sources */,
 				68D531341F6BF4C40047DF11 /* TeacherCirularTableViewController.m in Sources */,
 				68D5313D1F6C14BC0047DF11 /* TecherOndutyTableViewController.m in Sources */,
 				68E2E5B81F4AE37900A88BC5 /* ExamTestMarkView.m in Sources */,
 				68E74B3F1F882B7B00973527 /* TeacherClassTestMarkView.m in Sources */,
+				6B9F5C4420A1C11000B6BF81 /* GroupNotificationStatusViewController.m in Sources */,
 				68CDDCCF1F2555ED00615E04 /* AdminStudentInfoCell.m in Sources */,
 				681494BD1F73E74A0034393B /* TeacherProfileViewController.m in Sources */,
 				6886E3881ECE398C0013A42A /* AttendanceViewController.m in Sources */,
@@ -1614,6 +1692,7 @@
 				680134A41F8F6DDD001238EB /* TeachersTimeTableView.m in Sources */,
 				68D297131F1FE26300BFAC73 /* AdminTableViewDetailCell.m in Sources */,
 				6BACA1B6209208AE005DBDAF /* ExamdutyViewController.m in Sources */,
+				6B89A71A2096EA6800254AE2 /* AdminLeaveApproveViewController.m in Sources */,
 				680E6CD31ED6D8F8007B7496 /* ExamMarkViewCell.m in Sources */,
 				681858ED1F90ED9F00D5C02B /* TeacherTimeTableNotesView.m in Sources */,
 				680522921F8E578100E5002F /* TeacherExamExternalViewCell.m in Sources */,

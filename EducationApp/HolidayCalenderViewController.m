@@ -25,7 +25,6 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {
@@ -48,6 +47,7 @@
     CGRect frame= _segmentcontrol.frame;
     [_segmentcontrol setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width,42)];
     
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
@@ -74,12 +74,13 @@
          NSString *msg = [responseObject objectForKey:@"msg"];
          if ([msg isEqualToString:@"View Leaves"])
          {
-             NSArray *dataArray = [responseObject objectForKey:@"upcomingleavesDetails"];
              [leaveTitle removeAllObjects];
              [leaveDate removeAllObjects];
              [leaveReson removeAllObjects];
              [leaveDays removeAllObjects];
              [leaveImages removeAllObjects];
+             
+             NSArray *dataArray = [responseObject objectForKey:@"upcomingleavesDetails"];
              for (int i = 0; i < [dataArray count];i++)
              {
                  NSArray *Data  = [dataArray objectAtIndex:i];
@@ -103,6 +104,7 @@
                  {
                      strStart = @"";
                  }
+                 
                  [leaveTitle addObject:strLeaveTitle];
                  [leaveDate addObject:Daydate];
                  [leaveReson addObject:strdescrption];
@@ -134,13 +136,11 @@
          NSLog(@"error: %@", error);
      }];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
 
@@ -154,17 +154,14 @@
 {
     return 1;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [leaveTitle count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     static NSString *simpleTableIdentifier = @"cell";
     HolidayCalenderTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
     if (cell == nil)
     {
         cell = [[HolidayCalenderTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
@@ -172,7 +169,6 @@
     cell.leaveTitle.text = [leaveTitle objectAtIndex:indexPath.row];
     cell.LeaveDate.text = [leaveDate objectAtIndex:indexPath.row];
     cell.leaveReson.text = [leaveReson objectAtIndex:indexPath.row];
-    
     cell.cellView.layer.cornerRadius = 5;
     cell.cellView.clipsToBounds = YES;
     return cell;
@@ -211,12 +207,13 @@
              NSString *msg = [responseObject objectForKey:@"msg"];
              if ([msg isEqualToString:@"View Leaves"])
              {
-                 NSArray *dataArray = [responseObject objectForKey:@"leaveDetails"];
                  [leaveTitle removeAllObjects];
                  [leaveDate removeAllObjects];
                  [leaveReson removeAllObjects];
                  [leaveDays removeAllObjects];
                  [leaveImages removeAllObjects];
+                 
+                 NSArray *dataArray = [responseObject objectForKey:@"leaveDetails"];
                  for (int i = 0; i < [dataArray count];i++)
                  {
                      NSArray *Data = [dataArray objectAtIndex:i];
@@ -239,9 +236,7 @@
                      NSDate *date  = [dateFormatter dateFromString:strStart];
                      [dateFormatter setDateFormat:@"MM-dd-yyyy"];
                      NSString *newDate = [dateFormatter stringFromDate:date];
-                     
                      NSString *Daydate = [NSString stringWithFormat:@"%@ (%@)",strDay,newDate];
-                     
                      [leaveTitle addObject:strLeaveTitle];
                      [leaveDate addObject:Daydate];
                      [leaveReson addObject:strdescrption];
@@ -288,7 +283,6 @@
         [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
         
-        
         /* concordanate with baseurl */
         NSString *forHomeWork = @"/apimain/disp_upcomingLeaves/";
         NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,forHomeWork, nil];
@@ -302,20 +296,20 @@
              NSString *msg = [responseObject objectForKey:@"msg"];
              if ([msg isEqualToString:@"View Leaves"])
              {
-                 NSArray *dataArray = [responseObject objectForKey:@"upcomingleavesDetails"];
                  [leaveTitle removeAllObjects];
                  [leaveDate removeAllObjects];
                  [leaveReson removeAllObjects];
                  [leaveDays removeAllObjects];
                  [leaveImages removeAllObjects];
+                 
+                 NSArray *dataArray = [responseObject objectForKey:@"upcomingleavesDetails"];
                  for (int i = 0; i < [dataArray count];i++)
                  {
                      NSArray *Data = [dataArray objectAtIndex:i];
                      NSString *strLeaveTitle = [Data valueForKey:@"title"];
-                     NSString *strStart  = [Data valueForKey:@"START"];
+                     NSString *strStart  = [Data valueForKey:@"Start"];
                      NSString *strdescrption = [Data valueForKey:@"description"];
-                     NSString *strDay = [Data valueForKey:@"day"];
-                     
+                     NSString *strDay = [Data valueForKey:@"day"];                     
                      if (strDay.length == 0)
                      {
                          strDay = @"";
@@ -324,15 +318,12 @@
                      {
                          strStart = @"";
                      }
-                     
                      NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                      [dateFormatter setDateFormat:@"yyyy-MM-dd"];
                      NSDate *date  = [dateFormatter dateFromString:strStart];
                      [dateFormatter setDateFormat:@"MM-dd-yyyy"];
                      NSString *newDate = [dateFormatter stringFromDate:date];
-                     
                      NSString *Daydate = [NSString stringWithFormat:@"%@ (%@)",strDay,newDate];
-                     
                      [leaveTitle addObject:strLeaveTitle];
                      [leaveDate addObject:Daydate];
                      [leaveReson addObject:strdescrption];
@@ -342,21 +333,21 @@
              }
              else
              {
-                 self.tableView.hidden = YES;
-                 UIAlertController *alert= [UIAlertController
-                                            alertControllerWithTitle:@"ENSYFI"
-                                            message:msg
-                                            preferredStyle:UIAlertControllerStyleAlert];
+                     self.tableView.hidden = YES;
+                     UIAlertController *alert= [UIAlertController
+                                                alertControllerWithTitle:@"ENSYFI"
+                                                message:msg
+                                                preferredStyle:UIAlertControllerStyleAlert];
                  
-                 UIAlertAction *ok = [UIAlertAction
-                                      actionWithTitle:@"OK"
-                                      style:UIAlertActionStyleDefault
-                                      handler:^(UIAlertAction * action)
-                                      {
-                                          
-                                      }];
-                 [alert addAction:ok];
-                 [self presentViewController:alert animated:YES completion:nil];
+                     UIAlertAction *ok = [UIAlertAction
+                                          actionWithTitle:@"OK"
+                                          style:UIAlertActionStyleDefault
+                                          handler:^(UIAlertAction * action)
+                                          {
+                                              
+                                          }];
+                     [alert addAction:ok];
+                     [self presentViewController:alert animated:YES completion:nil];
              }
          }
               failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)

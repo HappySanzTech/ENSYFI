@@ -114,9 +114,9 @@
     {
         cell = [[HolidayCalenderTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    cell.leaveTitle.text = [leaveTitle objectAtIndex:indexPath.row];
+    cell.leaveTitle.text = [NSString stringWithFormat:@"%@ %@",@"Title :",[leaveTitle objectAtIndex:indexPath.row]];
     cell.LeaveDate.text = [leaveDate objectAtIndex:indexPath.row];
-    cell.leaveReson.text = [leaveReson objectAtIndex:indexPath.row];
+    cell.leaveReson.text = [NSString stringWithFormat:@"%@ %@",@"Reson :",[leaveReson objectAtIndex:indexPath.row]];
     
     cell.cellView.layer.cornerRadius = 5;
     cell.cellView.clipsToBounds = YES;

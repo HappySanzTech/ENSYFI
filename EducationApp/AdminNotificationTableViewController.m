@@ -25,7 +25,8 @@
 
 @implementation AdminNotificationTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     [self.navigationController.navigationBar setHidden:NO];
@@ -37,20 +38,6 @@
 
     groupView_title = [[NSMutableArray alloc]init];
     gropuDetailView_id = [[NSMutableArray alloc]init];
-    
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if ( revealViewController )
-    {
-        [self.sideBar setTarget: self.revealViewController];
-        [self.sideBar setAction: @selector( revealToggle: )];
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    }
-    
-    SWRevealViewController *revealController = [self revealViewController];
-    UITapGestureRecognizer *tap = [revealController tapGestureRecognizer];
-    tap.delegate = self;
-    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-    appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     [parameters setObject:appDel.user_type forKey:@"user_type"];
@@ -136,8 +123,6 @@
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              
          }
-         
-         
      }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
      {
@@ -177,7 +162,6 @@
     
     return cell;
 }
-
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
@@ -232,4 +216,8 @@
 }
 */
 
+- (IBAction)backButton:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

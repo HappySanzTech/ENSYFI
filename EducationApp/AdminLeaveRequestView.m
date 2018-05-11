@@ -18,7 +18,7 @@
     NSMutableArray *to_time;
     NSMutableArray *status;
     NSMutableArray *leave_title;
-
+    NSMutableArray *leave_id;
 
 }
 @end
@@ -40,6 +40,7 @@
     frm_time = [[NSMutableArray alloc]init];
     to_time = [[NSMutableArray alloc]init];
     status = [[NSMutableArray alloc]init];
+    leave_id = [[NSMutableArray alloc]init];
 
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
@@ -53,6 +54,8 @@
     UITapGestureRecognizer *tap = [revealController tapGestureRecognizer];
     tap.delegate = self;
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -93,6 +96,7 @@
                  NSString *strfrom_leave_date = [leave objectForKey:@"from_leave_date"];
                  NSString *strto_leave_date = [leave objectForKey:@"to_leave_date"];
                  NSString *strstatus = [leave objectForKey:@"status"];
+                 NSString *strleave_id = [leave objectForKey:@"leave_id"];
 
                  [name addObject:strname];
                  [from_leave_date addObject:strfrom_leave_date];
@@ -101,8 +105,9 @@
                  [to_time addObject:strto_time];
                  [status addObject:strstatus];
                  [leave_title addObject:strleave_title];
-
+                 [leave_id addObject:strleave_id];
              }
+             [self.tableView reloadData];
          }
          else
          {
@@ -122,18 +127,15 @@
              [alert addAction:ok];
              [self presentViewController:alert animated:YES completion:nil];
          }
-         [self.tableView reloadData];
-         
          [MBProgressHUD hideHUDForView:self.view animated:YES];
-         
      }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
      {
          NSLog(@"error: %@", error);
      }];
 }
-
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -141,17 +143,13 @@
 {
     return 1;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [name count];
 }
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     AdminLeaveRequestCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    // Configure the cell...
     
     cell.name.text = [name objectAtIndex:indexPath.row];
     cell.fromDate.text = [from_leave_date objectAtIndex:indexPath.row];
@@ -187,6 +185,55 @@
     cell.cellView.layer.cornerRadius = 6.0f;
     
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    NSString *str = [status objectAtIndex:indexPath.row];
+    if([str isEqualToString:@"Approved"])
+    {
+        NSString *strname = [name objectAtIndex:indexPath.row];
+        NSString *date  = [NSString stringWithFormat:@"%@ - %@",[from_leave_date objectAtIndex:indexPath.row],[to_leave_date objectAtIndex:indexPath.row]];
+        NSString *strStatus = [status objectAtIndex:indexPath.row];
+        NSString *strLeaveID  = [leave_id objectAtIndex:indexPath.row];
+        NSString *strLeaveTitle  = [leave_title objectAtIndex:indexPath.row];
+        [[NSUserDefaults standardUserDefaults]setObject:strLeaveID forKey:@"adminLeave_id"];
+        [[NSUserDefaults standardUserDefaults]setObject:strname forKey:@"adminLeave_Name"];
+        [[NSUserDefaults standardUserDefaults]setObject:date forKey:@"adminLeave_date"];
+        [[NSUserDefaults standardUserDefaults]setObject:strStatus forKey:@"adminLeave_Status"];
+        [[NSUserDefaults standardUserDefaults]setObject:strLeaveTitle forKey:@"adminLeave_Title"];
+
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"admin" bundle:nil];
+        AdminLeaveApproveViewController *adminLeaveApproveViewController = (AdminLeaveApproveViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AdminLeaveApproveViewController"];
+        [self.navigationController pushViewController:adminLeaveApproveViewController animated:YES];
+    }
+    else if ([str isEqualToString:@"Rejected"])
+    {
+        NSString *strname = [name objectAtIndex:indexPath.row];
+        NSString *date  = [NSString stringWithFormat:@"%@ - %@",[from_leave_date objectAtIndex:indexPath.row],[to_leave_date objectAtIndex:indexPath.row]];
+        NSString *strStatus = [leave_title objectAtIndex:indexPath.row];
+        NSString *strID  = [leave_id objectAtIndex:indexPath.row];
+        [[NSUserDefaults standardUserDefaults]setObject:strID forKey:@"adminLeave_id"];
+        [[NSUserDefaults standardUserDefaults]setObject:strname forKey:@"adminLeave_Name"];
+        [[NSUserDefaults standardUserDefaults]setObject:date forKey:@"adminLeave_date"];
+        [[NSUserDefaults standardUserDefaults]setObject:strStatus forKey:@"adminLeave_Status"];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"admin" bundle:nil];
+        AdminLeaveApproveViewController *adminLeaveApproveViewController = (AdminLeaveApproveViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AdminLeaveApproveViewController"];
+        [self.navigationController pushViewController:adminLeaveApproveViewController animated:YES];
+    }
+    else if ([str isEqualToString:@"Pending"])
+    {
+        NSString *strname = [name objectAtIndex:indexPath.row];
+        NSString *date  = [NSString stringWithFormat:@"%@ - %@",[from_leave_date objectAtIndex:indexPath.row],[to_leave_date objectAtIndex:indexPath.row]];
+        NSString *strStatus = [leave_title objectAtIndex:indexPath.row];
+        NSString *strID  = [leave_id objectAtIndex:indexPath.row];
+        [[NSUserDefaults standardUserDefaults]setObject:strID forKey:@"adminLeave_id"];
+        [[NSUserDefaults standardUserDefaults]setObject:strname forKey:@"adminLeave_Name"];
+        [[NSUserDefaults standardUserDefaults]setObject:date forKey:@"adminLeave_date"];
+        [[NSUserDefaults standardUserDefaults]setObject:strStatus forKey:@"adminLeave_Status"];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"admin" bundle:nil];
+        AdminLeaveApproveViewController *adminLeaveApproveViewController = (AdminLeaveApproveViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AdminLeaveApproveViewController"];
+        [self.navigationController pushViewController:adminLeaveApproveViewController animated:YES];
+    }
 }
 /*
 #pragma mark - Navigation

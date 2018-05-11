@@ -266,7 +266,6 @@
             if ([marks containsObject:@""])
             {
                 NSString *intStr = [marks firstObject];
-                
                 if ([intStr isEqualToString:@""])
                 {
                     [name removeObjectAtIndex:0];
@@ -344,7 +343,7 @@
                     {
                         NSLog(@"Error occured while inserting");
                     }
-                }
+                 }
                 }
                 else
                 {
@@ -365,9 +364,6 @@
                     [self presentViewController:alert animated:YES completion:nil];
                 }
             }
-//            else
-//            {
-//            }
         }
     }
 @end

@@ -42,9 +42,7 @@
     
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     [parameters setObject:appDel.class_id forKey:@"class_id"];
     
@@ -52,7 +50,6 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    
     
     /* concordanate with baseurl */
     NSString *forExam = @"/apistudent/disp_Timetable/";
@@ -131,10 +128,7 @@
              }
              
          }
-
-         
-         
-         [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
          
      }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)

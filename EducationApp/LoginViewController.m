@@ -197,12 +197,13 @@
     }
     else
     {
+        NSString *deviceToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"deviceToken_Key"];
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
         [parameters setObject:self.username.text forKey:@"username"];
         [parameters setObject:self.password.text forKey:@"password"];
-        [[NSUserDefaults standardUserDefaults]setObject:self.username.text forKey:@"username_key"];
-        [[NSUserDefaults standardUserDefaults]setObject:self.password.text forKey:@"paswrd_key"];
-        
+        [parameters setObject:deviceToken forKey:@"gcm_key"];
+        [parameters setObject:@"2" forKey:@"mobile_type"];
+
         AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -222,6 +223,7 @@
              NSArray *parentProfile = [responseObject objectForKey:@"parentProfile"];
              NSArray *fatherProfile = [parentProfile valueForKey:@"fatherProfile"];
              NSArray *guardianProfile = [parentProfile valueForKey:@"guardianProfile"];
+             
              NSArray *motherProfile = [parentProfile valueForKey:@"motherProfile"];
              NSArray *teacherProfile = [parentProfile valueForKey:@"teacherProfile"];
              NSArray *registeredDetails = [responseObject objectForKey:@"registeredDetails"];

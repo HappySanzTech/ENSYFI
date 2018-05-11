@@ -423,9 +423,7 @@
             if ([str isEqualToString:@"month"])
             {
                 NSString *studentId = [month_enroll_id objectAtIndex:indexPath.row];
-                
                 [[NSUserDefaults standardUserDefaults]setObject:studentId forKey:@"studentId_key"];
-                
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"teachers" bundle:nil];
                 AttendanceDateView *myNewVC = (AttendanceDateView *)[storyboard instantiateViewControllerWithIdentifier:@"AttendanceDateView"];
                 [self.navigationController pushViewController:myNewVC animated:YES];
@@ -474,16 +472,11 @@
     {
         _selectMonthOtlet.hidden =YES;
         _selectMonthOtlet.enabled =NO;
-
         self.dayTextfiled.hidden = NO;
         self.dayTextfiled.enabled = YES;
-        
         self.calenderImg.hidden = NO;
-        
         _selectMonthImg.hidden = YES;
-        
         [self.tableview reloadData];
-
     }
     else
     {
@@ -493,7 +486,6 @@
         self.dayTextfiled.hidden = YES;
         self.dayTextfiled.enabled = YES;
         self.calenderImg.hidden = YES;
-        
         [self.tableview reloadData];
     }
 }

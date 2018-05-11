@@ -12,9 +12,10 @@
 {
     AppDelegate *appDel;
     NSMutableArray *class_section_Array;
-    NSMutableArray *exam_datetime_Array;
+    NSMutableArray *exam_date_Array;
     NSMutableArray *exam_name_Array;
     NSMutableArray *subject_name_Array;
+    NSMutableArray *exam_time_Array;
 }
 @end
 
@@ -38,7 +39,8 @@
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
     
     class_section_Array = [[NSMutableArray alloc]init];
-    exam_datetime_Array = [[NSMutableArray alloc]init];
+    exam_date_Array = [[NSMutableArray alloc]init];
+    exam_time_Array = [[NSMutableArray alloc]init];
     exam_name_Array = [[NSMutableArray alloc]init];
     subject_name_Array = [[NSMutableArray alloc]init];
 
@@ -67,7 +69,7 @@
          {
              NSArray *dataArray = [responseObject objectForKey:@"examdutyDetails"];
              [class_section_Array removeAllObjects];
-             [exam_datetime_Array removeAllObjects];
+             [exam_date_Array removeAllObjects];
              [exam_name_Array removeAllObjects];
              [subject_name_Array removeAllObjects];
              
@@ -79,13 +81,13 @@
                  NSString *strexam_name = [Data valueForKey:@"exam_name"];
                  NSString *strsubject_name = [Data valueForKey:@"subject_name"];
                  
-                 NSString *subjectName = [NSString stringWithFormat:@"%@ %@",@"Subjec Name :",strsubject_name];
-                 NSString *class_section = [NSString stringWithFormat:@"%@ %@",@"Class Section :",strclass_section];
-                 NSString *exam_name  = [NSString stringWithFormat:@"%@ %@",@"Exam Name  :",strexam_name];
-                 NSString *exam_datetime = [NSString stringWithFormat:@"%@ %@",@"Date and Time :",strexam_datetime];
+                 NSString *subjectName = [NSString stringWithFormat:@"%@",strsubject_name];
+                 NSString *class_section = [NSString stringWithFormat:@"%@ %@",@"Venue :",strclass_section];
+                 NSString *exam_name  = [NSString stringWithFormat:@"%@",strexam_name];
+                 NSString *exam_datetime = [NSString stringWithFormat:@"%@",strexam_datetime];
 
                  [class_section_Array addObject:class_section];
-                 [exam_datetime_Array addObject:exam_datetime];
+                 [exam_date_Array addObject:exam_datetime];
                  [exam_name_Array addObject:exam_name];
                  [subject_name_Array addObject:subjectName];
              }
@@ -149,7 +151,7 @@
     }
     cell.subjectName.text = [class_section_Array objectAtIndex:indexPath.row];
     cell.classSection.text = [subject_name_Array objectAtIndex:indexPath.row];
-    cell.dateTime.text = [exam_datetime_Array objectAtIndex:indexPath.row];
+    cell.dateTime.text = [exam_date_Array objectAtIndex:indexPath.row];
     cell.examName.text = [exam_name_Array objectAtIndex:indexPath.row];
 
     cell.cellView.layer.cornerRadius = 5.0;

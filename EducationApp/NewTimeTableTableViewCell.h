@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface NewTimeTableTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIView *cellView;
+@property (weak, nonatomic) IBOutlet UILabel *subjectName;
+@property (weak, nonatomic) IBOutlet UILabel *period;
+@property (weak, nonatomic) IBOutlet UILabel *staffName;
+@property (weak, nonatomic) IBOutlet UILabel *time;
 
 @end

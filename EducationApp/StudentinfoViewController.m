@@ -17,7 +17,6 @@
     NSMutableArray *section;
     NSMutableArray *classid;
     NSMutableArray *admisionID;
-
     AppDelegate *appDel;
 }
 @end
@@ -29,9 +28,8 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"STUDENT INFO";
-    
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    
+
     name = [[NSMutableArray alloc]init];
     studentID = [[NSMutableArray alloc]init];
     admissionnumber = [[NSMutableArray alloc]init];
@@ -50,19 +48,19 @@
 
     [self.tableview reloadData];
 }
-
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [name count];
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
 
