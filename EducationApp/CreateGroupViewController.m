@@ -38,7 +38,7 @@
     _LeadName.layer.borderWidth = 1.0f;
     [_LeadName.layer setCornerRadius:10.0f];
     
-    switchFlag = @"DeActive";
+    switchFlag = @"Deactive";
     pickerView = [[UIPickerView alloc]init];
     pickerView.delegate = self;
     pickerView.dataSource = self;
@@ -181,7 +181,7 @@
     }
     else
     {
-        switchFlag = @"DeActive";
+        switchFlag = @"Deactive";
     }
 }
 - (IBAction)backButton:(id)sender
@@ -235,7 +235,7 @@
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
         [parameters setObject:@"1" forKey:@"user_id"];
         [parameters setObject:self.titleTxtfield.text forKey:@"group_title"];
-        [parameters setObject:lead_id forKey:@",group_lead_id"];
+        [parameters setObject:lead_id forKey:@"group_lead_id"];
         [parameters setObject:switchFlag forKey:@"status"];
         
         AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -256,6 +256,24 @@
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              NSString *msg = [responseObject objectForKey:@"msg"];
              if ([msg isEqualToString:@"Group Master Added"])
+             {
+                 UIAlertController *alert= [UIAlertController
+                                            alertControllerWithTitle:@"ENSYFI"
+                                            message:msg
+                                            preferredStyle:UIAlertControllerStyleAlert];
+                 
+                 UIAlertAction *ok = [UIAlertAction
+                                      actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action)
+                                      {
+                                          [self dismissViewControllerAnimated:YES completion:nil];
+                                      }];
+                 
+                 [alert addAction:ok];
+                 [self presentViewController:alert animated:YES completion:nil];
+             }
+             else
              {
                  UIAlertController *alert= [UIAlertController
                                             alertControllerWithTitle:@"ENSYFI"

@@ -10,6 +10,8 @@
 
 @implementation BaseUrl
 
+//NSString *const appBaseUrl = @"http://ensyfi.com/admin/admin_api/api.php";
+//NSString *const baseUrl = @"http://ensyfi.com/";
 NSString *const appBaseUrl = @"http://happysanz.net/admin/admin_api/api.php";
 NSString *const baseUrl = @"http://happysanz.net/";
 NSString *const user_Login_Api = @"/apimain/login/";

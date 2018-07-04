@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AdminProfileView : UIViewController<UIGestureRecognizerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UIActionSheetDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *changePasswordOutlet;
 - (IBAction)imageBtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *imageBtnOtlet;
 - (IBAction)changePaswrdBTn:(id)sender;

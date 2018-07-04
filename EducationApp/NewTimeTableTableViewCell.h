@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface NewTimeTableTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *breakLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statPeriodLabel;
+@property (weak, nonatomic) IBOutlet UIView *lineTwo;
+@property (weak, nonatomic) IBOutlet UIView *lineOne;
+@property (weak, nonatomic) IBOutlet UIImageView *calenderImageview;
 @property (weak, nonatomic) IBOutlet UIView *cellView;
 @property (weak, nonatomic) IBOutlet UILabel *subjectName;
 @property (weak, nonatomic) IBOutlet UILabel *period;

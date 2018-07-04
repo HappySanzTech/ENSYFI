@@ -50,7 +50,6 @@
          
          if ([msg isEqualToString:@"Student Profile"])
          {
-             
              NSString *admDate = [studentProfile valueForKey:@"admisn_date"];
              NSString *admNo = [studentProfile valueForKey:@"admisn_no"];
              NSString *admYear = [studentProfile valueForKey:@"admisn_year"];
@@ -79,9 +78,8 @@
              NSString *status = [studentProfile valueForKey:@"status"];
              NSString *tc = [studentProfile valueForKey:@"transfer_certificate"];
              
-            student_pic  = [studentProfile valueForKey:@"student_pic"];
-             
-             
+             student_pic  = [studentProfile valueForKey:@"student_pic"];
+        
              self.admisnDate.text = admDate;
              self.admisonNumber.text = admNo;
              self.admisionYear.text = admYear;
@@ -110,7 +108,6 @@
              self.status.text = status;
              self.tc.text = tc;
              
-             
 //             appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
 //             
 //             if ([student_pic isEqualToString:@""])
@@ -119,56 +116,47 @@
 //             }
 //             else
 //             {
-//                 NSArray *studentPicComponets = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,student_profile,student_pic, nil];
-//                 NSString *sfullpath= [NSString pathWithComponents:studentPicComponets];
-//                 NSURL *url = [NSURL URLWithString:sfullpath];
-//                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-//                     NSData *studentImageData = [NSData dataWithContentsOfURL:url];
+//              NSArray *studentPicComponets = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,student_profile,student_pic, nil];
+//              NSString *sfullpath= [NSString pathWithComponents:studentPicComponets];
+//              NSURL *url = [NSURL URLWithString:sfullpath];
+//              dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//              NSData *studentImageData = [NSData dataWithContentsOfURL:url];
 //                     
-//                     dispatch_async(dispatch_get_main_queue(), ^{
-//                         // Update the UI
-//                         self.studentImg.image = [UIImage imageWithData:studentImageData];
-//                         //            self.studentImg.layer.cornerRadius = 50.0;
-//                         self.studentImg.clipsToBounds = YES;
+//              dispatch_async(dispatch_get_main_queue(), ^{
+//              // Update the UI
+//              self.studentImg.image = [UIImage imageWithData:studentImageData];
+//              //self.studentImg.layer.cornerRadius = 50.0;
+//              self.studentImg.clipsToBounds = YES;
 //                     });
 //                 });
 //             }
-//             
 //
          }
-         
-         
-         [MBProgressHUD hideHUDForView:self.view animated:YES];
-         
+          [MBProgressHUD hideHUDForView:self.view animated:YES];
      }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
      {
-         NSLog(@"error: %@", error);
+          NSLog(@"error: %@", error);
      }];
-    
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-
+          [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
-
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 -(void)viewDidLayoutSubviews
 {
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width,967);
-    
 }
 /*
 #pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
 */
-
 - (IBAction)backBtn:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:Nil];

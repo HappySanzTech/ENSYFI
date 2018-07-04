@@ -14,6 +14,9 @@
     NSString *group_id_Flag;
     NSString *switchFlag;
     NSString *editButtonFlag;
+    NSString *group_lead_id;
+    NSString *buttonFlag;
+
 }
 @end
 
@@ -34,24 +37,33 @@
     [_LeadTxtfield.layer setCornerRadius:10.0f];
     
     self.titleTxtfield.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"GN_Group_title"];
-    self.LeadTxtfield.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"GN_lead_name"];
+    self.deactiveLeadLabel.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"GN_lead_name"];
+    self.statusLabel.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"GN_status"];
+    self.addMemberOutlet.enabled = YES;
+    self.notificationOutlet.enabled = YES;
+    self.titleDownView.hidden = NO;
+    self.LeadTxtfield.hidden = YES;
+    self.dropDownImageView.hidden = YES;
+    self.switchOutlet.hidden = YES;
     group_id_Flag = [[NSUserDefaults standardUserDefaults]objectForKey:@"GN_StrGroup_id"];
-    NSString *strStatus = [[NSUserDefaults standardUserDefaults]objectForKey:@"GN_status"];
-    if ([strStatus isEqualToString:@"Active"])
+    group_lead_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"GN_lead_id"];
+    NSString *stat_View = [[NSUserDefaults standardUserDefaults]objectForKey:@"stat_user_type"];
+    if ([stat_View isEqualToString:@"teachers"])
     {
-        [self.switchOutlet setOn:YES animated:YES];
-        switchFlag = @"Active";
+
+        [self.editButtonOutlet setEnabled:NO];
+        [self.editButtonOutlet setTintColor: [UIColor clearColor]];
     }
     else
     {
-        [self.switchOutlet setOn:NO animated:YES];
-        switchFlag = @"DeActive";
+        [self.editButtonOutlet setEnabled:YES];
+        [self.editButtonOutlet setTintColor: [UIColor whiteColor]];
     }
-    editButtonFlag = @"YES";
-    self.updateOutlet.hidden = YES;
+    editButtonFlag = @"YEs";
+    buttonFlag = @"NO";
+    [_updateOutlet setTitle:@"View Group Members" forState:UIControlStateNormal];
     self.titleTxtfield.enabled = NO;
     self.LeadTxtfield.enabled = NO;
-    self.switchOutlet.enabled = NO;
 }
 - (void)didReceiveMemoryWarning
 {
@@ -69,7 +81,16 @@
 */
 - (IBAction)backButton:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    NSString *stat_View  = [[NSUserDefaults standardUserDefaults]objectForKey:@"stat_user_type"];
+    if ([stat_View isEqualToString:@"teachers"])
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"stat_user_type"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 - (IBAction)switchButton:(id)sender
 {
@@ -79,89 +100,104 @@
     }
     else
     {
-        switchFlag = @"DeActive";
+        switchFlag = @"Deactive";
     }
-}
-- (IBAction)notificationButton:(id)sender
-{
-    [self performSegueWithIdentifier:@"notificationListView" sender:self];
-}
-- (IBAction)addMembersButton:(id)sender
-{
-    [self performSegueWithIdentifier:@"addMember" sender:self];
 }
 - (IBAction)editButton:(id)sender
 {
     if ([editButtonFlag isEqualToString:@"YES"])
     {
-        self.updateOutlet.hidden = NO;
+        [_updateOutlet setTitle:@"Update" forState:UIControlStateNormal];
+        self.updateOutlet.bounds = CGRectMake(139, 218, 98, 45);
+        self.deactiveLeadLabel.hidden = YES;
+        self.dropDownImageView.hidden = NO;
         self.titleTxtfield.enabled = YES;
+        self.titleDownView.hidden = NO;
+        self.LeadTxtfield.hidden = NO;
         self.LeadTxtfield.enabled = YES;
+        self.statusLabel.hidden = YES;
+        self.switchOutlet.hidden = NO;
         self.switchOutlet.enabled = YES;
-        editButtonFlag = @"No";
+        editButtonFlag = @"NO";
+        buttonFlag = @"YES";
         [_titleTxtfield becomeFirstResponder];
 
     }
     else
     {
         [_titleTxtfield resignFirstResponder];
-        self.updateOutlet.hidden = YES;
+        self.updateOutlet.bounds = CGRectMake(52, 218, 271, 45);
+        [_updateOutlet setTitle:@"View Group Members" forState:UIControlStateNormal];
+        self.deactiveLeadLabel.hidden = NO;
+        self.statusLabel.hidden = NO;
+        self.dropDownImageView.hidden = YES;
+        self.titleDownView.hidden = YES;
         self.titleTxtfield.enabled = NO;
         self.LeadTxtfield.enabled = NO;
+        self.LeadTxtfield.hidden = YES;
         self.switchOutlet.enabled = NO;
+        self.switchOutlet.hidden = YES;
         editButtonFlag = @"YES";
+        buttonFlag = @"NO";
     }
 }
 
 - (IBAction)updateButton:(id)sender
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
-    [parameters setObject:@"1" forKey:@"user_id"];
-    [parameters setObject:group_id_Flag forKey:@"group_id"];
-    [parameters setObject:self.titleTxtfield.text forKey:@"group_title"];
-    [parameters setObject:@"" forKey:@"group_lead_id"];
-    [parameters setObject:switchFlag forKey:@"status"];
-    
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    
-    /* concordanate with baseurl */
-    NSString *update_groupmaster = @"apiadmin/update_groupmaster";
-    NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,update_groupmaster, nil];
-    NSString *api = [NSString pathWithComponents:components];
-    
-    [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
-     {
-         NSLog(@"%@",responseObject);
-         [MBProgressHUD hideHUDForView:self.view animated:YES];
-         NSString *msg = [responseObject objectForKey:@"msg"];
-         if ([msg isEqualToString:@"Group Master Updated"])
+    if ([buttonFlag isEqualToString:@"YES"])
+    {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+        [parameters setObject:appDel.user_id forKey:@"user_id"];
+        [parameters setObject:group_id_Flag forKey:@"group_id"];
+        [parameters setObject:self.titleTxtfield.text forKey:@"group_title"];
+        [parameters setObject:group_lead_id forKey:@"group_lead_id"];
+        [parameters setObject:switchFlag forKey:@"status"];
+        
+        AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+        
+        /* concordanate with baseurl */
+        NSString *update_groupmaster = @"apiadmin/update_groupmaster";
+        NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,update_groupmaster, nil];
+        NSString *api = [NSString pathWithComponents:components];
+        
+        [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
          {
-             UIAlertController *alert= [UIAlertController
-                                        alertControllerWithTitle:@"ENSYFI"
-                                        message:msg
-                                        preferredStyle:UIAlertControllerStyleAlert];
-             
-             UIAlertAction *ok = [UIAlertAction
-                                  actionWithTitle:@"OK"
-                                  style:UIAlertActionStyleDefault
-                                  handler:^(UIAlertAction * action)
-                                  {
-                                      [self dismissViewControllerAnimated:YES completion:nil];
-                                  }];
-             
-             [alert addAction:ok];
-             [self presentViewController:alert animated:YES completion:nil];
+             NSLog(@"%@",responseObject);
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             NSString *msg = [responseObject objectForKey:@"msg"];
+             if ([msg isEqualToString:@"Group Master Updated"])
+             {
+                 UIAlertController *alert= [UIAlertController
+                                            alertControllerWithTitle:@"ENSYFI"
+                                            message:msg
+                                            preferredStyle:UIAlertControllerStyleAlert];
+                 
+                 UIAlertAction *ok = [UIAlertAction
+                                      actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action)
+                                      {
+                                          [self dismissViewControllerAnimated:YES completion:nil];
+                                      }];
+                 
+                 [alert addAction:ok];
+                 [self presentViewController:alert animated:YES completion:nil];
+             }
          }
-     }
-          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
-     {
-         NSLog(@"error: %@", error);
-     }];
+              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+         {
+             NSLog(@"error: %@", error);
+         }];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"viewGroupMembers" sender:self];
+    }
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField
 {
@@ -170,5 +206,9 @@
         [_titleTxtfield resignFirstResponder];
     }
     return YES;
+}
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    return NO;
 }
 @end

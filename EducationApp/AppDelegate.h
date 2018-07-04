@@ -37,6 +37,7 @@
 @property (strong, nonatomic) NSString *exam_id;
 @property (strong, nonatomic) NSString *student_id;
 @property (strong, nonatomic) NSString *section_id;
+@property (strong, nonatomic) NSString *classTeacher_id;
 
 @property (strong, nonatomic) NSString *msg;
 @property (strong, nonatomic) NSString *username;
@@ -45,6 +46,7 @@
 @property (strong, nonatomic) NSString *last_attendance_id;
 @property (strong, nonatomic) NSString *last_attendance_history_id;
 @property (strong, nonatomic) NSString *classtestHomework_last_id;
+@property (strong, nonatomic) NSString *classTeacherHomeworkDate;
 - (void)saveContext;
 
 @end

@@ -201,7 +201,7 @@
 		68F8DD431F6FD3E5006718C5 /* ensyfi message screen icons-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F8DD401F6FD3E5006718C5 /* ensyfi message screen icons-01.png */; };
 		68F8DD441F6FD3E5006718C5 /* ensyfi message screen icons-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F8DD411F6FD3E5006718C5 /* ensyfi message screen icons-02.png */; };
 		68F8DD451F6FD3E5006718C5 /* ensyfi message screen icons-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F8DD421F6FD3E5006718C5 /* ensyfi message screen icons-03.png */; };
-		68F8DD481F6FD7D0006718C5 /* TeachernotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F8DD471F6FD7D0006718C5 /* TeachernotificationViewController.m */; };
+		68F8DD481F6FD7D0006718C5 /* GroupNotificationSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F8DD471F6FD7D0006718C5 /* GroupNotificationSendViewController.m */; };
 		68F8DD4C1F6FD975006718C5 /* Untitled-3-01 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 68F8DD4B1F6FD975006718C5 /* Untitled-3-01 (1).png */; };
 		68FA41A81F2689FB00C88E68 /* AdminSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FA41A71F2689FB00C88E68 /* AdminSettingsView.m */; };
 		68FA41AB1F2694B200C88E68 /* AdminProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FA41AA1F2694B200C88E68 /* AdminProfileView.m */; };
@@ -234,23 +234,50 @@
 		6B89A71A2096EA6800254AE2 /* AdminLeaveApproveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B89A7192096EA6800254AE2 /* AdminLeaveApproveViewController.m */; };
 		6B89A71C2097142500254AE2 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B89A71B2097142500254AE2 /* UserNotificationsUI.framework */; };
 		6B89A71E2097143900254AE2 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B89A71D2097143900254AE2 /* UserNotifications.framework */; };
+		6B8CE50820DA18F200C29270 /* ClassTeacherStudentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8CE50720DA18F200C29270 /* ClassTeacherStudentListView.m */; };
+		6B8CE50B20DA191100C29270 /* ClassTeacherStudentListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8CE50A20DA191100C29270 /* ClassTeacherStudentListTableViewCell.m */; };
+		6B8CE51820DA4F3300C29270 /* viewattendance@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B8CE50F20DA4F2A00C29270 /* viewattendance@3x.png */; };
+		6B8CE51920DA4F3300C29270 /* viewattendance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B8CE51020DA4F2B00C29270 /* viewattendance@2x.png */; };
+		6B8CE51A20DA4F3300C29270 /* close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B8CE51120DA4F2C00C29270 /* close@3x.png */; };
+		6B8CE51B20DA4F3300C29270 /* send@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B8CE51220DA4F2D00C29270 /* send@1x.png */; };
+		6B8CE51C20DA4F3300C29270 /* send@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B8CE51320DA4F2E00C29270 /* send@2x.png */; };
+		6B8CE51D20DA4F3300C29270 /* close@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B8CE51420DA4F2F00C29270 /* close@1x.png */; };
+		6B8CE51E20DA4F3300C29270 /* viewattendance@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B8CE51520DA4F3000C29270 /* viewattendance@1x.png */; };
+		6B8CE51F20DA4F3300C29270 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B8CE51620DA4F3100C29270 /* close@2x.png */; };
+		6B8CE52020DA4F3300C29270 /* send@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B8CE51720DA4F3200C29270 /* send@3x.png */; };
+		6B8CE52320DA6BF400C29270 /* ShowPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8CE52220DA6BF400C29270 /* ShowPopViewController.m */; };
 		6B920968206B9E1B00CB8865 /* AdminNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B920967206B9E1B00CB8865 /* AdminNotificationTableViewController.m */; };
 		6B92096B206B9E9900CB8865 /* AdminNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B92096A206B9E9900CB8865 /* AdminNotificationTableViewCell.m */; };
+		6B948DD320C2697100718CCF /* ENSIFY.db in Resources */ = {isa = PBXBuildFile; fileRef = 6B948DD220C2697100718CCF /* ENSIFY.db */; };
+		6B97622220A99B6200017D05 /* add_send.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B97622120A99B6000017D05 /* add_send.png */; };
+		6B97622520A99E9900017D05 /* NewTeachetNotifiationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B97622420A99E9900017D05 /* NewTeachetNotifiationViewController.m */; };
+		6B97622E20A9A87B00017D05 /* StudentGroupNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B97622D20A9A87B00017D05 /* StudentGroupNotificationViewController.m */; };
+		6B99E96920DBAE3500D4AAF3 /* ClassTeacherHomeWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B99E96820DBAE3500D4AAF3 /* ClassTeacherHomeWorkView.m */; };
+		6B99E96C20DBAE5800D4AAF3 /* ClassTeacherHomeWorkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B99E96B20DBAE5800D4AAF3 /* ClassTeacherHomeWorkTableViewCell.m */; };
+		6B9BD7BE20A5A346007F6212 /* send.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9BD7BD20A5A345007F6212 /* send.png */; };
+		6B9BD7C120A5C6A9007F6212 /* select_all deselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9BD7BF20A5C6A9007F6212 /* select_all deselect.png */; };
+		6B9BD7C220A5C6A9007F6212 /* select_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9BD7C020A5C6A9007F6212 /* select_all.png */; };
+		6B9C7F0B20D901D600DB3BD6 /* ClassTeacherAttendenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9C7F0A20D901D600DB3BD6 /* ClassTeacherAttendenceViewController.m */; };
+		6B9C7F0E20D901EA00DB3BD6 /* ClassTeachetAttendenceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9C7F0D20D901EA00DB3BD6 /* ClassTeachetAttendenceTableViewCell.m */; };
+		6B9C7F1020D9083F00DB3BD6 /* message_sent.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9C7F0F20D9083E00DB3BD6 /* message_sent.png */; };
+		6B9C7F1520D91A2D00DB3BD6 /* ClassTeacherAttendanceDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9C7F1420D91A2D00DB3BD6 /* ClassTeacherAttendanceDetailView.m */; };
 		6B9F5C3B20A1614900B6BF81 /* GroupNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F5C3A20A1614900B6BF81 /* GroupNotificationViewController.m */; };
 		6B9F5C3E20A1616600B6BF81 /* GroupNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F5C3D20A1616600B6BF81 /* GroupNotificationTableViewCell.m */; };
 		6B9F5C4120A1B06500B6BF81 /* CreateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F5C4020A1B06500B6BF81 /* CreateGroupViewController.m */; };
 		6B9F5C4420A1C11000B6BF81 /* GroupNotificationStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F5C4320A1C11000B6BF81 /* GroupNotificationStatusViewController.m */; };
-		6BA50011207CB6460027E9E2 /* ENSIFY.db in Resources */ = {isa = PBXBuildFile; fileRef = 6BA50010207CB6460027E9E2 /* ENSIFY.db */; };
 		6BABE6D9209058DC009E7392 /* NewTimeTableViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BABE6D8209058DC009E7392 /* NewTimeTableViewcontroller.m */; };
 		6BABE6DC20907F13009E7392 /* NewTimeTableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BABE6DB20907F13009E7392 /* NewTimeTableTableViewCell.m */; };
 		6BACA1B6209208AE005DBDAF /* ExamdutyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BACA1B5209208AE005DBDAF /* ExamdutyViewController.m */; };
 		6BACA1B9209208C4005DBDAF /* ExamDutyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BACA1B8209208C4005DBDAF /* ExamDutyTableViewCell.m */; };
+		6BAE884320AD870100735EDA /* date_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BAE884220AD870000735EDA /* date_time.png */; };
+		6BAE884520AD987F00735EDA /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BAE884420AD987D00735EDA /* edit.png */; };
+		6BAE884820ADAAF100735EDA /* ViewGroupMembersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE884720ADAAF100735EDA /* ViewGroupMembersTableViewCell.m */; };
+		6BAE884B20ADAB1200735EDA /* ViewGroupMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE884A20ADAB1200735EDA /* ViewGroupMembersViewController.m */; };
 		6BAEE7AF2029881100D08550 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7AD2029881100D08550 /* FMDatabase.m */; };
 		6BAEE7B22029882000D08550 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7B12029882000D08550 /* FMDatabaseAdditions.m */; };
 		6BAEE7B52029882B00D08550 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7B32029882B00D08550 /* FMResultSet.m */; };
 		6BAEE7B82029892400D08550 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEE7B72029892400D08550 /* FMDatabasePool.m */; };
 		6BB4CD4220A30605006221B8 /* add_member.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4CD3F20A30602006221B8 /* add_member.png */; };
-		6BB4CD4320A30605006221B8 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4CD4020A30603006221B8 /* edit.png */; };
 		6BB4CD4420A30605006221B8 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4CD4120A30604006221B8 /* notification.png */; };
 		6BBD8D3A2035AD2B00272D8C /* Orange@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBD8D312035AD2500272D8C /* Orange@1x.png */; };
 		6BBD8D3B2035AD2B00272D8C /* Green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBD8D322035AD2500272D8C /* Green@2x.png */; };
@@ -262,8 +289,12 @@
 		6BBD8D412035AD2B00272D8C /* Orange@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBD8D382035AD2900272D8C /* Orange@3x.png */; };
 		6BBD8D422035AD2B00272D8C /* Green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBD8D392035AD2A00272D8C /* Green@3x.png */; };
 		6BBD8D442035AF8F00272D8C /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6BBD8D432035AF8E00272D8C /* 1.gif */; };
+		6BC02E0220E4F91700DB4F9F /* sendTel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BC02E0120E4F91600DB4F9F /* sendTel.png */; };
+		6BC02E0520E4FAEC00DB4F9F /* ClassTestHomeWorkFirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC02E0420E4FAEC00DB4F9F /* ClassTestHomeWorkFirstView.m */; };
+		6BC02E0820E4FB0D00DB4F9F /* ClassTestHomeWorkFirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC02E0720E4FB0D00DB4F9F /* ClassTestHomeWorkFirstTableViewCell.m */; };
 		6BD02AEA2091AAE800A46172 /* AdminHolidayCalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD02AE92091AAE800A46172 /* AdminHolidayCalenderViewController.m */; };
 		6BD02AED2091B73E00A46172 /* TeacherHolidayCalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD02AEC2091B73E00A46172 /* TeacherHolidayCalenderViewController.m */; };
+		6BD4222920EB5F9E00822CE8 /* ClassTeacherHomeWorkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4222820EB5F9E00822CE8 /* ClassTeacherHomeWorkDetailViewController.m */; };
 		7AAD7B7A2B64911F31B2B256 /* libPods-EducationApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D0303EA8995E0FA6F69788 /* libPods-EducationApp.a */; };
 /* End PBXBuildFile section */
 
@@ -597,8 +628,8 @@
 		68F8DD401F6FD3E5006718C5 /* ensyfi message screen icons-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ensyfi message screen icons-01.png"; sourceTree = "<group>"; };
 		68F8DD411F6FD3E5006718C5 /* ensyfi message screen icons-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ensyfi message screen icons-02.png"; sourceTree = "<group>"; };
 		68F8DD421F6FD3E5006718C5 /* ensyfi message screen icons-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ensyfi message screen icons-03.png"; sourceTree = "<group>"; };
-		68F8DD461F6FD7D0006718C5 /* TeachernotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeachernotificationViewController.h; sourceTree = "<group>"; };
-		68F8DD471F6FD7D0006718C5 /* TeachernotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeachernotificationViewController.m; sourceTree = "<group>"; };
+		68F8DD461F6FD7D0006718C5 /* GroupNotificationSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupNotificationSendViewController.h; sourceTree = "<group>"; };
+		68F8DD471F6FD7D0006718C5 /* GroupNotificationSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupNotificationSendViewController.m; sourceTree = "<group>"; };
 		68F8DD4B1F6FD975006718C5 /* Untitled-3-01 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-3-01 (1).png"; sourceTree = "<group>"; };
 		68FA41A61F2689FB00C88E68 /* AdminSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminSettingsView.h; sourceTree = "<group>"; };
 		68FA41A71F2689FB00C88E68 /* AdminSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminSettingsView.m; sourceTree = "<group>"; };
@@ -650,10 +681,45 @@
 		6B89A7192096EA6800254AE2 /* AdminLeaveApproveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdminLeaveApproveViewController.m; sourceTree = "<group>"; };
 		6B89A71B2097142500254AE2 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		6B89A71D2097143900254AE2 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		6B8CE50620DA18F200C29270 /* ClassTeacherStudentListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassTeacherStudentListView.h; sourceTree = "<group>"; };
+		6B8CE50720DA18F200C29270 /* ClassTeacherStudentListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassTeacherStudentListView.m; sourceTree = "<group>"; };
+		6B8CE50920DA191100C29270 /* ClassTeacherStudentListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassTeacherStudentListTableViewCell.h; sourceTree = "<group>"; };
+		6B8CE50A20DA191100C29270 /* ClassTeacherStudentListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassTeacherStudentListTableViewCell.m; sourceTree = "<group>"; };
+		6B8CE50F20DA4F2A00C29270 /* viewattendance@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "viewattendance@3x.png"; sourceTree = "<group>"; };
+		6B8CE51020DA4F2B00C29270 /* viewattendance@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "viewattendance@2x.png"; sourceTree = "<group>"; };
+		6B8CE51120DA4F2C00C29270 /* close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@3x.png"; sourceTree = "<group>"; };
+		6B8CE51220DA4F2D00C29270 /* send@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "send@1x.png"; sourceTree = "<group>"; };
+		6B8CE51320DA4F2E00C29270 /* send@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "send@2x.png"; sourceTree = "<group>"; };
+		6B8CE51420DA4F2F00C29270 /* close@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@1x.png"; sourceTree = "<group>"; };
+		6B8CE51520DA4F3000C29270 /* viewattendance@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "viewattendance@1x.png"; sourceTree = "<group>"; };
+		6B8CE51620DA4F3100C29270 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		6B8CE51720DA4F3200C29270 /* send@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "send@3x.png"; sourceTree = "<group>"; };
+		6B8CE52120DA6BF400C29270 /* ShowPopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowPopViewController.h; sourceTree = "<group>"; };
+		6B8CE52220DA6BF400C29270 /* ShowPopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowPopViewController.m; sourceTree = "<group>"; };
 		6B920966206B9E1B00CB8865 /* AdminNotificationTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminNotificationTableViewController.h; sourceTree = "<group>"; };
 		6B920967206B9E1B00CB8865 /* AdminNotificationTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdminNotificationTableViewController.m; sourceTree = "<group>"; };
 		6B920969206B9E9900CB8865 /* AdminNotificationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminNotificationTableViewCell.h; sourceTree = "<group>"; };
 		6B92096A206B9E9900CB8865 /* AdminNotificationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdminNotificationTableViewCell.m; sourceTree = "<group>"; };
+		6B948DD220C2697100718CCF /* ENSIFY.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ENSIFY.db; sourceTree = "<group>"; };
+		6B97622120A99B6000017D05 /* add_send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_send.png; sourceTree = "<group>"; };
+		6B97622320A99E9900017D05 /* NewTeachetNotifiationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewTeachetNotifiationViewController.h; sourceTree = "<group>"; };
+		6B97622420A99E9900017D05 /* NewTeachetNotifiationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewTeachetNotifiationViewController.m; sourceTree = "<group>"; };
+		6B97622C20A9A87B00017D05 /* StudentGroupNotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentGroupNotificationViewController.h; sourceTree = "<group>"; };
+		6B97622D20A9A87B00017D05 /* StudentGroupNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudentGroupNotificationViewController.m; sourceTree = "<group>"; };
+		6B99E96720DBAE3500D4AAF3 /* ClassTeacherHomeWorkView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassTeacherHomeWorkView.h; sourceTree = "<group>"; };
+		6B99E96820DBAE3500D4AAF3 /* ClassTeacherHomeWorkView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassTeacherHomeWorkView.m; sourceTree = "<group>"; };
+		6B99E96A20DBAE5800D4AAF3 /* ClassTeacherHomeWorkTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassTeacherHomeWorkTableViewCell.h; sourceTree = "<group>"; };
+		6B99E96B20DBAE5800D4AAF3 /* ClassTeacherHomeWorkTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassTeacherHomeWorkTableViewCell.m; sourceTree = "<group>"; };
+		6B9BD7BD20A5A345007F6212 /* send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send.png; sourceTree = "<group>"; };
+		6B9BD7BF20A5C6A9007F6212 /* select_all deselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_all deselect.png"; sourceTree = "<group>"; };
+		6B9BD7C020A5C6A9007F6212 /* select_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_all.png; sourceTree = "<group>"; };
+		6B9C7F0920D901D600DB3BD6 /* ClassTeacherAttendenceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassTeacherAttendenceViewController.h; sourceTree = "<group>"; };
+		6B9C7F0A20D901D600DB3BD6 /* ClassTeacherAttendenceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassTeacherAttendenceViewController.m; sourceTree = "<group>"; };
+		6B9C7F0C20D901EA00DB3BD6 /* ClassTeachetAttendenceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassTeachetAttendenceTableViewCell.h; sourceTree = "<group>"; };
+		6B9C7F0D20D901EA00DB3BD6 /* ClassTeachetAttendenceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassTeachetAttendenceTableViewCell.m; sourceTree = "<group>"; };
+		6B9C7F0F20D9083E00DB3BD6 /* message_sent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_sent.png; sourceTree = "<group>"; };
+		6B9C7F1320D91A2D00DB3BD6 /* ClassTeacherAttendanceDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassTeacherAttendanceDetailView.h; sourceTree = "<group>"; };
+		6B9C7F1420D91A2D00DB3BD6 /* ClassTeacherAttendanceDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassTeacherAttendanceDetailView.m; sourceTree = "<group>"; };
 		6B9F5C3920A1614900B6BF81 /* GroupNotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupNotificationViewController.h; sourceTree = "<group>"; };
 		6B9F5C3A20A1614900B6BF81 /* GroupNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupNotificationViewController.m; sourceTree = "<group>"; };
 		6B9F5C3C20A1616600B6BF81 /* GroupNotificationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupNotificationTableViewCell.h; sourceTree = "<group>"; };
@@ -662,7 +728,6 @@
 		6B9F5C4020A1B06500B6BF81 /* CreateGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateGroupViewController.m; sourceTree = "<group>"; };
 		6B9F5C4220A1C11000B6BF81 /* GroupNotificationStatusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupNotificationStatusViewController.h; sourceTree = "<group>"; };
 		6B9F5C4320A1C11000B6BF81 /* GroupNotificationStatusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupNotificationStatusViewController.m; sourceTree = "<group>"; };
-		6BA50010207CB6460027E9E2 /* ENSIFY.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ENSIFY.db; sourceTree = "<group>"; };
 		6BABE6D7209058DC009E7392 /* NewTimeTableViewcontroller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewTimeTableViewcontroller.h; sourceTree = "<group>"; };
 		6BABE6D8209058DC009E7392 /* NewTimeTableViewcontroller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewTimeTableViewcontroller.m; sourceTree = "<group>"; };
 		6BABE6DA20907F13009E7392 /* NewTimeTableTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewTimeTableTableViewCell.h; sourceTree = "<group>"; };
@@ -671,6 +736,12 @@
 		6BACA1B5209208AE005DBDAF /* ExamdutyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExamdutyViewController.m; sourceTree = "<group>"; };
 		6BACA1B7209208C4005DBDAF /* ExamDutyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExamDutyTableViewCell.h; sourceTree = "<group>"; };
 		6BACA1B8209208C4005DBDAF /* ExamDutyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExamDutyTableViewCell.m; sourceTree = "<group>"; };
+		6BAE884220AD870000735EDA /* date_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = date_time.png; sourceTree = "<group>"; };
+		6BAE884420AD987D00735EDA /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
+		6BAE884620ADAAF100735EDA /* ViewGroupMembersTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewGroupMembersTableViewCell.h; sourceTree = "<group>"; };
+		6BAE884720ADAAF100735EDA /* ViewGroupMembersTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewGroupMembersTableViewCell.m; sourceTree = "<group>"; };
+		6BAE884920ADAB1200735EDA /* ViewGroupMembersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewGroupMembersViewController.h; sourceTree = "<group>"; };
+		6BAE884A20ADAB1200735EDA /* ViewGroupMembersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewGroupMembersViewController.m; sourceTree = "<group>"; };
 		6BAEE7AD2029881100D08550 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		6BAEE7AE2029881100D08550 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		6BAEE7B02029882000D08550 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -680,7 +751,6 @@
 		6BAEE7B62029892400D08550 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
 		6BAEE7B72029892400D08550 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		6BB4CD3F20A30602006221B8 /* add_member.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_member.png; sourceTree = "<group>"; };
-		6BB4CD4020A30603006221B8 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
 		6BB4CD4120A30604006221B8 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
 		6BBD8D312035AD2500272D8C /* Orange@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orange@1x.png"; sourceTree = "<group>"; };
 		6BBD8D322035AD2500272D8C /* Green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@2x.png"; sourceTree = "<group>"; };
@@ -692,10 +762,17 @@
 		6BBD8D382035AD2900272D8C /* Orange@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orange@3x.png"; sourceTree = "<group>"; };
 		6BBD8D392035AD2A00272D8C /* Green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@3x.png"; sourceTree = "<group>"; };
 		6BBD8D432035AF8E00272D8C /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
+		6BC02E0120E4F91600DB4F9F /* sendTel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sendTel.png; path = "../../../Dropbox/ENSYFI Mobile App/4. Icons/iOS/Version 1.1/sendTel.png"; sourceTree = "<group>"; };
+		6BC02E0320E4FAEC00DB4F9F /* ClassTestHomeWorkFirstView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassTestHomeWorkFirstView.h; sourceTree = "<group>"; };
+		6BC02E0420E4FAEC00DB4F9F /* ClassTestHomeWorkFirstView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassTestHomeWorkFirstView.m; sourceTree = "<group>"; };
+		6BC02E0620E4FB0D00DB4F9F /* ClassTestHomeWorkFirstTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassTestHomeWorkFirstTableViewCell.h; sourceTree = "<group>"; };
+		6BC02E0720E4FB0D00DB4F9F /* ClassTestHomeWorkFirstTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassTestHomeWorkFirstTableViewCell.m; sourceTree = "<group>"; };
 		6BD02AE82091AAE800A46172 /* AdminHolidayCalenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminHolidayCalenderViewController.h; sourceTree = "<group>"; };
 		6BD02AE92091AAE800A46172 /* AdminHolidayCalenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdminHolidayCalenderViewController.m; sourceTree = "<group>"; };
 		6BD02AEB2091B73E00A46172 /* TeacherHolidayCalenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherHolidayCalenderViewController.h; sourceTree = "<group>"; };
 		6BD02AEC2091B73E00A46172 /* TeacherHolidayCalenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherHolidayCalenderViewController.m; sourceTree = "<group>"; };
+		6BD4222720EB5F9E00822CE8 /* ClassTeacherHomeWorkDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassTeacherHomeWorkDetailViewController.h; sourceTree = "<group>"; };
+		6BD4222820EB5F9E00822CE8 /* ClassTeacherHomeWorkDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassTeacherHomeWorkDetailViewController.m; sourceTree = "<group>"; };
 		7DD8762979800E50303DA0CE /* Pods-EducationApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EducationApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EducationApp/Pods-EducationApp.debug.xcconfig"; sourceTree = "<group>"; };
 		96D0303EA8995E0FA6F69788 /* libPods-EducationApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EducationApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE8FF695A25A82018E6C92E /* Pods-EducationApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EducationApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EducationApp/Pods-EducationApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -741,6 +818,28 @@
 				68E37F0D1F31A22F005612A7 /* TeacherTableViewCell.m */,
 				68E37F091F31A217005612A7 /* TeacherViewController.h */,
 				68E37F0A1F31A217005612A7 /* TeacherViewController.m */,
+				6B9C7F0920D901D600DB3BD6 /* ClassTeacherAttendenceViewController.h */,
+				6B9C7F0A20D901D600DB3BD6 /* ClassTeacherAttendenceViewController.m */,
+				6B9C7F0C20D901EA00DB3BD6 /* ClassTeachetAttendenceTableViewCell.h */,
+				6B9C7F0D20D901EA00DB3BD6 /* ClassTeachetAttendenceTableViewCell.m */,
+				6B9C7F1320D91A2D00DB3BD6 /* ClassTeacherAttendanceDetailView.h */,
+				6B9C7F1420D91A2D00DB3BD6 /* ClassTeacherAttendanceDetailView.m */,
+				6B8CE50620DA18F200C29270 /* ClassTeacherStudentListView.h */,
+				6B8CE50720DA18F200C29270 /* ClassTeacherStudentListView.m */,
+				6B8CE50920DA191100C29270 /* ClassTeacherStudentListTableViewCell.h */,
+				6B8CE50A20DA191100C29270 /* ClassTeacherStudentListTableViewCell.m */,
+				6B8CE52120DA6BF400C29270 /* ShowPopViewController.h */,
+				6B8CE52220DA6BF400C29270 /* ShowPopViewController.m */,
+				6B99E96720DBAE3500D4AAF3 /* ClassTeacherHomeWorkView.h */,
+				6B99E96820DBAE3500D4AAF3 /* ClassTeacherHomeWorkView.m */,
+				6B99E96A20DBAE5800D4AAF3 /* ClassTeacherHomeWorkTableViewCell.h */,
+				6B99E96B20DBAE5800D4AAF3 /* ClassTeacherHomeWorkTableViewCell.m */,
+				6BC02E0320E4FAEC00DB4F9F /* ClassTestHomeWorkFirstView.h */,
+				6BC02E0420E4FAEC00DB4F9F /* ClassTestHomeWorkFirstView.m */,
+				6BC02E0620E4FB0D00DB4F9F /* ClassTestHomeWorkFirstTableViewCell.h */,
+				6BC02E0720E4FB0D00DB4F9F /* ClassTestHomeWorkFirstTableViewCell.m */,
+				6BD4222720EB5F9E00822CE8 /* ClassTeacherHomeWorkDetailViewController.h */,
+				6BD4222820EB5F9E00822CE8 /* ClassTeacherHomeWorkDetailViewController.m */,
 				68126FA91F68FB450027302B /* TeacherCollectionViewCell.h */,
 				68126FAA1F68FB450027302B /* TeacherCollectionViewCell.m */,
 				68D531231F6BE3790047DF11 /* TeacherEventViewController.h */,
@@ -771,8 +870,6 @@
 				68F8DD3E1F6FAA99006718C5 /* TeacherNotificationTableViewController.m */,
 				68F8DD3A1F6FAA76006718C5 /* TeacherNotificationViewCell.h */,
 				68F8DD3B1F6FAA76006718C5 /* TeacherNotificationViewCell.m */,
-				68F8DD461F6FD7D0006718C5 /* TeachernotificationViewController.h */,
-				68F8DD471F6FD7D0006718C5 /* TeachernotificationViewController.m */,
 				6810D4331F723EFD00232DD0 /* TeacherApplyLeave.h */,
 				6810D4341F723EFD00232DD0 /* TeacherApplyLeave.m */,
 				6810D4361F723F2F00232DD0 /* TeacherApplyLeaveCell.h */,
@@ -843,6 +940,8 @@
 				6BACA1B8209208C4005DBDAF /* ExamDutyTableViewCell.m */,
 				68FBD5001F9D28D000868C86 /* SyncViewController.h */,
 				68FBD5011F9D28D000868C86 /* SyncViewController.m */,
+				6B97622320A99E9900017D05 /* NewTeachetNotifiationViewController.h */,
+				6B97622420A99E9900017D05 /* NewTeachetNotifiationViewController.m */,
 				6809DB1A1F28BB6600C63789 /* teachers.storyboard */,
 			);
 			name = TeachersModule;
@@ -964,6 +1063,8 @@
 				6B704D1E20918DE40053BA87 /* HolidayCalenderViewController.m */,
 				6B704D1A20918DBF0053BA87 /* HolidayCalenderTableViewCell.h */,
 				6B704D1B20918DBF0053BA87 /* HolidayCalenderTableViewCell.m */,
+				6B97622C20A9A87B00017D05 /* StudentGroupNotificationViewController.h */,
+				6B97622D20A9A87B00017D05 /* StudentGroupNotificationViewController.m */,
 				688FDD571E922E2900762CF4 /* Main.storyboard */,
 				68FF15471F1C8C1D001BD881 /* AdminModule */,
 				6809DB191F28BB2F00C63789 /* TeachersModule */,
@@ -983,7 +1084,7 @@
 		6885ED411F0A262200DB524E /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
-				6BA50010207CB6460027E9E2 /* ENSIFY.db */,
+				6B948DD220C2697100718CCF /* ENSIFY.db */,
 				68F0026B1F62AE7A00407452 /* ModelManager */,
 				6885ED6A1F0A425400DB524E /* Util */,
 				6BAEE7AC202987F900D08550 /* FMDB */,
@@ -1058,10 +1159,26 @@
 		688FDD721E924F2600762CF4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6BC02E0120E4F91600DB4F9F /* sendTel.png */,
+				6B8CE51420DA4F2F00C29270 /* close@1x.png */,
+				6B8CE51620DA4F3100C29270 /* close@2x.png */,
+				6B8CE51120DA4F2C00C29270 /* close@3x.png */,
+				6B8CE51220DA4F2D00C29270 /* send@1x.png */,
+				6B8CE51320DA4F2E00C29270 /* send@2x.png */,
+				6B8CE51720DA4F3200C29270 /* send@3x.png */,
+				6B8CE51520DA4F3000C29270 /* viewattendance@1x.png */,
+				6B8CE51020DA4F2B00C29270 /* viewattendance@2x.png */,
+				6B8CE50F20DA4F2A00C29270 /* viewattendance@3x.png */,
+				6B9C7F0F20D9083E00DB3BD6 /* message_sent.png */,
+				6BAE884420AD987D00735EDA /* edit.png */,
+				6BAE884220AD870000735EDA /* date_time.png */,
+				6B97622120A99B6000017D05 /* add_send.png */,
+				6B9BD7BF20A5C6A9007F6212 /* select_all deselect.png */,
+				6B9BD7C020A5C6A9007F6212 /* select_all.png */,
+				6B9BD7BD20A5A345007F6212 /* send.png */,
 				6B81591D20A45CC0003A3699 /* deselect.png */,
 				6B81591B20A4342D003A3699 /* select.png */,
 				6BB4CD3F20A30602006221B8 /* add_member.png */,
-				6BB4CD4020A30603006221B8 /* edit.png */,
 				6BB4CD4120A30604006221B8 /* notification.png */,
 				6BBD8D432035AF8E00272D8C /* 1.gif */,
 				6BBD8D342035AD2700272D8C /* Green@1x.png */,
@@ -1270,14 +1387,20 @@
 				6B9F5C4020A1B06500B6BF81 /* CreateGroupViewController.m */,
 				6B9F5C4220A1C11000B6BF81 /* GroupNotificationStatusViewController.h */,
 				6B9F5C4320A1C11000B6BF81 /* GroupNotificationStatusViewController.m */,
-				6B920966206B9E1B00CB8865 /* AdminNotificationTableViewController.h */,
-				6B920967206B9E1B00CB8865 /* AdminNotificationTableViewController.m */,
-				6B920969206B9E9900CB8865 /* AdminNotificationTableViewCell.h */,
-				6B92096A206B9E9900CB8865 /* AdminNotificationTableViewCell.m */,
+				6BAE884920ADAB1200735EDA /* ViewGroupMembersViewController.h */,
+				6BAE884A20ADAB1200735EDA /* ViewGroupMembersViewController.m */,
+				6BAE884620ADAAF100735EDA /* ViewGroupMembersTableViewCell.h */,
+				6BAE884720ADAAF100735EDA /* ViewGroupMembersTableViewCell.m */,
 				6B81591320A42ECF003A3699 /* GroupNotificationAddmember.h */,
 				6B81591420A42ECF003A3699 /* GroupNotificationAddmember.m */,
 				6B81591620A42EF3003A3699 /* GroupNotificationAddMenberCell.h */,
 				6B81591720A42EF3003A3699 /* GroupNotificationAddMenberCell.m */,
+				6B920966206B9E1B00CB8865 /* AdminNotificationTableViewController.h */,
+				6B920967206B9E1B00CB8865 /* AdminNotificationTableViewController.m */,
+				6B920969206B9E9900CB8865 /* AdminNotificationTableViewCell.h */,
+				6B92096A206B9E9900CB8865 /* AdminNotificationTableViewCell.m */,
+				68F8DD461F6FD7D0006718C5 /* GroupNotificationSendViewController.h */,
+				68F8DD471F6FD7D0006718C5 /* GroupNotificationSendViewController.m */,
 				68FF15481F1C8C51001BD881 /* admin.storyboard */,
 			);
 			name = AdminModule;
@@ -1406,11 +1529,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B8CE51A20DA4F3300C29270 /* close@3x.png in Resources */,
 				6BBD8D402035AD2B00272D8C /* Red@2x.png in Resources */,
 				6805228C1F8E469E00E5002F /* view icon -ios-01.png in Resources */,
 				68EBC99A1F8D002E00A4337F /* checkmark-01.png in Resources */,
 				68110EB21F8B5ADC0007FB75 /* view icon -android-01.png in Resources */,
 				68F60C841F135DF900472DB7 /* Edit-01.png in Resources */,
+				6B8CE51B20DA4F3300C29270 /* send@1x.png in Resources */,
 				680198151F162C390009D0B9 /* ensyfi od screen icons-03.png in Resources */,
 				68EF4EA11F5D6F0A005160F8 /* ensyfi flash screen ios-5.gif in Resources */,
 				68FF156E1F1CE121001BD881 /* exam.png in Resources */,
@@ -1418,26 +1543,33 @@
 				6804A92F1F0783E40055D0EE /* ensyfi bg-01 (1).jpg in Resources */,
 				68C295851EA5E1F5001DA155 /* attendance.png in Resources */,
 				6BBD8D3F2035AD2B00272D8C /* Red@3x.png in Resources */,
+				6B9C7F1020D9083F00DB3BD6 /* message_sent.png in Resources */,
 				68DD550F1ECC22D6007D2B53 /* back-01.png in Resources */,
 				689C094E1E93BD5700B45B4E /* roboto.light.ttf in Resources */,
 				68C295881EA5E1F5001DA155 /* Events.png in Resources */,
+				6BAE884520AD987F00735EDA /* edit.png in Resources */,
 				68F8DD451F6FD3E5006718C5 /* ensyfi message screen icons-03.png in Resources */,
 				6BBD8D3E2035AD2B00272D8C /* Orange@2x.png in Resources */,
 				68F8DD441F6FD3E5006718C5 /* ensyfi message screen icons-02.png in Resources */,
 				689C09541E93BD9000B45B4E /* roboto.medium.ttf in Resources */,
+				6B8CE51820DA4F3300C29270 /* viewattendance@3x.png in Resources */,
 				68363D281F1E3DE1003F1C20 /* Parents-01.png in Resources */,
 				688FDD5E1E922E2900762CF4 /* Assets.xcassets in Resources */,
 				68363D2A1F1E4595003F1C20 /* next icon.png in Resources */,
 				683237AE1F13C06A00FE9E62 /* ensyfi- profile icons-02.png in Resources */,
 				6BBD8D3C2035AD2B00272D8C /* Red@1x.png in Resources */,
+				6B8CE51E20DA4F3300C29270 /* viewattendance@1x.png in Resources */,
+				6B948DD320C2697100718CCF /* ENSIFY.db in Resources */,
+				6B8CE51D20DA4F3300C29270 /* close@1x.png in Resources */,
 				68584CC21F0CE7A1000E1C97 /* dropdown down arrow-01.png in Resources */,
 				68B95E4A1ED957AB008AC29F /* updateicon-01.png in Resources */,
+				6BAE884320AD870100735EDA /* date_time.png in Resources */,
 				68E2CA2B1ECDBBF900D96595 /* eventcalender-01.png in Resources */,
 				68FF15681F1CD140001BD881 /* Class.png in Resources */,
 				6B81591E20A45CC1003A3699 /* deselect.png in Resources */,
 				68584CC41F0CE8DC000E1C97 /* user.png in Resources */,
+				6B97622220A99B6200017D05 /* add_send.png in Resources */,
 				6B81591C20A4342E003A3699 /* select.png in Resources */,
-				6BB4CD4320A30605006221B8 /* edit.png in Resources */,
 				68363D261F1E3DCA003F1C20 /* exam-01 (1).png in Resources */,
 				68F60C8C1F1361EC00472DB7 /* fees icon.png in Resources */,
 				68C1AC9F1E97CE5C007DEE70 /* profile_pic.png in Resources */,
@@ -1448,11 +1580,14 @@
 				680198131F1629CC0009D0B9 /* ensyfi od screen icons-01.png in Resources */,
 				6BBD8D3D2035AD2B00272D8C /* Green@1x.png in Resources */,
 				680198181F162C4D0009D0B9 /* ensyfi od screen icons-02.png in Resources */,
+				6B8CE52020DA4F3300C29270 /* send@3x.png in Resources */,
 				68FF15641F1CD10A001BD881 /* Teacher.png in Resources */,
 				688FDD591E922E2900762CF4 /* Main.storyboard in Resources */,
 				68FCA9EB1EC5BA5800461789 /* edit-icon.png in Resources */,
 				68F379891F04DD2400151F1C /* Launch Screen.storyboard in Resources */,
 				680528C71ECB1EA200EEEC28 /* calender-01.png in Resources */,
+				6B9BD7BE20A5A346007F6212 /* send.png in Resources */,
+				6B8CE51920DA4F3300C29270 /* viewattendance@2x.png in Resources */,
 				68F60C821F135D5100472DB7 /* user small-01.png in Resources */,
 				68C547921E9E881A001FB96E /* menu .png in Resources */,
 				6BB4CD4220A30605006221B8 /* add_member.png in Resources */,
@@ -1462,6 +1597,7 @@
 				6B7B4C3B207E2BD8003A979E /* GoogleService-Info.plist in Resources */,
 				68F8DD4C1F6FD975006718C5 /* Untitled-3-01 (1).png in Resources */,
 				6BBD8D3B2035AD2B00272D8C /* Green@2x.png in Resources */,
+				6B9BD7C120A5C6A9007F6212 /* select_all deselect.png in Resources */,
 				68E2CA191ECDA14200D96595 /* timetable-01.png in Resources */,
 				6801981B1F162D330009D0B9 /* plus icon-01.png in Resources */,
 				6BBD8D442035AF8F00272D8C /* 1.gif in Resources */,
@@ -1472,16 +1608,19 @@
 				68FF15511F1C923D001BD881 /* ensyfi logo.png in Resources */,
 				689C09551E93BD9000B45B4E /* roboto.regular.ttf in Resources */,
 				68FF15661F1CD129001BD881 /* Parents.png in Resources */,
+				6BC02E0220E4F91700DB4F9F /* sendTel.png in Resources */,
 				6809D1531F278AA1007ABFF8 /* sidemenuicon1.png in Resources */,
 				683237AF1F13C06A00FE9E62 /* ensyfi- profile icons-03.png in Resources */,
 				68FF15621F1CD0F1001BD881 /* students.png in Resources */,
 				684F1B681F3C2997000E01B8 /* calender icon-android-01.png in Resources */,
 				6BBD8D412035AD2B00272D8C /* Orange@3x.png in Resources */,
+				6B9BD7C220A5C6A9007F6212 /* select_all.png in Resources */,
 				68B73BD21F1A0ADC0080C51A /* ensyfi profile bg-01.jpg in Resources */,
+				6B8CE51F20DA4F3300C29270 /* close@2x.png in Resources */,
 				6BB4CD4420A30605006221B8 /* notification.png in Resources */,
-				6BA50011207CB6460027E9E2 /* ENSIFY.db in Resources */,
 				683237A61F13B00700FE9E62 /* close-01.png in Resources */,
 				681494BF1F73EBFD0034393B /* teacher-01-01.png in Resources */,
+				6B8CE51C20DA4F3300C29270 /* send@2x.png in Resources */,
 				6809DB1B1F28BB6600C63789 /* teachers.storyboard in Resources */,
 				68E2CA1D1ECDA15900D96595 /* exam-01.png in Resources */,
 				68E102F61ED5860200A15131 /* eventplaceicon.png in Resources */,
@@ -1549,6 +1688,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68D297101F1FE24100BFAC73 /* AdminTableViewdetails.m in Sources */,
+				6BC02E0820E4FB0D00DB4F9F /* ClassTestHomeWorkFirstTableViewCell.m in Sources */,
 				688FDD561E922E2900762CF4 /* ViewController.m in Sources */,
 				68DD55121ECC24FB007D2B53 /* ExamDetailViewController.m in Sources */,
 				6B704D1F20918DE40053BA87 /* HolidayCalenderViewController.m in Sources */,
@@ -1567,6 +1707,7 @@
 				68FBD5021F9D28D000868C86 /* SyncViewController.m in Sources */,
 				68B43C761F84AE4600D8F406 /* AttendanceDateView.m in Sources */,
 				688FDD531E922E2900762CF4 /* AppDelegate.m in Sources */,
+				6B9C7F1520D91A2D00DB3BD6 /* ClassTeacherAttendanceDetailView.m in Sources */,
 				68E2CA251ECDAE3F00D96595 /* EventTableViewCell.m in Sources */,
 				6809D1421F2722E1007ABFF8 /* AdminFeeViewCell.m in Sources */,
 				68BAA47E1F25FD3B00C4F91F /* AdminODViewController.m in Sources */,
@@ -1574,10 +1715,12 @@
 				68F4D90F1F2371A70026F7C7 /* AdminResultView.m in Sources */,
 				68B7C7CD1F0E76A10017189A /* StudentinfoViewController.m in Sources */,
 				68363D1B1F1E349F003F1C20 /* AdminEventTableViewCell.m in Sources */,
+				6B8CE50B20DA191100C29270 /* ClassTeacherStudentListTableViewCell.m in Sources */,
 				68D5313A1F6BF5090047DF11 /* TeacherCircularDetailViewController.m in Sources */,
 				68B43C791F84AE6C00D8F406 /* AttendanceDateCell.m in Sources */,
 				680198091F1602850009D0B9 /* FessTableViewCell.m in Sources */,
 				68D531401F6C14EB0047DF11 /* TeacherondutyTableViewCell.m in Sources */,
+				6BAE884B20ADAB1200735EDA /* ViewGroupMembersViewController.m in Sources */,
 				681C5CAC1F83CC7E004DC9AD /* TeacherAttendanceFormView.m in Sources */,
 				681C5CAF1F83CD31004DC9AD /* TeacherAttendanceViewCell.m in Sources */,
 				68C83B941F87603A005D99C5 /* TeacherClasstestHomeWorkView.m in Sources */,
@@ -1594,6 +1737,7 @@
 				6BAEE7B22029882000D08550 /* FMDatabaseAdditions.m in Sources */,
 				68F4D90C1F232FDA0026F7C7 /* AdminExamTableViewCell.m in Sources */,
 				68BAA47B1F25FD1700C4F91F /* AdminODTableViewCell.m in Sources */,
+				6B99E96C20DBAE5800D4AAF3 /* ClassTeacherHomeWorkTableViewCell.m in Sources */,
 				6809D14B1F2731C0007ABFF8 /* AdminFeeStatusTableViewController.m in Sources */,
 				683485D71E9E5D03002D4E10 /* MainViewController.m in Sources */,
 				6801980C1F1626E20009D0B9 /* OnDutyTableViewCell.m in Sources */,
@@ -1601,7 +1745,9 @@
 				68FF15601F1CA6EE001BD881 /* AdminTableViewCell.m in Sources */,
 				6814B0711ED85F7100BE1D70 /* NewPasswordController.m in Sources */,
 				680E6CD61ED6DD0E007B7496 /* ExamMarkViewController.m in Sources */,
+				6B97622E20A9A87B00017D05 /* StudentGroupNotificationViewController.m in Sources */,
 				68EC60731F8E08CB00F77A7B /* TeacherExamDetailViewCell.m in Sources */,
+				6BC02E0520E4FAEC00DB4F9F /* ClassTestHomeWorkFirstView.m in Sources */,
 				6801349E1F8F4C42001238EB /* TeacherExamIntExtView.m in Sources */,
 				68DD55191ECC6AD0007D2B53 /* ExamDetailViewCell.m in Sources */,
 				68363D1E1F1E34CB003F1C20 /* AdminEventDescripitionView.m in Sources */,
@@ -1613,9 +1759,10 @@
 				6809D1451F272CAB007ABFF8 /* AdminFeeStatusCell.m in Sources */,
 				6810D4351F723EFD00232DD0 /* TeacherApplyLeave.m in Sources */,
 				68C83B971F87606B005D99C5 /* TeacherClassTestHomeworkCell.m in Sources */,
-				68F8DD481F6FD7D0006718C5 /* TeachernotificationViewController.m in Sources */,
+				68F8DD481F6FD7D0006718C5 /* GroupNotificationSendViewController.m in Sources */,
 				68EC541E1ED02D1F001B6208 /* ClassTestTableViewCell.m in Sources */,
 				68BAA4841F26225300C4F91F /* AdminLeaveRequestCell.m in Sources */,
+				6B9C7F0E20D901EA00DB3BD6 /* ClassTeachetAttendenceTableViewCell.m in Sources */,
 				68F4BA1D1F220C82008E6E58 /* AdminClassesViewController.m in Sources */,
 				6B81591520A42ECF003A3699 /* GroupNotificationAddmember.m in Sources */,
 				68E6389D1F67C14A0050ECDA /* FMDBManager.m in Sources */,
@@ -1627,12 +1774,14 @@
 				6810D4381F723F2F00232DD0 /* TeacherApplyLeaveCell.m in Sources */,
 				68F4D9091F232FBA0026F7C7 /* AdminExamViewController.m in Sources */,
 				68278D981E9EA39600D3F052 /* SideBarTableViewController.m in Sources */,
+				6BAE884820ADAAF100735EDA /* ViewGroupMembersTableViewCell.m in Sources */,
 				68CDDCC91F25470F00615E04 /* AdminParentsProfileView.m in Sources */,
 				68CDDCC31F25399200615E04 /* AdminParentsTableViewCell.m in Sources */,
 				6BABE6DC20907F13009E7392 /* NewTimeTableTableViewCell.m in Sources */,
 				68F4BA201F220CA9008E6E58 /* AdminClassesTableViewCell.m in Sources */,
 				6BAEE7B82029892400D08550 /* FMDatabasePool.m in Sources */,
 				6809D13F1F2722C1007ABFF8 /* AdminFeeViewController.m in Sources */,
+				6BD4222920EB5F9E00822CE8 /* ClassTeacherHomeWorkDetailViewController.m in Sources */,
 				6802FB0A1F2084C400DCBC1F /* AdminTeacherView.m in Sources */,
 				688FDD5C1E922E2900762CF4 /* EducationApp.xcdatamodeld in Sources */,
 				68E2CA281ECDB69600D96595 /* EventDiscripitionViewController.m in Sources */,
@@ -1673,17 +1822,22 @@
 				68110EB11F8B4C550007FB75 /* TeacherClasstestAddMarkCell.m in Sources */,
 				68B4D3BE1ED8C1F40033E261 /* SettingsViewController.m in Sources */,
 				688FDD501E922E2900762CF4 /* main.m in Sources */,
+				6B99E96920DBAE3500D4AAF3 /* ClassTeacherHomeWorkView.m in Sources */,
 				68080DCC1ECA240000B769A7 /* ExamsViewController.m in Sources */,
+				6B9C7F0B20D901D600DB3BD6 /* ClassTeacherAttendenceViewController.m in Sources */,
 				6804A9391F07AFFF0055D0EE /* Reachability.m in Sources */,
 				6BACA1B9209208C4005DBDAF /* ExamDutyTableViewCell.m in Sources */,
+				6B8CE50820DA18F200C29270 /* ClassTeacherStudentListView.m in Sources */,
 				68D531371F6BF4E00047DF11 /* TeacherCircularTableViewCell.m in Sources */,
 				68D5312E1F6BE4010047DF11 /* TeacherEventOrganiserView.m in Sources */,
+				6B97622520A99E9900017D05 /* NewTeachetNotifiationViewController.m in Sources */,
 				681858E71F90C91D00D5C02B /* TeacherTimeTableNotes.m in Sources */,
 				68E37F0B1F31A217005612A7 /* TeacherViewController.m in Sources */,
 				688FDD711E9237BC00762CF4 /* Webservice.m in Sources */,
 				6B704D1C20918DBF0053BA87 /* HolidayCalenderTableViewCell.m in Sources */,
 				68E2CA351ECDDBE700D96595 /* CommunicationViewController.m in Sources */,
 				68E2CA2F1ECDC3FC00D96595 /* EventorganiserViewController.m in Sources */,
+				6B8CE52320DA6BF400C29270 /* ShowPopViewController.m in Sources */,
 				681069DC1F1F9BBD0053D1E0 /* AdminStudentProfileView.m in Sources */,
 				68F8DD3F1F6FAA99006718C5 /* TeacherNotificationTableViewController.m in Sources */,
 				68D531311F6BE4E00047DF11 /* TeacherOrganiserViewCell.m in Sources */,

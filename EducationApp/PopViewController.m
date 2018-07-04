@@ -28,7 +28,7 @@
     NSString *guardian = [[NSUserDefaults standardUserDefaults]objectForKey:@"guardianProfile_Key"];
     if ([guardian isEqualToString:@"guardian"])
     {
-        self.navigationItem.title = @"GUARDIAN PROFILE";
+        self.navigationItem.title = @"Guardian Profile";
         self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
         [[NSUserDefaults standardUserDefaults]setObject:@" " forKey:@"guardianProfile_Key"];
         
@@ -61,7 +61,7 @@
     }
     else
     {
-        self.navigationItem.title = @"PARENTS PROFILE";
+        self.navigationItem.title = @"Parent Profile";
         self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
         
         

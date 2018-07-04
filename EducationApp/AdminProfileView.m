@@ -41,6 +41,9 @@
     self.imageView.layer.cornerRadius = 50.0;
     self.imageView.clipsToBounds = YES;
     
+    _changePasswordOutlet.layer.cornerRadius = 8.0;
+    _changePasswordOutlet.clipsToBounds = YES;
+    
     //setup the page...
     
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -61,7 +64,7 @@ NSArray *components = [NSArray arrayWithObjects:baseUrl,[[NSUserDefaults standar
             // Update the UI
             
             self.imageView.image = [UIImage imageWithData:imageData];
-            _imageView.layer.cornerRadius = 50.0;
+            _imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
             _imageView.clipsToBounds = YES;
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             
@@ -282,7 +285,7 @@ NSArray *components = [NSArray arrayWithObjects:baseUrl,[[NSUserDefaults standar
 //
 //    // Lets forget about that we were drawing
 //    UIGraphicsEndImageContext();
-    _imageView.layer.cornerRadius = 50.0;
+    _imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
     _imageView.clipsToBounds = YES;
     [self profile_Pic];
     [picker dismissViewControllerAnimated:YES completion:nil];

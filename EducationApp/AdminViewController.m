@@ -420,7 +420,7 @@
     {
         [[NSUserDefaults standardUserDefaults]setObject:@"admin" forKey:@"stat_user_type"];
 
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"admin" bundle:nil];
         CommunicationViewController *admin_communication = (CommunicationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CommunicationViewController"];
         [self.navigationController pushViewController:admin_communication animated:YES];
     }
@@ -471,8 +471,16 @@
     {
         // The device is an iPad running iOS 3.2 or later.
         
-        return CGSizeMake(310.f,310.f);
-        
+        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad && [UIScreen mainScreen].bounds.size.height == 1366))
+        {
+            return CGSizeMake(440.f, 440.f);
+            
+        }
+        else
+        {
+            return CGSizeMake(310.f,310.f);
+            
+        }
     }
     
     if ([[UIScreen mainScreen] bounds].size.height == 568)

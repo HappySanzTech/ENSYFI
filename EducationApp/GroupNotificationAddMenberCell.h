@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface GroupNotificationAddMenberCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *selectImageView;
 - (IBAction)groupButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *clickButtonOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *teacherId;

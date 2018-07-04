@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AdminParentsProfileView : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *viewstudentOutlet;
 - (IBAction)viewStudentinfo:(id)sender;
 - (IBAction)backBtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *officePhone;

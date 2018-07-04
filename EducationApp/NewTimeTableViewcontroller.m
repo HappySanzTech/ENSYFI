@@ -20,6 +20,7 @@
     NSMutableArray *subject_name;
     NSMutableArray *to_time;
     NSMutableArray *day;
+    NSMutableArray *break_name;
     AppDelegate *appDel;
 }
 @property (readwrite) NSInteger selected_id;
@@ -27,10 +28,11 @@
 
 @implementation NewTimeTableViewcontroller
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {
@@ -38,18 +40,21 @@
         [self.sidebarbutton setAction: @selector( revealToggle: )];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
+    
     SWRevealViewController *revealController = [self revealViewController];
     UITapGestureRecognizer *tap = [revealController tapGestureRecognizer];
     tap.delegate = self;
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    
     class_id = [[NSMutableArray alloc]init];
     from_time = [[NSMutableArray alloc]init];
     is_break = [[NSMutableArray alloc]init];
     name = [[NSMutableArray alloc]init];
     period = [[NSMutableArray alloc]init];
-    subject_name = [[NSMutableArray alloc]init];
+    subject_name = [[NSMutableArray alloc]init];                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     to_time = [[NSMutableArray alloc]init];
     day = [[NSMutableArray alloc]init];
+    break_name = [[NSMutableArray alloc]init];
 
     dayArray = [[NSUserDefaults standardUserDefaults]objectForKey:@"timeTable_Days_id"];
     listday_Array = [[NSUserDefaults standardUserDefaults]objectForKey:@"timeTable_Days"];
@@ -107,26 +112,39 @@
              {
                  NSArray *data = [dataArray objectAtIndex:i];
                  NSString *strclass_id = [data valueForKey:@"class_id"];
-                 NSString *strday = [data valueForKey:@"day"];
+                 NSString *strday = [data valueForKey:@"day_id"];
                  NSString *strfrom_time = [data valueForKey:@"from_time"];
                  NSString *stris_break = [data valueForKey:@"is_break"];
                  NSString *strname = [data valueForKey:@"name"];
                  NSString *strperiod = [data valueForKey:@"period"];
                  NSString *strsubject_name = [data valueForKey:@"subject_name"];
                  NSString *strto_time = [data valueForKey:@"to_time"];
+                 NSString *strbreak_name = [data valueForKey:@"break_name"];
+                 
+                 NSDateFormatter *formatHora = [[NSDateFormatter alloc] init];
+                 [formatHora setDateFormat:@"HH:mm:ss"];
+                 NSDate *dateHora = [formatHora dateFromString:strfrom_time];
+                 [formatHora setDateFormat:@"hh:mm a"];
+                 NSString *fromTime = [formatHora stringFromDate:dateHora];
+                 
+                 NSDateFormatter *to_formatHora = [[NSDateFormatter alloc] init];
+                 [to_formatHora setDateFormat:@"HH:mm:ss"];
+                 NSDate *to_dateHora = [to_formatHora dateFromString:strto_time];
+                 [to_formatHora setDateFormat:@"hh:mm a"];
+                 NSString *toTime = [to_formatHora stringFromDate:to_dateHora];
                  
                  [class_id addObject:strclass_id];
                  [day addObject:strday];
-                 [from_time addObject:strfrom_time];
+                 [from_time addObject:fromTime];
                  [is_break addObject:stris_break];
                  [name addObject:strname];
                  [period addObject:strperiod];
                  [subject_name addObject:strsubject_name];
-                 [to_time addObject:strto_time];
+                 [to_time addObject:toTime];
+                 [break_name addObject:strbreak_name];
              }
-                [self.tableView reloadData];
+                 [self.tableView reloadData];
          }
-         
      }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
      {
@@ -164,27 +182,43 @@
     cell.period.text = strPeriod;
     NSString *time = [NSString stringWithFormat:@"%@ - %@",[from_time objectAtIndex:indexPath.row],[to_time objectAtIndex:indexPath.row]];
     cell.time.text = time;
-    NSString *text = [is_break objectAtIndex:[indexPath row]];
+    NSString *text = [is_break objectAtIndex:indexPath.row];
     if ([text isEqualToString:@"1"])
     {
-        [tableView beginUpdates];
+        cell.subjectName.hidden = YES;
+        cell.lineTwo.hidden = YES;
+        cell.lineOne.hidden = YES;
+        cell.period.hidden = YES;
+        cell.time.hidden = YES;
+        cell.statPeriodLabel.hidden = YES;
+        cell.calenderImageview.hidden = YES;
+        cell.staffName.hidden = YES;
+        cell.breakLabel.hidden = NO;
+        cell.breakLabel.text = [NSString stringWithFormat:@"%@ - %@",[break_name objectAtIndex:indexPath.row],time];
         cell.cellView.layer.cornerRadius = 5.0;
         cell.cellView.clipsToBounds = YES;
-        cell.cellView.backgroundColor = [UIColor yellowColor];
+        cell.cellView.backgroundColor = [UIColor colorWithRed:231/255.0f green:167/255.0f blue:93/255.0f alpha:1.0];
     }
     else
     {
+        cell.breakLabel.hidden = YES;
+        cell.subjectName.hidden = NO;
+        cell.staffName.hidden = NO;
+        cell.lineTwo.hidden = NO;
+        cell.lineOne.hidden = NO;
+        cell.period.hidden = NO;
+        cell.calenderImageview.hidden = NO;
+        cell.statPeriodLabel.hidden = NO;
+        cell.time.hidden = NO;        
         cell.cellView.layer.cornerRadius = 5.0;
         cell.cellView.clipsToBounds = YES;
         cell.cellView.backgroundColor = [UIColor whiteColor];
-
     }
-    return cell;
+        return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *text = [is_break objectAtIndex:[indexPath row]];
-    
     if ([text isEqualToString:@"1"])
     {
         return 75;
@@ -193,7 +227,6 @@
     {
        return 135;
     }
-    
 }
 -(void)segmentAction:(UISegmentedControl *)sender
 {
@@ -205,7 +238,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
-    [parameters setObject:@"1" forKey:@"class_id"];
+    [parameters setObject:@"2" forKey:@"class_id"];
     [parameters setObject:day_id forKey:@"day_id"];
     
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -220,7 +253,6 @@
     
     [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
-         
          NSLog(@"%@",responseObject);
          [MBProgressHUD hideHUDForView:self.view animated:YES];
          NSString *msg = [responseObject objectForKey:@"msg"];
@@ -240,7 +272,7 @@
              {
                  NSArray *data = [dataArray objectAtIndex:i];
                  NSString *strclass_id = [data valueForKey:@"class_id"];
-                 NSString *strday = [data valueForKey:@"day"];
+                 NSString *strday = [data valueForKey:@"day_id"];
                  NSString *strfrom_time = [data valueForKey:@"from_time"];
                  NSString *stris_break = [data valueForKey:@"is_break"];
                  NSString *strname = [data valueForKey:@"name"];

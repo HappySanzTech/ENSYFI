@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface AdminStudentProfileView : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *erOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *attendanceOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *feeOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *chOutlet;
 @property (strong, nonatomic) IBOutlet UILabel *registered;
 @property (strong, nonatomic) IBOutlet UILabel *parentstatus;
 @property (strong, nonatomic) IBOutlet UILabel *status;

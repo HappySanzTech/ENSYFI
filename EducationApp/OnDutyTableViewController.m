@@ -121,7 +121,21 @@
              }
              else
              {
+                 UIAlertController *alert= [UIAlertController
+                                            alertControllerWithTitle:@"ENSYFI"
+                                            message:msg
+                                            preferredStyle:UIAlertControllerStyleAlert];
                  
+                 UIAlertAction* ok = [UIAlertAction
+                                      actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action)
+                                      {
+                                          
+                                      }];
+                 
+                 [alert addAction:ok];
+                 [self presentViewController:alert animated:YES completion:nil];
              }
              
              [self.tableView reloadData];
@@ -186,7 +200,21 @@
              }
              else
              {
+                 UIAlertController *alert= [UIAlertController
+                                            alertControllerWithTitle:@"ENSYFI"
+                                            message:msg
+                                            preferredStyle:UIAlertControllerStyleAlert];
                  
+                 UIAlertAction* ok = [UIAlertAction
+                                      actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action)
+                                      {
+                                          
+                                      }];
+                 
+                 [alert addAction:ok];
+                 [self presentViewController:alert animated:YES completion:nil];
              }
              
              [self.tableView reloadData];
@@ -250,7 +278,21 @@
              }
              else
              {
+                 UIAlertController *alert= [UIAlertController
+                                            alertControllerWithTitle:@"ENSYFI"
+                                            message:msg
+                                            preferredStyle:UIAlertControllerStyleAlert];
                  
+                 UIAlertAction* ok = [UIAlertAction
+                                      actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action)
+                                      {
+                                          
+                                      }];
+                 
+                 [alert addAction:ok];
+                 [self presentViewController:alert animated:YES completion:nil];
              }
              
              [self.tableView reloadData];
@@ -314,7 +356,21 @@
              }
              else
              {
+                 UIAlertController *alert= [UIAlertController
+                                            alertControllerWithTitle:@"ENSYFI"
+                                            message:msg
+                                            preferredStyle:UIAlertControllerStyleAlert];
                  
+                 UIAlertAction* ok = [UIAlertAction
+                                      actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action)
+                                      {
+                                          
+                                      }];
+                 
+                 [alert addAction:ok];
+                 [self presentViewController:alert animated:YES completion:nil];
              }
              
              [self.tableView reloadData];

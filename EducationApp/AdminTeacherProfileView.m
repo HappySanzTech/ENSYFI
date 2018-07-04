@@ -21,7 +21,8 @@
     NSMutableArray *subject_name;
     NSMutableArray *table_id;
     NSMutableArray *teacher_id_arr;
-
+    NSMutableArray *dayArray;
+    NSMutableArray *listday_Array;
 }
 @end
 
@@ -39,6 +40,9 @@
     self.userImage.layer.cornerRadius = 50.0;
     self.userImage.clipsToBounds = YES;
     
+    _timetablebtnOtlet.layer.cornerRadius = 8.0;
+    _timetablebtnOtlet.clipsToBounds = YES;
+    
     if ([strstat_user_type isEqualToString:@"teachers"])
     {
         self.timetablebtnOtlet.hidden = YES;
@@ -54,10 +58,13 @@
     subject_name = [[NSMutableArray alloc]init];
     table_id = [[NSMutableArray alloc]init];
     teacher_id_arr = [[NSMutableArray alloc]init];
+    
+    dayArray = [[NSMutableArray alloc]init];
+    listday_Array = [[NSMutableArray alloc]init];
 
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-    NSString *strteacher_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"admin_teacherid"];
+    NSString *strteacher_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"strteacher_id_key"];
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     [parameters setObject:strteacher_id forKey:@"teacher_id"];
     
@@ -213,10 +220,76 @@
 }
 - (IBAction)timeTableBtn:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults]setObject:@"admin" forKey:@"stat_user_type"];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"teachers" bundle:nil];
-    TeachersTimeTableView *teachersTimeTableView = (TeachersTimeTableView *)[storyboard instantiateViewControllerWithIdentifier:@"TeachersTimeTableView"];
-    [self.navigationController pushViewController:teachersTimeTableView animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSString *strteacher_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"strteacher_id_key"];
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+    [parameters setObject:strteacher_id forKey:@"teacher_id"];
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    
+    /* concordanate with baseurl */
+    NSString *disp_timetabledays = @"/apiadmin/get_teacher_class_details";
+    NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,disp_timetabledays, nil];
+    NSString *api = [NSString pathWithComponents:components];
+    
+    [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         
+         NSLog(@"%@",responseObject);
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
+         NSString *msg = [responseObject objectForKey:@"msg"];
+         if ([msg isEqualToString:@"Class and Sections"])
+         {
+             NSArray *dataArray = [responseObject objectForKey:@"timeTabledays"];
+             NSArray *data = [dataArray valueForKey:@"data"];
+             [dayArray removeAllObjects];
+             [listday_Array removeAllObjects];
+             for (int i = 0;i < [data count]; i++)
+             {
+                 NSArray *dataValue = [data objectAtIndex:i];
+                 NSString *strDay = [dataValue valueForKey:@"day_id"];
+                 NSString *strlist_day = [dataValue valueForKey:@"list_day"];
+                 
+                 [dayArray addObject:strDay];
+                 [listday_Array addObject:strlist_day];
+             }
+             [[NSUserDefaults standardUserDefaults]setObject:dayArray forKey:@"timeTable_Days_id"];
+             [[NSUserDefaults standardUserDefaults]setObject:listday_Array forKey:@"timeTable_Days"];
+             [[NSUserDefaults standardUserDefaults]setObject:@"admin" forKey:@"stat_user_type"];
+             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"teachers" bundle:nil];
+             TeachersTimeTableView *teachersTimeTableView = (TeachersTimeTableView *)[storyboard instantiateViewControllerWithIdentifier:@"TeachersTimeTableView"];
+             [self.navigationController pushViewController:teachersTimeTableView animated:YES];
+         }
+         else
+         {
+             [dayArray removeAllObjects];
+             [listday_Array removeAllObjects];
+             UIAlertController *alert= [UIAlertController
+                                        alertControllerWithTitle:@"ENSYFI"
+                                        message:msg
+                                        preferredStyle:UIAlertControllerStyleAlert];
+             
+             UIAlertAction *ok = [UIAlertAction
+                                  actionWithTitle:@"OK"
+                                  style:UIAlertActionStyleDefault
+                                  handler:^(UIAlertAction * action)
+                                  {
+                                      
+                                  }];
+             
+             [alert addAction:ok];
+         }
+         
+     }
+          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+     {
+         NSLog(@"error: %@", error);
+     }];
+    
 }
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {

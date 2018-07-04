@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AdminNotificationTableViewController : UITableViewController
+@interface AdminNotificationTableViewController : UITableViewController<UITextViewDelegate,UIGestureRecognizerDelegate>
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarBtn;
 - (IBAction)backButton:(id)sender;
 @end

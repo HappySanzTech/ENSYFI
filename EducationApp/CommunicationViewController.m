@@ -79,7 +79,7 @@
              
              NSArray *arr_Circular = [responseObject objectForKey:@"circularDetails"];
              
-             
+
              for (int i = 0; i < [arr_Circular count]; i++)
              {
                  NSDictionary *circularDetails = [arr_Circular objectAtIndex:i];
@@ -146,7 +146,7 @@
          {
              
              NSLog(@"%@",responseObject);
-             
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
              NSString *msg = [responseObject objectForKey:@"msg"];
              
              if ([msg isEqualToString:@"View Circular"])
@@ -170,10 +170,7 @@
                      [circular_Type addObject:c_Type];
                      
                  }
-                 
                  [self.tableView reloadData];
-                 
-                 [MBProgressHUD hideHUDForView:self.view animated:YES];
              }
              else
              {
@@ -247,7 +244,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 112;
+    return 130;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

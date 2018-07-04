@@ -36,7 +36,7 @@
     class_id = [[NSMutableArray alloc]init];
     class_name = [[NSMutableArray alloc]init];
     
-    menuItems = @[@"samp",@"home",@"profile",@"students",@"teachers", @"parents", @"classes", @"exams", @"results", @"events",@"communication",@"fee",@"onduty",@"notification",@"leave",@"holidaycalender",@"settings",@"signout"];
+    menuItems = @[@"samp",@"home",@"profile",@"students",@"teachers", @"parents", @"classes", @"exams", @"results", @"events",@"communication",@"fee",@"onduty",@"notification",@"leave",@"settings",@"signout"];
     
     staticMenu = @[@"username"];
     

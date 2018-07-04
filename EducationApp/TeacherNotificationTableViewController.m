@@ -20,7 +20,6 @@
     NSMutableArray *gropuDetailView_id;
     NSMutableArray *created_at;
 
-
 }
 @end
 
@@ -299,9 +298,9 @@
              [[NSUserDefaults standardUserDefaults]setObject:gropuDetailView_id forKey:@"groupid_key"];
 
              
-             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"teachers" bundle:nil];
-             TeachernotificationViewController *teachernotificationViewController = (TeachernotificationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"TeachernotificationViewController"];
-             [self.navigationController pushViewController:teachernotificationViewController animated:YES];
+//             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"teachers" bundle:nil];
+//             TeachernotificationViewController *teachernotificationViewController = (TeachernotificationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"TeachernotificationViewController"];
+//             [self.navigationController pushViewController:teachernotificationViewController animated:YES];
          }
          else
          {

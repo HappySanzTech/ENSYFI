@@ -30,7 +30,7 @@
     listday_Array = [[NSMutableArray alloc]init];
 
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    menuItems = @[@"samp",@"home",@"profile", @"attendance", @"createtest", @"exam", @"timetable", @"event", @"communication",@"settings",@"studentinfo",@"onduty",@"holidaycalender",@"signout"];
+    menuItems = @[@"samp",@"home",@"profile", @"attendance", @"createtest", @"exam", @"timetable", @"event", @"communication",@"settings",@"studentinfo",@"onduty",@"signout"];
     staticMenu = @[@"username"];
     [self.tableView registerClass:[SideTableViewCell class] forCellReuseIdentifier:@"SideTableViewCell"];
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -249,7 +249,7 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
-        [parameters setObject:@"1" forKey:@"class_id"];
+        [parameters setObject:appDel.class_id forKey:@"class_id"];
         
         AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -275,7 +275,7 @@
                  for (int i = 0;i < [dataArray count]; i++)
                  {
                      NSArray *data = [dataArray objectAtIndex:i];
-                     NSString *strDay = [data valueForKey:@"day"];
+                     NSString *strDay = [data valueForKey:@"day_id"];
                      NSString *strlist_day = [data valueForKey:@"list_day"];
                      
                      [dayArray addObject:strDay];
@@ -286,6 +286,25 @@
                  UINavigationController *navController = segue.destinationViewController;
                  NewTimeTableViewcontroller *time = [navController childViewControllers].firstObject;
                  NSLog(@"%@",time);
+             }
+             else
+             {
+                 [dayArray removeAllObjects];
+                 [listday_Array removeAllObjects];
+                 UIAlertController *alert= [UIAlertController
+                                            alertControllerWithTitle:@"ENSYFI"
+                                            message:msg
+                                            preferredStyle:UIAlertControllerStyleAlert];
+                 
+                 UIAlertAction *ok = [UIAlertAction
+                                      actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action)
+                                      {
+                                          
+                                      }];
+                 
+                 [alert addAction:ok];
              }
              
          }
@@ -416,6 +435,14 @@
         NSLog(@"%@",onduty);
         
     }
+    else if ([segue.identifier isEqualToString:@"notification"])
+    {
+        
+        UINavigationController *navController = segue.destinationViewController;
+        StudentGroupNotificationViewController *studentGroupNotificationViewController = [navController childViewControllers].firstObject;
+        NSLog(@"%@",studentGroupNotificationViewController);
+        
+    }
     else if ([segue.identifier isEqualToString:@"signout"])
     {
         
@@ -434,7 +461,11 @@
         [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"msgKey"];
         [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"Login_status"];
         [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"stat_user_type"];
-        
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"timeTable_Days_id"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"timeTable_Days"];
+        [dayArray removeAllObjects];
+        [listday_Array removeAllObjects];
+
     }
 
 }

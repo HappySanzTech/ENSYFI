@@ -57,14 +57,14 @@
     tap.delegate = self;
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
     
-    CGRect frame= _segmentControl.frame;
-    [_segmentControl setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width,42)];
-    [_segmentControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
-
-    _categoeryOutlet.layer.borderColor = [UIColor colorWithRed:102/255.0f green:51/255.0f blue:102/255.0f alpha:1.0].CGColor;
-    _categoeryOutlet.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5f];
-    _categoeryOutlet.layer.borderWidth = 1.0f;
-    [_categoeryOutlet.layer setCornerRadius:10.0f];
+//    CGRect frame= _segmentControl.frame;
+//    [_segmentControl setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width,42)];
+//    [_segmentControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
+//
+//    _categoeryOutlet.layer.borderColor = [UIColor colorWithRed:102/255.0f green:51/255.0f blue:102/255.0f alpha:1.0].CGColor;
+//    _categoeryOutlet.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5f];
+//    _categoeryOutlet.layer.borderWidth = 1.0f;
+//    [_categoeryOutlet.layer setCornerRadius:10.0f];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
@@ -143,196 +143,196 @@
 }
 */
 
-- (IBAction)segmentBtn:(id)sender
-{
-//    NSString *strCategoery = [[NSUserDefaults standardUserDefaults]objectForKey:@"selected_Class_Value"];
-    if(_segmentControl.selectedSegmentIndex==0)
-    {
-//        if ([strCategoery isEqualToString:@""])
-//        {
-//            [_segmentControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
-//            UIAlertController *alert= [UIAlertController
-//                                       alertControllerWithTitle:@"ENSYFI"
-//                                       message:@"Please select the categoery"
-//                                       preferredStyle:UIAlertControllerStyleAlert];
+//- (IBAction)segmentBtn:(id)sender
+//{
+////    NSString *strCategoery = [[NSUserDefaults standardUserDefaults]objectForKey:@"selected_Class_Value"];
+////    if(_segmentControl.selectedSegmentIndex==0)
+////    {
+////        if ([strCategoery isEqualToString:@""])
+////        {
+////            [_segmentControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
+////            UIAlertController *alert= [UIAlertController
+////                                       alertControllerWithTitle:@"ENSYFI"
+////                                       message:@"Please select the categoery"
+////                                       preferredStyle:UIAlertControllerStyleAlert];
+////
+////            UIAlertAction *ok = [UIAlertAction
+////                                 actionWithTitle:@"OK"
+////                                 style:UIAlertActionStyleDefault
+////                                 handler:^(UIAlertAction * action)
+////                                 {
+////
+////                                 }];
+////
+////            [alert addAction:ok];
+////            [self presentViewController:alert animated:YES completion:nil];
+////        }
+////        else
+////        {
+//            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//            NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+//            [parameters setObject:appDel.user_id forKey:@"user_id"];
+//            
+//            
+//            AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+//            manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//            [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//            manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+//            
+//            /* concordanate with baseurl */
+//            NSString *forDispOd = @"/apiadmin/get_students_od_view/";
+//            NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,forDispOd, nil];
+//            NSString *api = [NSString pathWithComponents:components];
+//            
+//            
+//            [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+//             {
+//                 
+//                 NSLog(@"%@",responseObject);
+//                 NSString *msg = [responseObject objectForKey:@"msg"];
+//                 NSArray *ondutyDetails = [responseObject objectForKey:@"ondutyDetails"];
+//                 
+//                 if ([msg isEqualToString:@"odviewfound"])
+//                 {
+//                     [odTitle removeAllObjects];
+//                     [frmDate removeAllObjects];
+//                     [toDte removeAllObjects];
+//                     [odStatus removeAllObjects];
+//                     [name removeAllObjects];
+//                     [_id removeAllObjects];
 //
-//            UIAlertAction *ok = [UIAlertAction
-//                                 actionWithTitle:@"OK"
-//                                 style:UIAlertActionStyleDefault
-//                                 handler:^(UIAlertAction * action)
-//                                 {
+//                     for (int i = 0; i < [ondutyDetails count]; i++)
+//                     {
+//                         NSDictionary *onduty = [ondutyDetails objectAtIndex:i];
+//                         
+//                         NSString *od_for = [onduty objectForKey:@"od_for"];
+//                         NSString *fromDate = [onduty objectForKey:@"from_date"];
+//                         NSString *toDate = [onduty objectForKey:@"to_date"];
+//                         NSString *status = [onduty objectForKey:@"status"];
+//                         NSString *strname = [onduty objectForKey:@"name"];
+//                         NSString *str_id = [onduty objectForKey:@"id"];
 //
-//                                 }];
-//
-//            [alert addAction:ok];
-//            [self presentViewController:alert animated:YES completion:nil];
+//                         [odTitle addObject:od_for];
+//                         [frmDate addObject:fromDate];
+//                         [toDte addObject:toDate];
+//                         [odStatus addObject:status];
+//                         [name addObject:strname];
+//                         [_id addObject:str_id];
+//                     }
+//                 }
+//                 [self.tableView reloadData];
+//                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+//             }
+//                  failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+//             {
+//                 NSLog(@"error: %@", error);
+//             }];
 //        }
-//        else
-//        {
-            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
-            [parameters setObject:appDel.user_id forKey:@"user_id"];
-            
-            
-            AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-            manager.requestSerializer = [AFJSONRequestSerializer serializer];
-            [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-            
-            /* concordanate with baseurl */
-            NSString *forDispOd = @"/apiadmin/get_students_od_view/";
-            NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,forDispOd, nil];
-            NSString *api = [NSString pathWithComponents:components];
-            
-            
-            [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
-             {
-                 
-                 NSLog(@"%@",responseObject);
-                 NSString *msg = [responseObject objectForKey:@"msg"];
-                 NSArray *ondutyDetails = [responseObject objectForKey:@"ondutyDetails"];
-                 
-                 if ([msg isEqualToString:@"odviewfound"])
-                 {
-                     [odTitle removeAllObjects];
-                     [frmDate removeAllObjects];
-                     [toDte removeAllObjects];
-                     [odStatus removeAllObjects];
-                     [name removeAllObjects];
-                     [_id removeAllObjects];
-
-                     for (int i = 0; i < [ondutyDetails count]; i++)
-                     {
-                         NSDictionary *onduty = [ondutyDetails objectAtIndex:i];
-                         
-                         NSString *od_for = [onduty objectForKey:@"od_for"];
-                         NSString *fromDate = [onduty objectForKey:@"from_date"];
-                         NSString *toDate = [onduty objectForKey:@"to_date"];
-                         NSString *status = [onduty objectForKey:@"status"];
-                         NSString *strname = [onduty objectForKey:@"name"];
-                         NSString *str_id = [onduty objectForKey:@"id"];
-
-                         [odTitle addObject:od_for];
-                         [frmDate addObject:fromDate];
-                         [toDte addObject:toDate];
-                         [odStatus addObject:status];
-                         [name addObject:strname];
-                         [_id addObject:str_id];
-                     }
-                 }
-                 [self.tableView reloadData];
-                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-             }
-                  failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
-             {
-                 NSLog(@"error: %@", error);
-             }];
-        }
+////    }
+////    else if (_segmentControl.selectedSegmentIndex==1)
+////    {
+////        if([strCategoery isEqualToString:@""])
+////        {
+////            [_segmentControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
+////            UIAlertController *alert= [UIAlertController
+////                                       alertControllerWithTitle:@"ENSYFI"
+////                                       message:@"Please select the categoery"
+////                                       preferredStyle:UIAlertControllerStyleAlert];
+////
+////            UIAlertAction *ok = [UIAlertAction
+////                                 actionWithTitle:@"OK"
+////                                 style:UIAlertActionStyleDefault
+////                                 handler:^(UIAlertAction * action)
+////                                 {
+////
+////                                 }];
+////
+////            [alert addAction:ok];
+////            [self presentViewController:alert animated:YES completion:nil];
+////        }
+////        else
+////        {
+//            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//            NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+//            [parameters setObject:appDel.user_type forKey:@"user_type"];
+//            
+//            AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+//            manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//            [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//            manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+//            
+//            
+//            /* concordanate with baseurl */
+//            NSString *disp_Leavetype = @"/apiadmin/get_teachers_od_view/";
+//            NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,disp_Leavetype, nil];
+//            NSString *api = [NSString pathWithComponents:components];
+//            
+//            
+//            [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+//             {
+//                 
+//                 NSLog(@"%@",responseObject);
+//                 NSString *msg = [responseObject objectForKey:@"msg"];
+//                 NSArray *ondutyDetails = [responseObject objectForKey:@"ondutyDetails"];
+//                 
+//                 if ([msg isEqualToString:@"odviewfound"])
+//                 {
+//                     
+//                     [odTitle removeAllObjects];
+//                     [frmDate removeAllObjects];
+//                     [toDte removeAllObjects];
+//                     [odStatus removeAllObjects];
+//                     [name removeAllObjects];
+//                     [_id removeAllObjects];
+//                     
+//                     for (int i = 0; i < [ondutyDetails count]; i++)
+//                     {
+//                         NSDictionary *onduty = [ondutyDetails objectAtIndex:i];
+//                         NSString *od_for = [onduty objectForKey:@"od_for"];
+//                         NSString *fromDate = [onduty objectForKey:@"from_date"];
+//                         NSString *toDate = [onduty objectForKey:@"to_date"];
+//                         NSString *status = [onduty objectForKey:@"status"];
+//                         NSString *strname = [onduty objectForKey:@"name"];
+//                         NSString *str_id = [onduty objectForKey:@"id"];
+//
+//                         [odTitle addObject:od_for];
+//                         [frmDate addObject:fromDate];
+//                         [toDte addObject:toDate];
+//                         [odStatus addObject:status];
+//                         [name addObject:strname];
+//                         [_id addObject:str_id];
+//
+//                     }
+//                     [self.tableView reloadData];
+//                 }
+//                 else
+//                 {
+//                     UIAlertController *alert= [UIAlertController
+//                                                alertControllerWithTitle:@"ENSYFI"
+//                                                message:@"No data"
+//                                                preferredStyle:UIAlertControllerStyleAlert];
+//                     
+//                     UIAlertAction *ok = [UIAlertAction
+//                                          actionWithTitle:@"OK"
+//                                          style:UIAlertActionStyleDefault
+//                                          handler:^(UIAlertAction * action)
+//                                          {
+//                                              
+//                                          }];
+//                     
+//                     [alert addAction:ok];
+//                     [self presentViewController:alert animated:YES completion:nil];
+//                 }
+//                 
+//                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                 
+//             }
+//                  failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+//             {
+//                 NSLog(@"error: %@", error);
+//             }];
+//        }
 //    }
-    else if (_segmentControl.selectedSegmentIndex==1)
-    {
-//        if([strCategoery isEqualToString:@""])
-//        {
-//            [_segmentControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
-//            UIAlertController *alert= [UIAlertController
-//                                       alertControllerWithTitle:@"ENSYFI"
-//                                       message:@"Please select the categoery"
-//                                       preferredStyle:UIAlertControllerStyleAlert];
-//
-//            UIAlertAction *ok = [UIAlertAction
-//                                 actionWithTitle:@"OK"
-//                                 style:UIAlertActionStyleDefault
-//                                 handler:^(UIAlertAction * action)
-//                                 {
-//
-//                                 }];
-//
-//            [alert addAction:ok];
-//            [self presentViewController:alert animated:YES completion:nil];
-//        }
-//        else
-//        {
-            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
-            [parameters setObject:appDel.user_type forKey:@"user_type"];
-            
-            AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-            manager.requestSerializer = [AFJSONRequestSerializer serializer];
-            [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-            
-            
-            /* concordanate with baseurl */
-            NSString *disp_Leavetype = @"/apiadmin/get_teachers_od_view/";
-            NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,disp_Leavetype, nil];
-            NSString *api = [NSString pathWithComponents:components];
-            
-            
-            [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
-             {
-                 
-                 NSLog(@"%@",responseObject);
-                 NSString *msg = [responseObject objectForKey:@"msg"];
-                 NSArray *ondutyDetails = [responseObject objectForKey:@"ondutyDetails"];
-                 
-                 if ([msg isEqualToString:@"odviewfound"])
-                 {
-                     
-                     [odTitle removeAllObjects];
-                     [frmDate removeAllObjects];
-                     [toDte removeAllObjects];
-                     [odStatus removeAllObjects];
-                     [name removeAllObjects];
-                     [_id removeAllObjects];
-                     
-                     for (int i = 0; i < [ondutyDetails count]; i++)
-                     {
-                         NSDictionary *onduty = [ondutyDetails objectAtIndex:i];
-                         NSString *od_for = [onduty objectForKey:@"od_for"];
-                         NSString *fromDate = [onduty objectForKey:@"from_date"];
-                         NSString *toDate = [onduty objectForKey:@"to_date"];
-                         NSString *status = [onduty objectForKey:@"status"];
-                         NSString *strname = [onduty objectForKey:@"name"];
-                         NSString *str_id = [onduty objectForKey:@"id"];
-
-                         [odTitle addObject:od_for];
-                         [frmDate addObject:fromDate];
-                         [toDte addObject:toDate];
-                         [odStatus addObject:status];
-                         [name addObject:strname];
-                         [_id addObject:str_id];
-
-                     }
-                     [self.tableView reloadData];
-                 }
-                 else
-                 {
-                     UIAlertController *alert= [UIAlertController
-                                                alertControllerWithTitle:@"ENSYFI"
-                                                message:@"No data"
-                                                preferredStyle:UIAlertControllerStyleAlert];
-                     
-                     UIAlertAction *ok = [UIAlertAction
-                                          actionWithTitle:@"OK"
-                                          style:UIAlertActionStyleDefault
-                                          handler:^(UIAlertAction * action)
-                                          {
-                                              
-                                          }];
-                     
-                     [alert addAction:ok];
-                     [self presentViewController:alert animated:YES completion:nil];
-                 }
-                 
-                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-                 
-             }
-                  failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
-             {
-                 NSLog(@"error: %@", error);
-             }];
-        }
-    }
 //}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -422,27 +422,27 @@
         [self.navigationController pushViewController:oDPermision animated:YES];
     }
 }
-- (IBAction)categoertBtn:(id)sender
-{
-//    if(dropDown == nil)
-//    {
-//        CGFloat f = 200;
-//        dropDown = [[NIDropDown alloc]showDropDown:sender :&f :categoeryArray :nil :@"down"];
-//        [[NSUserDefaults standardUserDefaults]setObject:@"Class" forKey:@"sec_class"];
-//        dropDown.delegate = self;
-//    }
-//    else
-//    {
-//        [dropDown hideDropDown:sender];
-//        [self rel];
-//    }
-}
-- (void)niDropDownDelegateMethod: (NIDropDown *) sender
-{
-    [self rel];
-}
--(void)rel
-{
-    dropDown = nil;
-}
+//- (IBAction)categoertBtn:(id)sender
+//{
+////    if(dropDown == nil)
+////    {
+////        CGFloat f = 200;
+////        dropDown = [[NIDropDown alloc]showDropDown:sender :&f :categoeryArray :nil :@"down"];
+////        [[NSUserDefaults standardUserDefaults]setObject:@"Class" forKey:@"sec_class"];
+////        dropDown.delegate = self;
+////    }
+////    else
+////    {
+////        [dropDown hideDropDown:sender];
+////        [self rel];
+////    }
+//}
+//- (void)niDropDownDelegateMethod: (NIDropDown *) sender
+//{
+//    [self rel];
+//}
+//-(void)rel
+//{
+//    dropDown = nil;
+//}
 @end

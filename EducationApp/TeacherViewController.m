@@ -13,6 +13,13 @@
     AppDelegate *appDel;
     NSArray *menuImages;
     NSArray *menuTitles;
+    NSArray *docPaths;
+    NSString *documentsDir;
+    NSString *dbPath;
+    FMDatabase *database;
+    FMResultSet *rs;
+    NSMutableArray *dayArray;
+    NSMutableArray *listday_Array;
 }
 @end
 
@@ -35,15 +42,31 @@
     tap.delegate = self;
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
     
+    appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSLog(@"%@",appDel.classTeacher_id);
+    if ([appDel.classTeacher_id isEqualToString:@"0"])
+    {
+        self.segView.hidden = YES;
+        self.segCenterView.hidden = YES;
+        [self.view addSubview:_mainView];
+        [self.mainView addSubview:self.collectionView];
+        self.mainView.frame = CGRectMake(self.mainView.frame.origin.x,self.mainView.frame.origin.y - 50,self.mainView.frame.size.width,self.mainView.frame.size.height + 50);
+    }
+    else
+    {
+        self.segView.hidden = NO;
+        self.segCenterView.hidden = NO;
+        
+        [self.mainView addSubview:self.collectionView];
+        self.mainView.frame = CGRectMake(self.mainView.frame.origin.x,self.mainView.frame.origin.y,self.mainView.frame.size.width,self.mainView.frame.size.height);
+        
+    }
     menuImages = [NSArray arrayWithObjects:@"attendance.png",@"classtest-01.png",@"exam-01.png",@"timetable-01.png",@"Events.png",@"communication-01.png",nil];
-    
     menuTitles= [NSArray arrayWithObjects:@"ATTENDANCE",@"CLASS TEST & HOMEWORK",@"EXAM & RESULT",@"TIME TABLE",@"EVENTS",@"CIRCULAR", nil];
     
     //...For Tapping cells....    
     [tap setCancelsTouchesInView:NO];
     
-    appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
-
     appDel.user_name = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_name_key"];
     appDel.user_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_id_key"];
     appDel.user_type = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_type_key"];
@@ -54,6 +77,7 @@
     appDel.name = [[NSUserDefaults standardUserDefaults]objectForKey:@"name_key"];
     appDel.institute_code = [[NSUserDefaults standardUserDefaults]objectForKey:@"institute_code_Key"];
     appDel.class_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"class_id_arr"];
+    appDel.classTeacher_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"classTeacher_id_Key"];
     NSLog(@"%@",appDel.institute_code);
     
     [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"teacher_attendance_resultKey"];
@@ -70,7 +94,7 @@
         flowLayout.sectionInset = UIEdgeInsetsMake(60, 30, 60, 30);
     } else
     {
-        //        flowLayout.itemSize = CGSizeMake(192.f, 192.f);
+        //flowLayout.itemSize = CGSizeMake(192.f, 192.f);
     }
     
     [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
@@ -79,7 +103,6 @@
 {
     return [menuImages count];
 }
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
      TeacherCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
@@ -129,7 +152,29 @@
     }
     else if (indexPath.row == 3)
     {
-        
+        docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        documentsDir = [docPaths objectAtIndex:0];
+        dbPath = [documentsDir   stringByAppendingPathComponent:@"ENSIFY.db"];
+        database = [FMDatabase databaseWithPath:dbPath];
+        [database open];
+        rs = [database executeQuery:@"Select _id,day,day_id from table_create_teacher_timetabledays"];
+        if(rs)
+        {
+            [dayArray removeAllObjects];
+            [listday_Array removeAllObjects];
+            
+            while ([rs next])
+            {
+                NSString *strday = [rs stringForColumn:@"day_id"];
+                NSString *strlistday_Array = [rs stringForColumn:@"list_day"];
+                
+                [dayArray addObject:strday];
+                [listday_Array addObject:strlistday_Array];
+            }
+        }
+        [database close];
+        [[NSUserDefaults standardUserDefaults]setObject:dayArray forKey:@"timeTable_Days_id"];
+        [[NSUserDefaults standardUserDefaults]setObject:listday_Array forKey:@"timeTable_Days"];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"teachers" bundle:nil];
         TeachersTimeTableView *teachersTimeTableView = (TeachersTimeTableView *)[storyboard instantiateViewControllerWithIdentifier:@"TeachersTimeTableView"];
         [self.navigationController pushViewController:teachersTimeTableView animated:YES];
@@ -198,8 +243,16 @@
     {
         // The device is an iPad running iOS 3.2 or later.
         
-        return CGSizeMake(310.f,310.f);
-        
+        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad && [UIScreen mainScreen].bounds.size.height == 1366))
+        {
+            return CGSizeMake(440.f, 440.f);
+            
+        }
+        else
+        {
+            return CGSizeMake(310.f,310.f);
+            
+        }
     }
     
     if ([[UIScreen mainScreen] bounds].size.height == 568)
@@ -232,4 +285,9 @@
 }
 */
 
+- (IBAction)classAssignmentBtn:(id)sender {
+}
+
+- (IBAction)classAttendanceBtn:(id)sender {
+}
 @end

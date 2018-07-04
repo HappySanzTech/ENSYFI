@@ -18,6 +18,9 @@
     NSString *documentsDir;
     NSString *dbPath;
     FMDatabase *database;
+    FMResultSet *rs;
+    NSMutableArray *day_idArray;
+    NSMutableArray *listday_Array;
 }
 @end
 
@@ -34,11 +37,14 @@
     
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-    menuItems = @[@"samp",@"home",@"profile", @"attendance", @"classtesthomework", @"examandresult", @"timetable", @"event", @"circular",@"onduty",@"notification",@"applyleave",@"settings",@"sync",@"holidaycalender",@"examduty",@"signout"];
+    menuItems = @[@"samp",@"home",@"profile", @"attendance", @"classtesthomework", @"examandresult", @"timetable", @"event", @"circular",@"onduty",@"notification",@"applyleave",@"settings",@"sync",@"examduty",@"signout"];
     
     staticMenu = @[@"username"];
     
     [self.tableView registerClass:[TeacherTableViewCell class] forCellReuseIdentifier:@"TeacherTableViewCell"];
+    
+    day_idArray = [[NSMutableArray alloc]init];
+    listday_Array = [[NSMutableArray alloc]init];
     
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
@@ -319,8 +325,8 @@
     {
         
         UINavigationController *navController = segue.destinationViewController;
-        TeacherNotificationTableViewController *teacherNotificationTableViewController = [navController childViewControllers].firstObject;
-        NSLog(@"%@",teacherNotificationTableViewController);
+        NewTeachetNotifiationViewController *newTeachetNotifiationViewController = [navController childViewControllers].firstObject;
+        NSLog(@"%@",newTeachetNotifiationViewController);
         
     }
     
@@ -342,11 +348,32 @@
     }
     else if ([segue.identifier isEqualToString:@"timeTable"])
     {
-        
-        UINavigationController *navController = segue.destinationViewController;
-        TeachersTimeTableView *TeachersTimeTableView = [navController childViewControllers].firstObject;
-        NSLog(@"%@",TeachersTimeTableView);
-        
+        docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        documentsDir = [docPaths objectAtIndex:0];
+        dbPath = [documentsDir   stringByAppendingPathComponent:@"ENSIFY.db"];
+        database = [FMDatabase databaseWithPath:dbPath];
+        [database open];
+        rs = [database executeQuery:@"Select _id,list_day,day_id from table_create_teacher_timetabledays"];
+        if(rs)
+        {
+            [day_idArray removeAllObjects];
+            [listday_Array removeAllObjects];
+            
+            while ([rs next])
+            {
+                NSString *strday = [rs stringForColumn:@"day_id"];
+                NSString *strlistday_Array = [rs stringForColumn:@"list_day"];
+                
+                [day_idArray addObject:strday];
+                [listday_Array addObject:strlistday_Array];
+            }
+        }
+         [database close];
+        [[NSUserDefaults standardUserDefaults]setObject:day_idArray forKey:@"timeTable_Days_id"];
+        [[NSUserDefaults standardUserDefaults]setObject:listday_Array forKey:@"timeTable_Days"];
+         UINavigationController *navController = segue.destinationViewController;
+         TeachersTimeTableView *TeachersTimeTableView = [navController childViewControllers].firstObject;
+         NSLog(@"%@",TeachersTimeTableView);
     }
     else if ([segue.identifier isEqualToString:@"sync"])
     {
@@ -374,11 +401,26 @@
     }
     else if ([segue.identifier isEqualToString:@"signout"])
     {
-        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"admin_teacherid"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"strteacher_id_key"];
         [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"ClassView"];
         [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"Login_status"];
         [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"teacher_attendance_resultKey"];
         [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"stat_user_type"];
+        
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"ctView_date"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"ctView_present"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"ctView_absent"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"ctView_totalStudents"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"ctView_name"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"ctView_status"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"ctView_attendId"];
+        
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"title_key"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"hw_type_key"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"subject_name_key"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"name_key"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"hw_details_key"];
+        
         
         BOOL isDeleted;
         docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -453,7 +495,35 @@
         else
             NSLog(@"Error occured while deleting");
         [database close];
-        
+        //////////////////////////
+        docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        documentsDir = [docPaths objectAtIndex:0];
+        dbPath = [documentsDir stringByAppendingPathComponent:@"ENSIFY.db"];
+        database = [FMDatabase databaseWithPath:dbPath];
+        [database open];
+        isDeleted = [database executeUpdate:@"DELETE FROM table_create_teacher_timetable"];
+        if(isDeleted)
+            NSLog(@"table_create_teacher_timetable Successfully deleted Successfully");
+        else
+            NSLog(@"Error occured while deleting");
+        [database close];
+        //////////////////////////
+        docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        documentsDir = [docPaths objectAtIndex:0];
+        dbPath = [documentsDir stringByAppendingPathComponent:@"ENSIFY.db"];
+        database = [FMDatabase databaseWithPath:dbPath];
+        [database open];
+        isDeleted = [database executeUpdate:@"DELETE FROM table_create_teacher_timetabledays"];
+        if(isDeleted)
+            NSLog(@"table_create_teacher_timetabledays Successfully deleted Successfully");
+        else
+            NSLog(@"Error occured while deleting");
+        [database close];
+        ///////////////////////////////////////
+        [day_idArray removeAllObjects];
+        [listday_Array removeAllObjects];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"timeTable_Days_id"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"timeTable_Days"];
         UINavigationController *navController = segue.destinationViewController;
         ViewController *viewController = [navController childViewControllers].firstObject;
         NSLog(@"%@",viewController);

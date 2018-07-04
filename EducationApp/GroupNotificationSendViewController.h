@@ -8,16 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TeachernotificationViewController : UIViewController<NIDropDownDelegate,UITextViewDelegate>
-{
-    NIDropDown *dropDown;
+@interface GroupNotificationSendViewController : UIViewController<UITextViewDelegate>
 
-}
 @property (strong, nonatomic) IBOutlet UIButton *imgNotification;
 @property (strong, nonatomic) IBOutlet UIButton *mailImgOtlet;
 @property (strong, nonatomic) IBOutlet UIButton *imgSmsOtlet;
-- (IBAction)selectBtn:(id)sender;
-@property (strong, nonatomic) IBOutlet UIButton *selectButton;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTextview;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *backButton;
 - (IBAction)smsImgButton:(id)sender;

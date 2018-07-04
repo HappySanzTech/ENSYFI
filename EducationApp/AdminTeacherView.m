@@ -163,7 +163,7 @@
     
     NSString *get_teacher_id = [teacher_id objectAtIndex:indexPath.row];
     //adminstudent.rollNumber.text;
-    [[NSUserDefaults standardUserDefaults]setObject:get_teacher_id forKey:@"admin_teacherid"];
+    [[NSUserDefaults standardUserDefaults]setObject:get_teacher_id forKey:@"strteacher_id_key"];
     [self performSegueWithIdentifier:@"to_studentProfile" sender:self];
 }
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender

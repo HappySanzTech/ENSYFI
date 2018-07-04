@@ -24,6 +24,8 @@
     
 //    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
+    _viewstudentOutlet.layer.cornerRadius = 8.0;
+    _viewstudentOutlet.clipsToBounds = YES;
     
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
     

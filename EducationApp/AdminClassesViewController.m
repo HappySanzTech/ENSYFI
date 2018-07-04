@@ -648,7 +648,7 @@
         
         NSString *teacherid = teacher_id[indexteacher_id];
 
-        [[NSUserDefaults standardUserDefaults]setObject:teacherid forKey:@"admin_teacherid"];
+        [[NSUserDefaults standardUserDefaults]setObject:teacherid forKey:@"strteacher_id_key"];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"admin" bundle:nil];
         AdminTeacherProfileView *adminTeacherProfile = (AdminTeacherProfileView *)[storyboard instantiateViewControllerWithIdentifier:@"AdminTeacherProfileView"];

@@ -50,7 +50,7 @@
     _conformPaswrd.layer.borderWidth = 1.0f;
     [_conformPaswrd.layer setCornerRadius:10.0f];
     
-    _updateOutlet.layer.cornerRadius = 10;
+    _updateOutlet.layer.cornerRadius = 8.0;
     _updateOutlet.clipsToBounds = YES;
     
     _username.delegate = self;

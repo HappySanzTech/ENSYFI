@@ -16,11 +16,14 @@
 
 @implementation TeacherTimeTableAddNotes
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    
+    _submitBtnOtlet.layer.cornerRadius = 8;
+    _submitBtnOtlet.clipsToBounds = YES;
     
     NSString *className = [[NSUserDefaults standardUserDefaults]objectForKey:@"clasName_key"];
     NSString *subjecName = [[NSUserDefaults standardUserDefaults]objectForKey:@"subject_name_key"];
@@ -29,10 +32,8 @@
     self.classNameLabel.text = className;
     self.subjectnameLabel.text = subjecName;
     self.periodlabel.text = period;
-
     self.detailstxtview.delegate = self;
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

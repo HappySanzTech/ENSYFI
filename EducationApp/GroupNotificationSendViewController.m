@@ -6,65 +6,53 @@
 //  Copyright © 2017 Palpro Tech. All rights reserved.
 //
 
-#import "TeachernotificationViewController.h"
+#import "GroupNotificationSendViewController.h"
 
-@interface TeachernotificationViewController ()
+@interface GroupNotificationSendViewController ()
 {
-    
     AppDelegate *appDel;
-    
     NSString *imgSmsButton;
     NSString *SmsButton;
     NSString *SmsButtonValue;
-    
     NSString *imgmailButton;
     NSString *mailButton;
     NSString *MailButtonValue;
-
-
     NSString *imgnotification;
     NSString *notificationButton;
     NSString *notificationButnValue;
-
+    NSString *group_idFlag;
+    NSString *notificationTypeFlag;
 }
 
 @end
 
-@implementation TeachernotificationViewController
+@implementation GroupNotificationSendViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    _selectButton.layer.borderColor = [UIColor colorWithRed:102/255.0f green:51/255.0f blue:102/255.0f alpha:1.0].CGColor;
-    _selectButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5f];
-    _selectButton.layer.borderWidth = 1.0f;
-    [_selectButton.layer setCornerRadius:10.0f];
-    
-    [_sendOtlet.layer setCornerRadius:10.0f];
-    
+
+    [_sendOtlet.layer setCornerRadius:8.0f];
+    _sendOtlet.clipsToBounds = YES;
     _descriptionTextview.layer.cornerRadius = 10.0;
     _descriptionTextview.clipsToBounds = YES;
-    
     _descriptionTextview.delegate=self;
-    
     imgSmsButton = @"0";
     SmsButton = @"0";
-    
     imgmailButton = @"0";
     mailButton = @"0";
-    
     imgnotification = @"0";
     notificationButton = @"0";
-
     SmsButtonValue =@"0";
     MailButtonValue = @"0";
     notificationButnValue = @"0";
-    
+    notificationTypeFlag = @"";
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
+    group_idFlag = [[NSUserDefaults standardUserDefaults]objectForKey:@"GN_StrGroup_id"];
+
 }
 -(void)dismissKeyboard
 {
@@ -92,7 +80,7 @@
     {
         SmsButtonValue = @"1";
         imgSmsButton =@"1";
-        
+        notificationTypeFlag = @"SMS";
         [_imgSmsOtlet setSelected:YES];
         
     }
@@ -100,29 +88,25 @@
     {
         SmsButtonValue = @"0";
         imgSmsButton =@"0";
+        notificationTypeFlag = @"";
         [_imgSmsOtlet setSelected:NO];
-
     }
-    
 }
-
 - (IBAction)smsButton:(id)sender
 {
     if ([SmsButton isEqualToString:@"0"])
     {
         SmsButtonValue = @"1";
         SmsButton =@"1";
+        notificationTypeFlag = @"SMS";
         [_imgSmsOtlet setSelected:YES];
-
-
     }
     else
     {
         SmsButtonValue = @"0";
         SmsButton =@"0";
+        notificationTypeFlag = @"";
         [_imgSmsOtlet setSelected:NO];
-
-        
     }
 }
 
@@ -132,6 +116,7 @@
     {
         imgmailButton = @"1";
         MailButtonValue = @"1";
+        notificationTypeFlag = @"Mail";
         [_mailImgOtlet setSelected:YES];
 
     }
@@ -139,30 +124,27 @@
     {
         imgmailButton = @"0";
         MailButtonValue = @"0";
+        notificationTypeFlag = @"";
         [_mailImgOtlet setSelected:NO];
 
     }
-    
 }
-
 - (IBAction)mailButton:(id)sender
 {
     if ([mailButton isEqualToString:@"0"])
     {
         mailButton = @"1";
         MailButtonValue = @"1";
+        notificationTypeFlag = @"Mail";
         [_mailImgOtlet setSelected:YES];
-
-
     }
     else
     {
         mailButton = @"0";
         MailButtonValue = @"0";
+        notificationTypeFlag = @"";
         [_mailImgOtlet setSelected:NO];
-
     }
-    
 }
 - (IBAction)notifiButton:(id)sender
 {
@@ -170,7 +152,7 @@
     {
         notificationButton = @"1";
         notificationButnValue = @"1";
-        
+        notificationTypeFlag = @"Notification";
         [_imgNotification setSelected:YES];
         
         
@@ -179,6 +161,7 @@
     {
         notificationButton = @"0";
         notificationButnValue = @"0";
+        notificationTypeFlag = @"";
         [_imgNotification setSelected:NO];
     }
 }
@@ -189,6 +172,7 @@
     {
         imgnotification = @"1";
         notificationButnValue = @"1";
+        notificationTypeFlag = @"Notification";
         [_imgNotification setSelected:YES];
 
     }
@@ -196,34 +180,14 @@
     {
         imgnotification = @"0";
         notificationButnValue = @"0";
+        notificationTypeFlag = @"Notification";
         [_imgNotification setSelected:NO];
-
     }
 }
 
 - (IBAction)sendButton:(id)sender
 {
-    NSString *resultstr = [[NSUserDefaults standardUserDefaults]objectForKey:@"notificationAns_key"];
-    
-    if ([resultstr isEqualToString:@""])
-    {
-        UIAlertController *alert= [UIAlertController
-                                   alertControllerWithTitle:@"ENSYFI"
-                                   message:@""
-                                   preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *ok = [UIAlertAction
-                             actionWithTitle:@"OK"
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction * action)
-                             {
-                                 
-                             }];
-        
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-    else if ([self.descriptionTextview.text isEqualToString:@""])
+    if ([self.descriptionTextview.text isEqualToString:@""])
     {
         UIAlertController *alert= [UIAlertController
                                    alertControllerWithTitle:@"ENSYFI"
@@ -241,7 +205,7 @@
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
     }
-    else if ([SmsButtonValue isEqualToString:@"0"] && [MailButtonValue isEqualToString:@"0"] && [notificationButnValue isEqualToString:@"0"])
+    else if ([notificationTypeFlag isEqualToString:@"0"])
     {
         UIAlertController *alert= [UIAlertController
                                    alertControllerWithTitle:@"ENSYFI"
@@ -263,22 +227,12 @@
     else
     {
         appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        
-        NSArray *groupTitle = [[NSUserDefaults standardUserDefaults]objectForKey:@"groupTitle_key"];
-        NSArray *groupid = [[NSUserDefaults standardUserDefaults]objectForKey:@"groupid_key"];
-        
-        NSUInteger valueInteger = [groupTitle indexOfObject:resultstr];
-        
-        NSString *group_title_id = groupid[valueInteger];
-        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
-        [parameters setObject:group_title_id forKey:@"group_title_id"];
-        [parameters setObject:SmsButtonValue forKey:@"messagetype_sms"];
-        [parameters setObject:MailButtonValue forKey:@"messagetype_mail"];
-        [parameters setObject:notificationButnValue forKey:@"messagetype_notification"];
-        [parameters setObject:self.descriptionTextview.text forKey:@"message_details"];
-        [parameters setObject:appDel.user_id forKey:@"created_by"];
-
+        [parameters setObject:appDel.user_id forKey:@"user_id"];
+        [parameters setObject:group_idFlag forKey:@"group_id"];
+        [parameters setObject:self.descriptionTextview.text forKey:@"note"];
+        [parameters setObject:notificationTypeFlag forKey:@"notification_type"];
         
         AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -287,27 +241,19 @@
 
         
         /* concordanate with baseurl */
-        NSString *forGroupmessage = @"/apimain/send_Groupmessage/";
+        NSString *forGroupmessage = @"apiadmin/group_msg_send";
         NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,forGroupmessage, nil];
         NSString *api = [NSString pathWithComponents:components];
-        
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
         
         [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
          {
         
              
              NSLog(@"%@",responseObject);
-             
              [MBProgressHUD hideHUDForView:self.view animated:YES];
-             
              NSString *msg = [responseObject objectForKey:@"msg"];
-             NSString *status = [responseObject objectForKey:@"status"];
-             NSString *group_history_id = [responseObject objectForKey:@"last_group_history_id"];
-             NSLog(@"%@",group_history_id);
              
-             if ([status isEqualToString:@"success"])
+             if ([msg isEqualToString:@"Group Notification Send Sucessfully"])
              {
                  UIAlertController *alert= [UIAlertController
                                             alertControllerWithTitle:@"ENSYFI"
@@ -319,9 +265,9 @@
                                       style:UIAlertActionStyleDefault
                                       handler:^(UIAlertAction * action)
                                       {
-                                          UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"teachers" bundle:nil];
-                                          TeacherNotificationTableViewController *teacherNotificationTableViewController = (TeacherNotificationTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"TeacherNotificationTableViewController"];
-                                          [self.navigationController pushViewController:teacherNotificationTableViewController animated:YES];
+                                          UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"admin" bundle:nil];
+                                          AdminNotificationTableViewController *adminNotificationTableViewController = (AdminNotificationTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AdminNotificationTableViewController"];
+                                          [self.navigationController pushViewController:adminNotificationTableViewController animated:YES];
                                           
                                       }];
                  
@@ -356,30 +302,6 @@
          }];
     }
 
-}
-- (IBAction)selectBtn:(id)sender
-{
-    NSArray *getValues = [[NSUserDefaults standardUserDefaults]objectForKey:@"groupTitle_key"];
-    
-    if(dropDown == nil)
-    {
-        CGFloat f = 60;
-        dropDown = [[NIDropDown alloc]showDropDown:sender :&f :getValues :nil :@"down"];
-        [[NSUserDefaults standardUserDefaults]setObject:@"notification" forKey:@"notification_key"];
-        dropDown.delegate = self;
-    }
-    else {
-        [dropDown hideDropDown:sender];
-        [self rel];
-    }
-}
-- (void) niDropDownDelegateMethod: (NIDropDown *) sender
-{
-    [self rel];
-}
--(void)rel
-{
-    dropDown = nil;
 }
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {

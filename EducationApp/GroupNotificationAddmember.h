@@ -13,6 +13,9 @@
     UIPickerView *pickerView;
     UIToolbar *toolbar;
 }
+- (IBAction)checkBoxButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *checkBoxOutlet;
+- (IBAction)sendButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *studentArrowImage;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)backButton:(id)sender;

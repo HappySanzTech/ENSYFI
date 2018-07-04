@@ -177,11 +177,13 @@
     NSString *StrGroup_title = [group_title objectAtIndex:indexPath.row];
     NSString *StrStatus = [status objectAtIndex:indexPath.row];
     NSString *StrLead_name = [lead_name objectAtIndex:indexPath.row];
+    NSString *StrGroup_lead_id = [group_lead_id objectAtIndex:indexPath.row];
 
     [[NSUserDefaults standardUserDefaults]setObject:StrGroup_id forKey:@"GN_StrGroup_id"];
     [[NSUserDefaults standardUserDefaults]setObject:StrGroup_title forKey:@"GN_Group_title"];
     [[NSUserDefaults standardUserDefaults]setObject:StrStatus forKey:@"GN_status"];
     [[NSUserDefaults standardUserDefaults]setObject:StrLead_name forKey:@"GN_lead_name"];
+    [[NSUserDefaults standardUserDefaults]setObject:StrGroup_lead_id forKey:@"GN_lead_id"];
     [self performSegueWithIdentifier:@"groupNotificationView" sender:self];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

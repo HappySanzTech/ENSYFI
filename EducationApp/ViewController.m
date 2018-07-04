@@ -85,6 +85,15 @@
     appDel.user_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_id_key"];
     appDel.user_type = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_type_key"];
     appDel.user_type_name = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_type_name_key"];
+    NSLog(@"%@",appDel.user_type_name);
+    if ([appDel.user_type_name isEqualToString:@"Students"])
+    {
+        self.navigationItem.title = @"ENSYFI-Student";
+    }
+    else
+    {
+        self.navigationItem.title = @"ENSYFI-Parent";
+    }
     
     appDel.user_password = [[NSUserDefaults standardUserDefaults]objectForKey:@"password_status_key"];
     appDel.user_picture = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_pic_key"];

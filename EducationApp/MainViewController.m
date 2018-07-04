@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define iPadPro ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad && [UIScreen mainScreen].bounds.size.height == 1366)
 @interface MainViewController ()
 {
     AppDelegate *appDel;
@@ -18,6 +19,8 @@
 
     NSMutableArray *ab_date;
     NSMutableArray *student_id;
+    NSMutableArray *dayArray;
+    NSMutableArray *listday_Array;
 }
 @end
 
@@ -44,6 +47,8 @@
         [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
 
     ab_date = [[NSMutableArray alloc]init];
+    dayArray = [[NSMutableArray alloc]init];
+    listday_Array = [[NSMutableArray alloc]init];
     
     menuImages = [NSArray arrayWithObjects:@"attendance.png",@"classtest-01.png",@"exam-01.png",@"timetable-01.png",@"Events.png",@"communication-01.png",nil];
     menuTitles= [NSArray arrayWithObjects:@"ATTENDANCE",@"CLASS TEST & HOMEWORK",@"EXAM & RESULT",@"TIME TABLE",@"EVENTS",@"CIRCULAR", nil];
@@ -57,6 +62,15 @@
     appDel.user_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_id_key"];
     appDel.user_type = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_type_key"];
     appDel.user_type_name = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_type_name_key"];
+    NSLog(@"%@",appDel.user_type_name);
+    if ([appDel.user_type_name isEqualToString:@"Students"])
+    {
+        self.navigationItem.title = @"ENSYFI-Student";
+    }
+    else
+    {
+        self.navigationItem.title = @"ENSYFI-Parent";
+    }
     
     appDel.user_password = [[NSUserDefaults standardUserDefaults]objectForKey:@"password_status_key"];
     appDel.user_picture = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_pic_key"];
@@ -210,11 +224,73 @@
     }
     else if (indexPath.row == 3)
     {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+        [parameters setObject:@"1" forKey:@"class_id"];
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        TimeTableViewController *exam = (TimeTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"TimeTableViewController"];
-        [self.navigationController pushViewController:exam animated:YES];
+        AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
         
+        /* concordanate with baseurl */
+        NSString *disp_timetabledays = @"apimain/disp_timetabledays";
+        NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,disp_timetabledays, nil];
+        NSString *api = [NSString pathWithComponents:components];
+        
+        [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+         {
+             
+             NSLog(@"%@",responseObject);
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             NSString *msg = [responseObject objectForKey:@"msg"];
+             if ([msg isEqualToString:@"Timetable Days"])
+             {
+                 NSArray *dataArray = [responseObject objectForKey:@"timetableDays"];
+                 [dayArray removeAllObjects];
+                 [listday_Array removeAllObjects];
+                 for (int i = 0;i < [dataArray count]; i++)
+                 {
+                     NSArray *data = [dataArray objectAtIndex:i];
+                     NSString *strDay = [data valueForKey:@"day_id"];
+                     NSString *strlist_day = [data valueForKey:@"list_day"];
+                     
+                     [dayArray addObject:strDay];
+                     [listday_Array addObject:strlist_day];
+                 }
+                 [[NSUserDefaults standardUserDefaults]setObject:dayArray forKey:@"timeTable_Days_id"];
+                 [[NSUserDefaults standardUserDefaults]setObject:listday_Array forKey:@"timeTable_Days"];
+                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                 NewTimeTableViewcontroller *newTimeTableViewcontroller = (NewTimeTableViewcontroller *)[storyboard instantiateViewControllerWithIdentifier:@"NewTimeTableViewcontroller"];
+                 [self.navigationController pushViewController:newTimeTableViewcontroller animated:YES];
+                
+             }
+             else
+             {
+                 [dayArray removeAllObjects];
+                 [listday_Array removeAllObjects];
+                 UIAlertController *alert= [UIAlertController
+                                            alertControllerWithTitle:@"ENSYFI"
+                                            message:msg
+                                            preferredStyle:UIAlertControllerStyleAlert];
+                 
+                 UIAlertAction *ok = [UIAlertAction
+                                      actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action)
+                                      {
+                                          
+                                      }];
+                 
+                 [alert addAction:ok];
+             }
+             
+         }
+              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+         {
+             NSLog(@"error: %@", error);
+         }];
     }
     else if (indexPath.row == 4)
     {
@@ -243,8 +319,16 @@
             return UIEdgeInsetsMake(60, 30, 60, 30);
 
         }
-     
-        return UIEdgeInsetsMake(40, 50, 40, 50);
+        else if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad && [UIScreen mainScreen].bounds.size.height == 1366))
+        {
+            return UIEdgeInsetsMake(40, 50, 40, 50);
+
+        }
+        else
+        {
+            return UIEdgeInsetsMake(40, 50, 40, 50);
+
+        }
 
     }
     else
@@ -259,16 +343,10 @@
 {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
-        
-     // The device is an iPad running iOS 3.2 or later.
-        
         return 15;
-
     }
     else
     {
-        // The device is an iPhone or iPod touch
-        
         return 15;
     }
 }
@@ -278,11 +356,18 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
         // The device is an iPad running iOS 3.2 or later.
-       
-        return CGSizeMake(310.f,310.f);
+        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad && [UIScreen mainScreen].bounds.size.height == 1366))
+        {
+            return CGSizeMake(440.f, 440.f);
+            
+        }
+        else
+        {
+            return CGSizeMake(310.f,310.f);
+
+        }
 
     }
-
     if ([[UIScreen mainScreen] bounds].size.height == 568)
     {
         

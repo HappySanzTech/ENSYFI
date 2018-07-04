@@ -29,6 +29,15 @@
     
     appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
+    _chOutlet.layer.cornerRadius = 8.0;
+    _chOutlet.clipsToBounds = YES;
+    _attendanceOutlet.layer.cornerRadius = 8.0;
+    _attendanceOutlet.clipsToBounds = YES;
+    _feeOutlet.layer.cornerRadius = 8.0;
+    _feeOutlet.clipsToBounds = YES;
+    _erOutlet.layer.cornerRadius = 8.0;
+    _erOutlet.clipsToBounds = YES;
+    
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     [parameters setObject:appDel.student_id forKey:@"student_id"];
     

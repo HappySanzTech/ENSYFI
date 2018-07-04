@@ -1,4 +1,4 @@
-//
+    //
 //  AdminNotificationTableViewController.m
 //  EducationApp
 //
@@ -13,12 +13,13 @@
     AppDelegate *appDel;
     NSMutableArray *group_title;
     NSMutableArray *group_title_id;
-    NSMutableArray *notification_id;
+    NSMutableArray *notification_type;
     NSMutableArray *notes;
     
-    NSMutableArray *groupView_title;
-    NSMutableArray *gropuDetailView_id;
+    NSMutableArray *name;
+    NSMutableArray *created_by;
     NSMutableArray *created_at;
+    NSString *group_idFlag;
 
 }
 @end
@@ -30,27 +31,42 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     [self.navigationController.navigationBar setHidden:NO];
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sidebarBtn setTarget: self.revealViewController];
+        [self.sidebarBtn setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+    SWRevealViewController *revealController = [self revealViewController];
+    UITapGestureRecognizer *tap = [revealController tapGestureRecognizer];
+    tap.delegate = self;
+    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    
     group_title = [[NSMutableArray alloc]init];
     group_title_id = [[NSMutableArray alloc]init];
-    notification_id = [[NSMutableArray alloc]init];
+    notification_type = [[NSMutableArray alloc]init];
     notes = [[NSMutableArray alloc]init];
     created_at = [[NSMutableArray alloc]init];
 
-    groupView_title = [[NSMutableArray alloc]init];
-    gropuDetailView_id = [[NSMutableArray alloc]init];
-    
+    name = [[NSMutableArray alloc]init];
+    created_by = [[NSMutableArray alloc]init];
+    appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//    group_idFlag = [[NSUserDefaults standardUserDefaults]objectForKey:@"GN_StrGroup_id"];
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     [parameters setObject:appDel.user_type forKey:@"user_type"];
     [parameters setObject:appDel.user_id forKey:@"user_id"];
-    
+
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     
     /* concordanate with baseurl */
-    NSString *forEvent = @"/apimain/disp_Groupmessage/";
-    NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,forEvent, nil];
+//    NSString *grp_messsage_history = @"apimain/grp_messsage_history";
+    NSString *grp_messsage_history = @"apimain/disp_Groupmessage";
+    NSArray *components = [NSArray arrayWithObjects:baseUrl,appDel.institute_code,grp_messsage_history, nil];
     NSString *api = [NSString pathWithComponents:components];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -59,70 +75,124 @@
      {
          
          NSLog(@"%@",responseObject);
-         
-         NSString *status = [responseObject objectForKey:@"status"];
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
          NSString *msg = [responseObject objectForKey:@"msg"];
+//         NSArray *groupmsgDetails = [responseObject objectForKey:@"msg_history"];
          NSArray *groupmsgDetails = [responseObject objectForKey:@"groupmsgDetails"];
+//         if ([msg isEqualToString:@"History Found"] && [status isEqualToString:@"success"])
+//         {
+//             [group_title removeAllObjects];
+//             [group_title_id removeAllObjects];
+//             [notification_type removeAllObjects];
+//             [notes removeAllObjects];
+//             [created_at removeAllObjects];
+//             [created_by removeAllObjects];
+//             [name removeAllObjects];
+//
+//             for (int i = 0; i < [groupmsgDetails count]; i++)
+//             {
+//
+//                 NSDictionary *dict = [groupmsgDetails objectAtIndex:i];
+//                 NSString *strgroup_title = [dict objectForKey:@"group_title"];
+//                 NSString *strgroup_title_id = [dict objectForKey:@"group_title_id"];
+//                 NSString *strNotification_type = [dict objectForKey:@"notification_type"];
+//                 NSString *strnotes = [dict objectForKey:@"notes"];
+//                 NSString *strCreated_at = [dict objectForKey:@"created_at"];
+//                 NSString *strCreated_by = [dict objectForKey:@"created_by"];
+//
+//                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//                 [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//                 NSDate *date = [dateFormatter dateFromString:strCreated_at];
+//                 dateFormatter = [[NSDateFormatter alloc] init];
+//                 [dateFormatter setDateFormat:@"dd-MM-yyyy hh:mm a"];
+//                 NSString *convertedString = [dateFormatter stringFromDate:date];
+//
+//                 [group_title addObject:strgroup_title];
+//                 [group_title_id addObject:strgroup_title_id];
+//                 [notification_type addObject:strNotification_type];
+//                 [notes addObject:strnotes];
+//                 [created_at addObject:convertedString];
+//                 [created_by addObject:strCreated_by];
+//
+//             }
+//                [self.tableView reloadData];
+//         }
+//         else
+//         {
+//             UIAlertController *alert= [UIAlertController
+//                                        alertControllerWithTitle:@"ENSYFI"
+//                                        message:msg
+//                                        preferredStyle:UIAlertControllerStyleAlert];
+//
+//             UIAlertAction *ok = [UIAlertAction
+//                                  actionWithTitle:@"OK"
+//                                  style:UIAlertActionStyleDefault
+//                                  handler:^(UIAlertAction * action)
+//                                  {
+//
+//                                  }];
+//
+//             [alert addAction:ok];
+//             [self presentViewController:alert animated:YES completion:nil];
+//
+//         }
+                  if ([msg isEqualToString:@"View Group Messages"])
+                  {
+                      [group_title removeAllObjects];
+                      [group_title_id removeAllObjects];
+                      [notification_type removeAllObjects];
+                      [notes removeAllObjects];
+                      [created_at removeAllObjects];
+                      [created_by removeAllObjects];
+                      [name removeAllObjects];
          
-         if ([msg isEqualToString:@"View Group Messages"] && [status isEqualToString:@"success"])
-         {
-             [group_title removeAllObjects];
-             [group_title_id removeAllObjects];
-             [notification_id removeAllObjects];
-             [notes removeAllObjects];
-             [created_at removeAllObjects];
-             
-             for (int i = 0; i < [groupmsgDetails count]; i++)
-             {
-                 
-                 NSDictionary *dict = [groupmsgDetails objectAtIndex:i];
-                 NSString *strgroup_title = [dict objectForKey:@"group_title"];
-                 NSString *strgroup_title_id = [dict objectForKey:@"group_title_id"];
-                 NSString *strNotification_id = [dict objectForKey:@"id"];
-                 NSString *strnotes = [dict objectForKey:@"notes"];
-                 NSString *strCreated_at = [dict objectForKey:@"created_at"];
-                 
-                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                 [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-                 NSDate *date = [dateFormatter dateFromString:strCreated_at];
-                 dateFormatter = [[NSDateFormatter alloc] init];
-                 [dateFormatter setDateFormat:@"dd-MM-yyyy hh:mm a"];
-                 NSString *convertedString = [dateFormatter stringFromDate:date];
-
-                 [group_title addObject:strgroup_title];
-                 [group_title_id addObject:strgroup_title_id];
-                 [notification_id addObject:strNotification_id];
-                 [notes addObject:strnotes];
-                 [created_at addObject:convertedString];
-
-             }
-             
-             [self.tableView reloadData];
-             
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
-             
-         }
-         else
-         {
-             UIAlertController *alert= [UIAlertController
-                                        alertControllerWithTitle:@"ENSYFI"
-                                        message:msg
-                                        preferredStyle:UIAlertControllerStyleAlert];
-             
-             UIAlertAction *ok = [UIAlertAction
-                                  actionWithTitle:@"OK"
-                                  style:UIAlertActionStyleDefault
-                                  handler:^(UIAlertAction * action)
-                                  {
-                                      
-                                  }];
-             
-             [alert addAction:ok];
-             [self presentViewController:alert animated:YES completion:nil];
-             
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
-             
-         }
+                      for (int i = 0; i < [groupmsgDetails count]; i++)
+                      {
+         
+                          NSDictionary *dict = [groupmsgDetails objectAtIndex:i];
+                          NSString *strgroup_title = [dict objectForKey:@"group_title"];
+                          NSString *strgroup_title_id = [dict objectForKey:@"group_title_id"];
+//                          NSString *strNotification_type = [dict objectForKey:@"notification_type"];
+                          NSString *strnotes = [dict objectForKey:@"notes"];
+                          NSString *strCreated_at = [dict objectForKey:@"created_at"];
+//                          NSString *strCreated_by = [dict objectForKey:@"created_by"];
+         
+                          NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                          [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                          NSDate *date = [dateFormatter dateFromString:strCreated_at];
+                          dateFormatter = [[NSDateFormatter alloc] init];
+                          [dateFormatter setDateFormat:@"dd-MM-yyyy hh:mm a"];
+                          NSString *convertedString = [dateFormatter stringFromDate:date];
+         
+                          [group_title addObject:strgroup_title];
+                          [group_title_id addObject:strgroup_title_id];
+//                          [notification_type addObject:strNotification_type];
+                          [notes addObject:strnotes];
+                          [created_at addObject:convertedString];
+//                          [created_by addObject:strCreated_by];
+         
+                      }
+                         [self.tableView reloadData];
+                  }
+                  else
+                  {
+                      UIAlertController *alert= [UIAlertController
+                                                 alertControllerWithTitle:@"ENSYFI"
+                                                 message:msg
+                                                 preferredStyle:UIAlertControllerStyleAlert];
+         
+                      UIAlertAction *ok = [UIAlertAction
+                                           actionWithTitle:@"OK"
+                                           style:UIAlertActionStyleDefault
+                                           handler:^(UIAlertAction * action)
+                                           {
+         
+                                           }];
+         
+                      [alert addAction:ok];
+                      [self presentViewController:alert animated:YES completion:nil];
+         
+                  }
      }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
      {
@@ -143,22 +213,19 @@
 {
     return [group_title count];
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TeacherNotificationViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TeacherNotificationViewCell" forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AdminNotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    cell.notesTxtView.delegate = self;
     cell.titleLabel.text = [group_title objectAtIndex:indexPath.row];
-    cell.decripLabel.text = [notes objectAtIndex:indexPath.row];
+    cell.notesTxtView.text = [notes objectAtIndex:indexPath.row];
     cell.dateLabel.text = [created_at objectAtIndex:indexPath.row];
 
     cell.cellView.layer.borderWidth = 1.0f;
     cell.cellView.layer.borderColor = [UIColor clearColor].CGColor;
     cell.cellView.layer.cornerRadius = 6.0f;
-    
-    cell.titleView.layer.borderWidth = 1.0f;
-    cell.titleView.layer.borderColor = [UIColor clearColor].CGColor;
-    cell.titleView.layer.cornerRadius = 6.0f;
     
     return cell;
 }

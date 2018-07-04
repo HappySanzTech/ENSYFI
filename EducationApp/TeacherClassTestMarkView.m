@@ -480,6 +480,7 @@
             [database open];
             
             BOOL isInserted=[database executeUpdate:@"INSERT INTO table_create_homework_class_test (server_hw_id,year_id,class_id,teacher_id,hw_type,subject_id,subject_name,title,test_date,due_date,hw_details,status,mark_status,created_by,created_at,updated_by,updated_at,sync_status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",@"",yearId,class_id,strteacher_id,hw_type,strsubject_id,sub_name,self.topicTxtView.text,@"",self.dateTextfld.text,self.detailtextView.text,@"",@"0",appDel.user_id,dateString,appDel.user_id,dateString,@"NS"];
+            
             lastInserted_id = [database lastInsertRowId];
             NSLog(@"%ld",(long)lastInserted_id);
             NSString *str_lastInserted_id = [NSString stringWithFormat:@"%d",(int)lastInserted_id];

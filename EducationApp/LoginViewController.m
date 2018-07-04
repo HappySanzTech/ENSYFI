@@ -201,7 +201,7 @@
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
         [parameters setObject:self.username.text forKey:@"username"];
         [parameters setObject:self.password.text forKey:@"password"];
-        [parameters setObject:deviceToken forKey:@"gcm_key"];
+        [parameters setObject:@"sjhdakjhdkajsh" forKey:@"gcm_key"];
         [parameters setObject:@"2" forKey:@"mobile_type"];
 
         AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -223,13 +223,10 @@
              NSArray *parentProfile = [responseObject objectForKey:@"parentProfile"];
              NSArray *fatherProfile = [parentProfile valueForKey:@"fatherProfile"];
              NSArray *guardianProfile = [parentProfile valueForKey:@"guardianProfile"];
-             
              NSArray *motherProfile = [parentProfile valueForKey:@"motherProfile"];
-             NSArray *teacherProfile = [parentProfile valueForKey:@"teacherProfile"];
              NSArray *registeredDetails = [responseObject objectForKey:@"registeredDetails"];
-
-             NSLog(@"%@%@%@",msg,status,teacherProfile);
-             
+             appDel = (AppDelegate *)[UIApplication sharedApplication].delegate;
+             NSLog(@"%@",status);
              if ([msg isEqualToString:@"User loggedIn successfully"])
              {
                  NSString *name = [userData valueForKey:@"name"];
@@ -527,7 +524,7 @@
                      database = [FMDatabase databaseWithPath:dbPath];
                      [database open];
                      
-                     isInserted = [database executeUpdate:@"DELETE FROM table_create_attendence"];
+                     isInserted = [database executeUpdate:@"DELETE   table_create_attendence"];
                      
                      if(isInserted)
                          NSLog(@"Deleted table_create_attendence");
@@ -577,9 +574,21 @@
                      NSArray *datastudDetails = [studDetails valueForKey:@"data"];
                      NSArray *timeTable = [responseObject objectForKey:@"timeTable"];
                      NSArray *datatimeTable = [timeTable valueForKey:@"data"];
+                     NSArray *timetableDays = [responseObject valueForKey:@"timeTabledays"];
+                     NSArray *datatimetableDays = [timetableDays valueForKey:@"data"];
                      NSString *year_id = [responseObject objectForKey:@"year_id"];
+                     NSArray *teacherProfile = [responseObject
+                                                valueForKey:@"teacherProfile"];
+
                      [[NSUserDefaults standardUserDefaults]setObject:year_id forKey:@"Year_Id_key"];
                      NSLog(@"%@%@",exam,year_id);
+                     
+                     for (int i = 0;i < [teacherProfile count]; i++)
+                     {
+                         NSDictionary *dict = [teacherProfile objectAtIndex:i];
+                         NSString *classTeacher_id = [dict valueForKey:@"class_teacher"];
+                         [[NSUserDefaults standardUserDefaults]setObject:classTeacher_id forKey:@"classTeacher_id_Key"];
+                     }
                      
                      for (int i = 0; i < [data count]; i++)
                      {
@@ -679,7 +688,7 @@
                          
                          [[NSUserDefaults standardUserDefaults]setObject:strteacher_id forKey:@"strteacher_id_key"];
                          NSLog(@"%@",strteacher_id);
-                         [[NSUserDefaults standardUserDefaults]setObject:strteacher_id forKey:@"admin_teacherid"];
+                         [[NSUserDefaults standardUserDefaults]setObject:strteacher_id forKey:@"strteacher_id_key"];
                          
                          docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
                          documentsDir = [docPaths objectAtIndex:0];
@@ -870,9 +879,14 @@
                          NSString *strteacher_id = [dict objectForKey:@"teacher_id"];
                          NSString *strname = [dict objectForKey:@"name"];
                          NSString *strday = [dict objectForKey:@"day"];
+                         NSString *strday_id = [dict objectForKey:@"day_id"];
                          NSString *strperiod = [dict objectForKey:@"period"];
                          NSString *strsec_name = [dict objectForKey:@"sec_name"];
                          NSString *strclass_name = [dict objectForKey:@"class_name"];
+                         NSString *strfrom_time = [dict objectForKey:@"from_time"];
+                         NSString *stris_break = [dict objectForKey:@"is_break"];
+                         NSString *strto_time = [dict objectForKey:@"to_time"];
+                         NSString *strbreak_name = [dict objectForKey:@"break_name"];
 
                          docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
                          documentsDir = [docPaths objectAtIndex:0];
@@ -880,7 +894,7 @@
                          database = [FMDatabase databaseWithPath:dbPath];
                          [database open];
                          
-                         isInserted=[database executeUpdate:@"INSERT INTO table_create_teacher_timetable (table_id,class_id,subject_id,subject_name,teacher_id,name,day,period,sec_name,class_name) VALUES (?,?,?,?,?,?,?,?,?,?)",strtable_id,strclass_id,strsubject_id,strsubject_name,strteacher_id,strname,strday,strperiod,strsec_name,strclass_name];
+                         isInserted=[database executeUpdate:@"INSERT INTO table_create_teacher_timetable (table_id,class_id,subject_id,subject_name,teacher_id,name,day,period,sec_name,class_name,day_id,from_time,is_break,to_time,break_name) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",strtable_id,strclass_id,strsubject_id,strsubject_name,strteacher_id,strname,strday,strperiod,strsec_name,strclass_name,strday_id,strfrom_time,stris_break,strto_time,strbreak_name];
                          
                          if(isInserted)
                              NSLog(@"Inserted Successfully in table_create_teacher_timetable");
@@ -890,6 +904,42 @@
                          [database close];
 
                      }
+                     
+                     docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+                     documentsDir = [docPaths objectAtIndex:0];
+                     dbPath = [documentsDir stringByAppendingPathComponent:@"ENSIFY.db"];
+                     database = [FMDatabase databaseWithPath:dbPath];
+                     [database open];
+                     isdeleted = [database executeUpdate:@"DELETE FROM table_create_teacher_timetabledays"];
+                     if(isdeleted)
+                         NSLog(@"DELETED table_create_teacher_timetabledays Successfully");
+                     else
+                         NSLog(@"Error occured while deleting");
+                     
+                     [database close];
+                     for (int i = 0 ; i < [datatimetableDays count]; i++)
+                     {
+                         NSDictionary *dict = [datatimetableDays objectAtIndex:i];
+                         NSString *strday_id = [dict objectForKey:@"day_id"];
+                         NSString *strlist_day = [dict objectForKey:@"list_day"];
+                        
+                         docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+                         documentsDir = [docPaths objectAtIndex:0];
+                         dbPath = [documentsDir   stringByAppendingPathComponent:@"ENSIFY.db"];
+                         database = [FMDatabase databaseWithPath:dbPath];
+                         [database open];
+                         
+                         isInserted=[database executeUpdate:@"INSERT INTO table_create_teacher_timetabledays (day_id,list_day) VALUES (?,?)",strday_id,strlist_day];
+                         
+                         if(isInserted)
+                             NSLog(@"Inserted Successfully in table_create_teacher_timetabledays");
+                         else
+                             NSLog(@"Error occured while inserting");
+                         
+                         [database close];
+                         
+                     }
+                     
                      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"teachers" bundle:nil];
                      SWRevealViewController *teacher = (SWRevealViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewControllerTeacher"];
                      [self.navigationController pushViewController:teacher animated:YES];
